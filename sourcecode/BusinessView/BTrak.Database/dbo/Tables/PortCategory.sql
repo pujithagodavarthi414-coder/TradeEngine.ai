@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[PortCategory]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [CompanyId] UNIQUEIDENTIFIER NOT NULL,
+    [Name] NVARCHAR(800) NOT NULL,
+    [CreatedDateTime] DATETIME NOT NULL,
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+    [InActiveDateTime] DATETIME NULL,
+	[UpdatedDateTime] DATETIME NULL,
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL,
+    [TimeStamp] TIMESTAMP
+)

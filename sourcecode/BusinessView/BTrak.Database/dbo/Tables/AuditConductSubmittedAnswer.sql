@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[AuditConductSubmittedAnswer]
+(
+	Id UNIQUEIDENTIFIER NOT NULL,
+    QuestionId UNIQUEIDENTIFIER NULL,
+    AuditAnswerId UNIQUEIDENTIFIER NULL,
+    ConductId UNIQUEIDENTIFIER NULL,
+    QuestionTypeOptionId UNIQUEIDENTIFIER NULL,
+    AnswerComment NVARCHAR(MAX) NULL,
+    QuestionTypeOptionName NVARCHAR(800) NULL,
+    Score FLOAT NOT NULL DEFAULT 0,
+	QuestionDateAnswer DATETIME NULL,
+	QuestionNumericAnswer FLOAT NULL,
+	QuestionTimeAnswer TIME NULL,
+	QuestionTextAnswer NVARCHAR(MAX) NULL ,
+    CreatedByUserId UNIQUEIDENTIFIER NULL,
+    CreatedDateTime DATETIME NULL,
+    [UpdatedDateTime] [datetime] NULL,
+	[UpdatedByUserId] [uniqueidentifier] NULL,
+	[InActiveDateTime] [datetime] NULL,
+	[TimeStamp] TIMESTAMP, 
+    CONSTRAINT [PK_AuditConductSubmittedAnswer] PRIMARY KEY ([Id]), 
+    CONSTRAINT [FK_AuditConductSubmittedAnswer_AuditQuestions] FOREIGN KEY ([QuestionId]) REFERENCES [AuditQuestions]([Id]), 
+    CONSTRAINT [FK_AuditConductSubmittedAnswer_AuditConduct] FOREIGN KEY ([ConductId]) REFERENCES [AuditConduct]([Id]), 
+    CONSTRAINT [FK_AuditConductSubmittedAnswer_User] FOREIGN KEY ([CreatedByUserId]) REFERENCES [User]([Id]),
+)
+GO

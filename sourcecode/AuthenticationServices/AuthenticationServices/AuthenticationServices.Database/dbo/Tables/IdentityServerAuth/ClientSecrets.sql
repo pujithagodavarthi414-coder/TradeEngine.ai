@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[ClientSecrets]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Description] NVARCHAR(800) NULL,
+	[Value] NVARCHAR(800),
+	Expiration DATETIME NULL,
+	[Type] NVARCHAR(800),
+	Created DATETIME,
+	ClientId INT NOT NULL,
+	CONSTRAINT [PK_ClientSecrets] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+)
+GO
+
+ALTER TABLE [dbo].[ClientSecrets]  WITH NOCHECK ADD  CONSTRAINT [FK_ClientSecrets_Clients_ClientId] FOREIGN KEY([ClientId])
+REFERENCES [dbo].[Clients] ([Id])
+GO

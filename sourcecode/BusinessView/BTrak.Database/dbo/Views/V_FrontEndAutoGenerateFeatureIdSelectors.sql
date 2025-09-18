@@ -1,0 +1,2 @@
+﻿CREATE VIEW [dbo].V_FrontEndAutoGenerateFeatureIdSelectors AS 
+select 'export const doesUserHavePermissionToAccess' + (SELECT [dbo].[Ufn_CapitalizeEachWord](FeatureName)) + ' = createSelector(getAuthenticatedUserRecord, authenticationRecord => authenticationRecord.roleFeatures.map(x => x.roleFeatureId).includes(FeatureIds.Feature_' + (SELECT [dbo].[Ufn_CapitalizeEachWord](FeatureName)) + '));' AS FeatureIdSelector from [dbo].Feature

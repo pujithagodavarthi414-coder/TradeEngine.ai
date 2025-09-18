@@ -1,0 +1,46 @@
+﻿---------------------------------------------------------------------------
+-- Author       Siva Kumar Garadappagari
+-- Created      '2021-01-20'
+-- Purpose      To get all user integration types 
+-- Copyright © 2018,Snovasys Software Solutions India Pvt. Ltd., All Rights Reserved
+-------------------------------------------------------------------------------
+
+--EXEC  [dbo].[USP_GetUserIntegrationTypes] @OperationsPerformedBy = '127133F1-4427-4149-9DD6-B02E0E036971'
+
+CREATE PROCEDURE [dbo].[USP_GetUserIntegrationTypes]
+(
+    @OperationsPerformedBy UNIQUEIDENTIFIER
+)
+AS
+BEGIN
+
+   SET NOCOUNT ON
+
+   BEGIN TRY
+   SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+
+		DECLARE @HavePermission NVARCHAR(250)  = (SELECT [dbo].[Ufn_UserCanHaveAccess](@OperationsPerformedBy,(SELECT OBJECT_NAME(@@PROCID))))
+		DECLARE @CompanyId UNIQUEIDENTIFIER = (SELECT [dbo].[Ufn_GetCompanyIdBasedOnUserId](@OperationsPerformedBy))
+		
+		IF (@HavePermission = '1')
+	    BEGIN
+			SELECT
+				ULI.IntegrationTypeId AS IntegrationId,
+				I.TypeName AS IntegrationType
+				FROM [UserLevelIntegrations] ULI
+				JOIN [Integrations] I ON ULI.IntegrationTypeId = I.Id AND I.InactiveDateTime IS NULL
+				WHERE ULI.UserId = @OperationsPerformedBy AND ULI.InactiveDateTime IS NULL AND ULI.CompanyId = @CompanyId GROUP BY ULI.IntegrationTypeId, I.TypeName
+        END
+	    ELSE
+	    BEGIN
+	    
+	    		RAISERROR (@HavePermission,11, 1)
+	    		
+	    END
+   END TRY
+   BEGIN CATCH
+       
+       THROW
+
+   END CATCH 
+END

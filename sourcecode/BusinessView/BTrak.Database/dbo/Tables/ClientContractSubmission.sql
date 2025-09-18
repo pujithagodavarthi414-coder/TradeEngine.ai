@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[ClientContractSubmission]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [LeadFormId] UNIQUEIDENTIFIER NULL, 
+    [FormJson] NVARCHAR(MAX) NULL,
+    [FormData] NVARCHAR(MAX) NULL, 
+    [ClientId] UNIQUEIDENTIFIER NOT NULL,
+    [CompanyId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedDateTime] DATETIME NOT NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [UpdatedDateTime] DATETIME NULL, 
+    [InActiveDateTime] DATETIME NULL
+)

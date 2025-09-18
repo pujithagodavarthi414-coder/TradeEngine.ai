@@ -1,0 +1,3 @@
+﻿CREATE VIEW [dbo].[V_FrontEndBaseClassAutoGenerateEntityTypeFeatureSelectors]
+	AS SELECT 'this.canAccess_entityType_feature_' + (SELECT [dbo].[Ufn_CapitalizeEachWord](EntityFeatureName)) + '$ = this.entityTypeBaseStore.pipe(select(sharedModuleReducers.doesUserHavePermissionForEntityTypeFeature, {entityFeatureId: EntityTypeFeatureIds.EntityTypeFeature_' + (SELECT [dbo].[Ufn_CapitalizeEachWord](EntityFeatureName)) + '}));' AS EntityTypeFeatureConstSpec 
+FROM [dbo].EntityFeature

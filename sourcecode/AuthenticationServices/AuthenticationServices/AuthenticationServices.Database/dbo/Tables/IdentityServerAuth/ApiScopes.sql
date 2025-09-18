@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ApiScopes]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Enabled] BIT,
+	[Name] NVARCHAR(250),
+	DisplayName NVARCHAR(250),
+	[Description] NVARCHAR(800) NULL,
+	[Required] BIT,
+	Emphasize BIT,
+	ShowInDiscoveryDocument BIT,
+	CONSTRAINT [PK_ApiScopes] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)

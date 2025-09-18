@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[Templates]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL , 
+    [ProjectId] UNIQUEIDENTIFIER NOT NULL, 
+    [TemplateName] NVARCHAR(250) NULL, 
+    [TemplateResponsibleUserId] UNIQUEIDENTIFIER NULL, 
+    [BoardTypeId] UNIQUEIDENTIFIER NULL, 
+    [OnBoardProcessDate] DATETIMEOFFSET NULL, 
+    [CreatedDateTime] DATETIMEOFFSET NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [UpdatedDateTime] DATETIMEOFFSET NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [InActiveDateTime] DATETIMEOFFSET NULL
+CONSTRAINT [PK_Templates] PRIMARY KEY CLUSTERED ([Id] ASC), 
+    [TimeStamp] TIMESTAMP NOT NULL 
+    
+)
+GO

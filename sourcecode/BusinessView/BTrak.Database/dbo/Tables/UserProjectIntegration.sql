@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[UserProjectIntegration]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [UserId] UNIQUEIDENTIFIER NOT NULL, 
+    [IntegrationUrl] NVARCHAR(MAX) NOT NULL, 
+    [IntegrationTypeId] UNIQUEIDENTIFIER NOT NULL
+)

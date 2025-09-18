@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[JobType]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL, 
+	[JobTypeName] NVARCHAR(500) NOT NULL, 
+	[CreatedDateTime] DATETIME NULL, 
+    [CreatedByUserId] [uniqueidentifier] NOT NULL,
+	CompanyId UNIQUEIDENTIFIER NOT NULL,
+ CONSTRAINT [PK_JobType] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+   
+)
+GO
+
+ALTER TABLE [dbo].[JobType]  WITH CHECK ADD  CONSTRAINT [FK_JobType_User_CreatedByUserId] FOREIGN KEY([CreatedByUserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[JobType] CHECK CONSTRAINT [FK_JobType_User_CreatedByUserId]
+GO

@@ -1,0 +1,62 @@
+ --SELECT *  FROM [dbo].[Ufn_GetUserIdleTimeForMultipleDates]('2020-12-07 08:27:05.910','2020-12-12 00:00:00.000','2020-12-01 00:00:00.000','2020-12-06',08:27:05.910' ,'4AFEB444-E826-4F95-AC41-2175E36A0C16','5F8213BB-E67B-4635-B2B2-24384236B696')
+
+CREATE FUNCTION [dbo].[Ufn_GetUserIdleTimeForMultipleDates]
+(
+    @DateFrom DATETIME = NULL,
+    @DateTo DATETIME = NULL,
+    @DateFrom1 DATETIME = NULL,
+    @DateTo1 DATETIME = NULL,
+	@CompanyId UNIQUEIDENTIFIER,
+	@UserId UNIQUEIDENTIFIER = NULL
+)
+RETURNS TABLE AS RETURN
+(
+	
+     WITH MainCTE AS (
+			    SELECT *, ROW_NUMBER() OVER (PARTITION BY UserId ORDER BY TrackedDateTime) AS RowNumber 
+			    FROM (
+			            SELECT SUM(UARS.KeyStroke + UARS.MouseMovement) AS TotalMoves,UARS.Id,UARS.UserId,UARS.TrackedDateTime
+			            FROM [UserActivityTrackerStatus] UARS
+						     INNER JOIN [User] U ON U.Id = UARS.UserId AND U.CompanyId = @CompanyId
+							 AND (@UserId IS NULL OR @UserId = U.Id)
+			            WHERE CONVERT(DATE,TrackedDateTime) BETWEEN @DateFrom AND @DateTo
+			            GROUP BY UARS.Id,UARS.UserId,UARS.TrackedDateTime
+			         ) T
+			), ZeroMovesCTE AS (
+			    SELECT *, ROW_NUMBER() OVER (PARTITION BY UserId ORDER BY TrackedDateTime) - RowNumber AS TimeGaps
+			    FROM MainCTE WHERE TotalMoves = 0
+			),
+			FinalCTE AS (
+			    SELECT *, COUNT(1) OVER (PARTITION BY TimeGaps,UserId) AS TotalCount
+				 FROM ZeroMovesCTE			
+			)
+			--INSERT INTO @Temp(UserId,TotalIdleTime,TrackedDateTime)
+			SELECT UserId,TotalTimeInMin AS TotalIdleTime,TrackedDateTime
+			FROM (
+			 SELECT C.UserId
+			 ,COUNT(1) OVER (PARTITION BY C.UserId,CONVERT(DATE,TrackedDateTime)) AS TotalTimeInMin
+				  ,CONVERT(DATE,TrackedDateTime) AS TrackedDateTime
+				  FROM FinalCTE C
+				       LEFT JOIN (SELECT MIN(ISNULL(MinimumIdelTime,5)) AS MinimumIdelTime,UR.UserId 
+				  				FROM ActivityTrackerRolePermission ATR
+				  				     INNER JOIN UserRole UR ON UR.RoleId = ATR.RoleId
+				  								AND UR.InactiveDateTime IS NULL
+				  				                AND ATR.InActiveDateTime IS NULL
+				  				WHERE ATR.CompanyId = @CompanyId
+				  				GROUP BY UserId) IdleTime ON IdleTime.UserId = C.UserId
+				  WHERE TotalCount >= ISNULL(MinimumIdelTime,5)
+				  --AND C.UserId = '6CB29BE8-7E6A-469F-858E-10D093BEF039'
+            ) T 
+			GROUP BY UserId,TrackedDateTime,TotalTimeInMin
+			UNION ALL 
+			SELECT UserId,SUM(IdleTime),CreatedDateTime
+			FROM (
+					SELECT UserId,DATEDIFF(MINUTE,MinTrackedDateTime,MaxTrackedDateTime) IdleTime,CreatedDateTime
+					FROM IdleTimeHistoricalData
+					WHERE CompanyId = @CompanyId
+					      AND CreatedDateTime BETWEEN @DateFrom1 AND @DateTo1
+				) T 
+			GROUP BY UserId,CreatedDateTime
+
+)
+GO

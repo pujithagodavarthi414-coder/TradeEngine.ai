@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CamundaClient" Version="0.0.3" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.25" />
+    <PackageReference Include="JsonDiffPatch.Net" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.3" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.5.0" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\formioCommon\formioCommon.csproj" />
+    <ProjectReference Include="..\formioHelpers\formioHelpers.csproj" />
+    <ProjectReference Include="..\formioModels\formioModels.csproj" />
+    <ProjectReference Include="..\formioRepo\formioRepo.csproj" />
+  </ItemGroup>
+
+</Project>

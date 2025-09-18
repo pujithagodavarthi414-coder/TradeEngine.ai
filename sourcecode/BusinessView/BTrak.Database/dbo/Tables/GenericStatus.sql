@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[GenericStatus]
+(
+	[Id] [UNIQUEIDENTIFIER] NOT NULL PRIMARY KEY,
+	[WorkflowId] [UNIQUEIDENTIFIER] NOT NULL,
+	[ReferenceTypeId] [UNIQUEIDENTIFIER] NOT NULL,
+	[ReferenceId] [UNIQUEIDENTIFIER] NOT NULL,
+	[Status] [NVARCHAR](MAX) NULL,
+	[CreatedByUserId] [UNIQUEIDENTIFIER] NOT NULL,
+	[CreatedDateTime] [DATETIME] NOT NULL,
+	[UpdatedByUserId] [UNIQUEIDENTIFIER] NULL,
+	[UpdatedDateTime] [DATETIME] NULL,
+	[CompanyId] [UNIQUEIDENTIFIER] NOT NULL,
+	[IsArchived] [BIT] NULL,
+	[StatusColor] NVARCHAR(250) NULL
+)

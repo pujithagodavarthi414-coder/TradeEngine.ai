@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[ProductivityDashboardStats]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [userId] UNIQUEIDENTIFIER NULL, 
+    [Productivity] FLOAT NULL, 
+    [Efficiency] FLOAT NULL, 
+    [Utilization] FLOAT NULL, 
+    [Predictabulity] FLOAT NULL, 
+    [no.ofBugs] INT NULL, 
+    [Planedhours] FLOAT NULL, 
+    [DeliverdHours] FLOAT NULL, 
+    [SpentHoursInMIn] INT NULL, 
+    [CompletedTasks] INT NULL, 
+    [PendingTasks] INT NULL, 
+    [noOfAllbugs] INT NULL, 
+    [noOfbouncebacks] INT NULL, 
+    [othersTimeInMIn] INT NULL, 
+    [P0Bugs] INT NULL, 
+    [P1Bugs] INT NULL, 
+    [P2Bugs] INT NULL, 
+    [P3Bugs] INT NULL, 
+    [CreatedDateTime] DATETIME NULL, 
+    [CapacityHours] INT NULL, 
+    [ReplanedTasks] INT NULL, 
+    [TaskProductivity] FLOAT NULL
+)

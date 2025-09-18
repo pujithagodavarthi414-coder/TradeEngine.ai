@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0i8pmb0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:process id="SendTaskDelayEscalationEmailActivity" name="SendTaskDelayEscalationEmailActivity" isExecutable="true">
+    <bpmn:startEvent id="IntermediateThrowEvent_0e767yu">
+      <bpmn:outgoing>SequenceFlow_0du0wmt</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_003msax">
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R1/PT1M</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Task_0e8bdbh" name="Send escalation email to project manager if the task delayed" camunda:type="external" camunda:topic="SendTaskDelayEmailActivity">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="CompanyName">Snovasys Software Solutions</camunda:inputParameter>
+          <camunda:inputParameter name="DelayInDays" />
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0du0wmt</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0r0zpbf</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_196a3ul</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0du0wmt" sourceRef="IntermediateThrowEvent_0e767yu" targetRef="Task_0e8bdbh" />
+    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1kxsgx4">
+      <bpmn:incoming>SequenceFlow_196a3ul</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0r0zpbf</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_03rusg8">
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R1/PT1M</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_196a3ul" sourceRef="Task_0e8bdbh" targetRef="IntermediateThrowEvent_1kxsgx4" />
+    <bpmn:sequenceFlow id="SequenceFlow_0r0zpbf" sourceRef="IntermediateThrowEvent_1kxsgx4" targetRef="Task_0e8bdbh" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SendTaskDelayEscalationEmailActivity">
+      <bpmndi:BPMNShape id="StartEvent_19aeo96_di" bpmnElement="IntermediateThrowEvent_0e767yu">
+        <dc:Bounds x="152" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1alc9bi_di" bpmnElement="Task_0e8bdbh">
+        <dc:Bounds x="380" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0du0wmt_di" bpmnElement="SequenceFlow_0du0wmt">
+        <di:waypoint x="170" y="159" />
+        <di:waypoint x="170" y="120" />
+        <di:waypoint x="430" y="120" />
+        <di:waypoint x="430" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_02qdoh5_di" bpmnElement="IntermediateThrowEvent_1kxsgx4">
+        <dc:Bounds x="402" y="302" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_196a3ul_di" bpmnElement="SequenceFlow_196a3ul">
+        <di:waypoint x="430" y="230" />
+        <di:waypoint x="430" y="266" />
+        <di:waypoint x="420" y="266" />
+        <di:waypoint x="420" y="302" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0r0zpbf_di" bpmnElement="SequenceFlow_0r0zpbf">
+        <di:waypoint x="420" y="302" />
+        <di:waypoint x="420" y="266" />
+        <di:waypoint x="390" y="266" />
+        <di:waypoint x="390" y="230" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

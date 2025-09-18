@@ -1,0 +1,8 @@
+AuditName,CategoryHierarchy,CategoryDescription,Type,IsMandatory,Name,UseOriginalScrore,Result,Option,Score,Order,QuestionDescription
+Sample audit2,Category 1,,Boolean,FALSE,Boolean Question,TRUE,TRUE,Option name1,0,1,d1
+,Category 1 > category 11,,Date,TRUE,Date Question,FALSE,TRUE,Option name7,0,1,d2
+,Category 1 > category 12,,Dropdown,TRUE,Dropdown Question,FALSE,TRUE,Option name8,0,1,d3
+,,,,,,,FALSE,Option name9,0,2,d4
+,Category 2,,Numeric,FALSE,Numeric Question,TRUE,TRUE,Option name10,0,1,d5
+,Category 2 > category 13,,Text,FALSE,Text Question,TRUE,TRUE,Option name11,0,1,d6
+,Category 2 > category 14,,Time,FALSE,Time Question,TRUE,TRUE,Option name12,0,1,d7

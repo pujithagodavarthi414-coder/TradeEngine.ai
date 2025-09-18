@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[RosterRequestHistory]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[RequestId] UNIQUEIDENTIFIER NOT NULL,
+	[RosterName] NVARCHAR(250) NULL,
+	[RequiredFromDate] DATETIME,
+	[RequiredToDate] DATETIME,
+	[RequiredEmployee] INT,
+	[RequiredBudget] MONEY,
+	[RequiredBreakMins] DECIMAL,
+	[BranchId] UNIQUEIDENTIFIER,
+	[IncludeHolidays] BIT,
+	[IncludeWeekends] BIT,
+	[TotalWorkingDays] INT,
+	[TotalWorkingHours] INT,
+	[RosterShiftDetails] VARCHAR(MAX),
+	[RosterDepartmentDetails] VARCHAR(MAX),
+	[RosterAdhocRequirement] VARCHAR(MAX),
+	[StatusId] UNIQUEIDENTIFIER NULL,
+	[IsTemplate] BIT NULL,
+	[CompanyId] UNIQUEIDENTIFIER NULL,
+	InActiveDateTime DATETIME,
+	[HistoryDateTime] DATETIME NOT NULL,
+	[TimeStamp] TimeStamp NOT NULL
+)

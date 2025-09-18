@@ -1,0 +1,2 @@
+﻿db.collection.createIndex({ DataSourceId: 1 })
+db.collection.createIndex({ DataSourceId: 1, "DataJson.FormData.uniqueKey": 1 })

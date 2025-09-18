@@ -1,0 +1,177 @@
+﻿--CREATE PROCEDURE [dbo].[USP_SearchTestSuiteSections_New]
+--(
+--    @TestSuiteSectionId UNIQUEIDENTIFIER = NULL,
+--    @SectionName nvarchar(250) = NULL, -- NOT IN USE
+--    @Description nvarchar(999) = NULL, -- NOT IN USE
+--    @TestSuiteId UNIQUEIDENTIFIER = NULL,
+--    @TestRunId  UNIQUEIDENTIFIER = NULL,
+--    @IsArchived  BIT = NULL,
+--    @IsSectionsRequired BIT = NULL,
+--    @OperationsPerformedBy UNIQUEIDENTIFIER = NULL
+--)
+--AS
+--BEGIN 
+--    SET NOCOUNT ON
+--    BEGIN TRY
+--    SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+	
+--         IF (@TestSuiteSectionId = '00000000-0000-0000-0000-000000000000') SET @TestSuiteSectionId = NULL
+         
+--         IF (@SectionName = '') SET @SectionName = NULL
+         
+--         IF(@IsSectionsRequired IS NULL ) SET @IsSectionsRequired = 0
+--         IF (@Description = '') SET @Description = NULL
+         
+--         IF (@TestSuiteId = '00000000-0000-0000-0000-000000000000') SET @TestSuiteId = NULL
+                 
+--         DECLARE @CompanyId UNIQUEIDENTIFIER = (SELECT [dbo].[Ufn_GetCompanyIdBasedOnUserId](@OperationsPerformedBy))
+         
+--         DECLARE @Count INT  = (SELECT COUNT(1) FROM TestRunSelectedCase WHERE TestRunId = @TestRunId AND AsAtInactiveDateTime IS NULL)
+         
+--         IF(@IsSectionsRequired =  1 )
+--         BEGIN
+          
+--          DECLARE @Temp TABLE
+--          (
+--            SectionId UNIQUEIDENTIFIER
+--          )      
+         
+--         INSERT INTO @Temp(SectionId)
+--         SELECT SectionId FROM TestCase TC
+--         INNER JOIN TestRunSelectedCase TRSC ON TRSC.TestCaseId = TC.OriginalId
+--         AND TC.AsAtInactiveDateTime IS NULL AND TC.InActiveDateTime IS NULL
+--         AND TRSC.AsAtInactiveDateTime IS NULL AND TRSC.InActiveDateTime IS NULL
+--         WHERE TRSC.TestRunId = @TestRunId AND TC.AsAtInactiveDateTime IS NULL
+--               AND TC.InActiveDateTime IS NULL
+--               AND TRSC.AsAtInactiveDateTime IS NULL
+--               AND TRSC.InActiveDateTime IS NULL
+--        GROUP BY SectionId
+--          INSERT INTO @Temp(SectionId)
+--            SELECT ParentSectionId FROM TestSuiteSection TSS
+--            INNER JOIN @Temp T ON T.SectionId = TSS.OriginalId
+--            AND TSS.AsAtInactiveDateTime IS NULL
+--            AND TSS.InActiveDateTime IS NULL WHERE ParentSectionId IS NOT NULL
+    
+--            INSERT INTO @Temp(SectionId)
+--            SELECT ParentSectionId FROM TestSuiteSection TSS
+--            INNER JOIN @Temp T ON T.SectionId = TSS.OriginalId
+--            AND TSS.AsAtInactiveDateTime IS NULL
+--            AND TSS.InActiveDateTime IS NULL WHERE ParentSectionId IS NOT NULL AND ParentSectionId NOT IN (SELECT SectionId FROM @Temp)
+--       END    
+           
+--         DECLARE @Sections NVARCHAR(MAX)
+--         SET @Sections = (SELECT TSS1.[OriginalId] AS SectionId
+--                       ,TSS1.[TestSuiteId]
+--                       ,TS.[TestSuiteName]
+--                       ,TSS1.[SectionName]
+--                       ,TSS1.[Description]
+--                       ,TSS1.[CreatedDateTime]
+--                       ,TSS1.[OriginalCreatedDateTime]
+--                       ,TSS1.[CreatedByUserId]
+--                       ,(CASE WHEN TSS1.[InActiveDateTime] IS NULL THEN 0 ELSE 1 END) AS IsArchived
+--                       ,TSS1.[ParentSectionId]
+--                       ,CASE WHEN (SELECT COUNT(1)FROM TestSuiteSection TSS 
+--                       INNER JOIN TestCase TC ON TC.SectionId = TSS1.OriginalId 
+--                       AND TSS1.AsAtInactiveDateTime IS NULL
+--                       AND TSS1.InActiveDateTime IS NULL
+--                       AND TC.AsAtInactiveDateTime IS NULL
+--                       AND TC.InActiveDateTime IS NULL
+--                       INNER JOIN TestRunSelectedCase TRSC ON TRSC.TestCaseId = TC.OriginalId 
+--                       AND TRSC.AsAtInactiveDateTime IS NULL 
+--                       AND TRSC.InActiveDateTime IS NULL
+--                       WHERE TRSC.TestRunId = @TestRunId)> 0 THEN 1 ELSE 0 END AS IsSelectedSection
+--                       ,(SELECT COUNT(1) FROM TestCase TC WHERE TC.SectionId = TSS1.OriginalId 
+--                       AND TC.AsAtInactiveDateTime IS NULL AND TC.InActiveDateTime IS NULL) CasesCount
+--                       ,TSS1.[TimeStamp]
+--                       ,0 SectionLevel
+--             ,(SELECT TSS2.[OriginalId] AS SectionId
+--                       ,TSS2.[TestSuiteId]
+--                       ,TS.[TestSuiteName]
+--                       ,TSS2.[SectionName]
+--                       ,TSS2.[Description]
+--                       ,TSS2.[CreatedDateTime]
+--                       ,TSS1.[OriginalCreatedDateTime]
+--                       ,TSS2.[CreatedByUserId]
+--                       ,(CASE WHEN TSS2.[InActiveDateTime] IS NULL THEN 0 ELSE 1 END) AS IsArchived
+--                       ,TSS2.[ParentSectionId]
+--                       ,CASE WHEN (SELECT COUNT(1)FROM TestSuiteSection TSS 
+--                       INNER JOIN TestCase TC ON TC.SectionId = TSS2.OriginalId 
+--                       AND TSS2.AsAtInactiveDateTime IS NULL
+--                       AND TSS2.InActiveDateTime IS NULL
+--                       AND TC.AsAtInactiveDateTime IS NULL
+--                       AND TC.InActiveDateTime IS NULL
+--                       INNER JOIN TestRunSelectedCase TRSC ON TRSC.TestCaseId = TC.OriginalId 
+--                       AND TRSC.AsAtInactiveDateTime IS NULL 
+--                       AND TRSC.InActiveDateTime IS NULL
+--                       WHERE TRSC.TestRunId = @TestRunId)>0 THEN 1 ELSE 0 END AS IsSelectedSection
+--                       ,(SELECT COUNT(1) FROM TestCase TC WHERE TC.SectionId = TSS2.OriginalId 
+--                       AND TC.AsAtInactiveDateTime IS NULL AND TC.InActiveDateTime IS NULL) CasesCount
+--                       ,TSS2.[TimeStamp]
+--                       ,1 SectionLevel
+--             ,(SELECT TSS3.[OriginalId] AS SectionId
+--                       ,TSS3.[TestSuiteId]
+--                       ,TS.[TestSuiteName]
+--                       ,TSS3.[SectionName]
+--                       ,TSS3.[Description]
+--                       ,TSS3.[CreatedDateTime]
+--                       ,TSS1.[OriginalCreatedDateTime]
+--                       ,TSS3.[CreatedByUserId]
+--                       ,(CASE WHEN TSS3.[InActiveDateTime] IS NULL THEN 0 ELSE 1 END) AS IsArchived
+--                       ,TSS3.[ParentSectionId]
+--                       ,CASE WHEN (SELECT COUNT(1)FROM TestSuiteSection TSS 
+--                       INNER JOIN TestCase TC ON TC.SectionId = TSS3.OriginalId 
+--                       AND TSS3.AsAtInactiveDateTime IS NULL
+--                       AND TSS3.InActiveDateTime IS NULL
+--                       AND TC.AsAtInactiveDateTime IS NULL
+--                       AND TC.InActiveDateTime IS NULL
+--                       INNER JOIN TestRunSelectedCase TRSC ON TRSC.TestCaseId = TC.OriginalId 
+--                       AND TRSC.AsAtInactiveDateTime IS NULL 
+--                       AND TRSC.InActiveDateTime IS NULL
+--                       WHERE TRSC.TestRunId = @TestRunId)>0 THEN 1 ELSE 0 END AS IsSelectedSection
+--                       ,(SELECT COUNT(1) FROM TestCase TC WHERE TC.SectionId = TSS3.OriginalId 
+--                       AND TC.AsAtInactiveDateTime IS NULL AND TC.InActiveDateTime IS NULL) CasesCount
+--                       ,TSS3.[TimeStamp]
+--                       ,2 SectionLevel
+--           --            ,(SELECT COUNT(1) FROM TestCase TC 
+--           --                              INNER JOIN [dbo].[TestSuiteSection] TSS ON TSS3.OriginalId = TC.SectionId 
+--                                         --AND TSS3.InactiveDateTime IS NULL AND TSS3.AsAtInActiveDateTime IS NULL 
+--           --                              INNER JOIN [dbo].[TestSuite] TS1 ON TS1.OriginalId = TC.TestSuiteId 
+--                                         --AND TS1.InactiveDateTime IS NULL AND TS1.AsAtInActiveDateTime IS NULL WHERE TC.TestSuiteId = TS.OriginalId 
+--                                         --AND TC.InactiveDateTime IS NULL AND TC.AsAtInActiveDateTime IS NULL) AS SuiteCasesCount
+--       FROM TestSuiteSection TSS3
+--       WHERE TSS3.ParentSectionId = TSS2.OriginalId
+--             AND TSS3.AsAtInactiveDateTime IS NULL
+--             AND (@IsSectionsRequired = 0 OR (TSS3.OriginalId IN (SELECT SectionId FROM @Temp) AND @Count>0))
+--             AND (@IsArchived IS NULL OR (@IsArchived = 1 AND TSS3.InActiveDateTime IS NOT NULL) 
+--                            OR (@IsArchived = 0 AND TSS3.InActiveDateTime IS NULL))
+--            ORDER BY TSS3.OriginalCreatedDateTime ASC
+--       FOR JSON PATH) AS 'SubSections'
+--       FROM TestSuiteSection TSS2
+--       WHERE TSS2.ParentSectionId = TSS1.OriginalId
+--             AND TSS2.AsAtInactiveDateTime IS NULL
+--             AND (@IsSectionsRequired = 0 OR (TSS2.OriginalId IN (SELECT SectionId FROM @Temp) AND @Count>0))
+--             AND (@IsArchived IS NULL OR (@IsArchived = 1 AND TSS2.InActiveDateTime IS NOT NULL) 
+--                            OR (@IsArchived = 0 AND TSS2.InActiveDateTime IS NULL))
+--             ORDER BY TSS2.OriginalCreatedDateTime ASC
+--       FOR JSON PATH) AS 'SubSections'
+--       FROM TestSuiteSection TSS1
+--       INNER JOIN TestSuite TS WITH (NOLOCK) ON TSS1.TestSuiteId = TS.OriginalId AND (TS.AsAtInactiveDateTime IS NULL) AND (TSS1.AsAtInactiveDateTime IS NULL)
+--       INNER JOIN Project P WITH (NOLOCK) ON TS.ProjectId = P.OriginalId AND (P.AsAtInactiveDateTime IS NULL)
+--       WHERE (P.CompanyId = @CompanyId)
+--                       AND (@IsSectionsRequired = 0 OR (TSS1.OriginalId IN (SELECT SectionId FROM @Temp) AND @Count>0))
+--                       AND ParentSectionId IS NULL
+--                       AND (@TestSuiteId IS NULL OR TS.OriginalId = @TestSuiteId)
+--                       AND (@IsArchived IS NULL OR (@IsArchived = 1 AND TSS1.InActiveDateTime IS NOT NULL) 
+--                            OR (@IsArchived = 0 AND TSS1.InActiveDateTime IS NULL))
+--                 ORDER BY TSS1.OriginalCreatedDateTime ASC
+--       FOR JSON PATH, Root('Sections')) 
+     
+--	 SELECT @Sections
+   
+--    END TRY
+--    BEGIN CATCH
+        
+--          THROW
+
+--    END CATCH
+--END

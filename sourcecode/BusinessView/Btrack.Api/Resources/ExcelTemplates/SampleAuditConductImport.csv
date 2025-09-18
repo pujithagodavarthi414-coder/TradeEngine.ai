@@ -1,0 +1,3 @@
+AuditConductName,Category,CategoryDescription,Type,IsMandatory,Name,UseOriginalScrore,Result,Option,Score,Order,QuestionDescription,DeadLineDate,Answer
+SA5,Category 1,,,,Boolean Question,,,,0,1,,15-oct-2020,Option name1
+, category 11,,,,Date Question,,,,0,1,,,20-oct-2020

@@ -1,0 +1,24 @@
+﻿CREATE TABLE [dbo].[RosterActualPlanHistory]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[RosterActualPlanId] UNIQUEIDENTIFIER NOT NULL,
+	[RequestId] UNIQUEIDENTIFIER NOT NULL,
+	[SolutionId] UNIQUEIDENTIFIER NOT NULL,
+	[PlanDate] DATETIME NOT NULL,
+	[DepartmentId] UNIQUEIDENTIFIER NULL,
+	[ShiftId] UNIQUEIDENTIFIER NULL,
+	[CurrencyCode] UNIQUEIDENTIFIER NULL,
+	[PlannedEmployeeId] UNIQUEIDENTIFIER NULL,
+	[PlannedRate] DECIMAL(14,2) NULL,
+	[PlannedFromTime] Time NULL,
+	[PlannedToTime] Time NULL,
+	[ActualEmployeeId] UNIQUEIDENTIFIER NULL,
+	[ActualRate] DECIMAL(14,2) NULL,
+	[ActualFromTime] Time NULL,
+	[ActualToTime] Time NULL,
+	[PlanStatusId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyId] UNIQUEIDENTIFIER NULL,
+	[InActiveDateTime] DATETIME NULL,
+	[HistoryDateTime] DATETIME NOT NULL,
+	[TimeStamp] TimeStamp NOT NULL
+)

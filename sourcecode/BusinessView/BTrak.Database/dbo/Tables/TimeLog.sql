@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TimeLog]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [UserLevelIntegrationId] UNIQUEIDENTIFIER NOT NULL, 
+    [WorkItemId] UNIQUEIDENTIFIER NOT NULL, 
+	[UserId] UNIQUEIDENTIFIER NOT NULL,
+    [CreatedDateTime] DATETIME NOT NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [UpdatedDateTime] DATETIME NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [StartDateTime] DATETIME NOT NULL, 
+    [EndDateTime] DATETIME NULL, 
+    [SpentTimeInMin] DATETIME NULL
+)

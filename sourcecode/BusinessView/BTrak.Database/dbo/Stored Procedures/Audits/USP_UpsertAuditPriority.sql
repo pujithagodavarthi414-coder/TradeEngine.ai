@@ -1,0 +1,91 @@
+﻿-- EXEC [dbo].[USP_UpsertAuditPriority] @OperationsPerformedBy = '9d7e7f73-227c-411d-aaed-41568d59894e' , @PriorityName = 'dummy',@Description='dummy'
+--,@TimeStamp = 0x0000000003D90BFE , @PriorityId = '177A92E8-8C12-4D6C-8D59-99FDFAA8D4E1',@IsArchived = 0
+CREATE PROCEDURE [dbo].[USP_UpsertAuditPriority]
+(
+	@PriorityName NVARCHAR(50) ,
+	@PriorityId UNIQUEIDENTIFIER = NULL,
+	@Description NVARCHAR(800) =NULL,
+    @OperationsPerformedBy UNIQUEIDENTIFIER,
+	@TimeStamp TIMESTAMP = NULL,
+	@IsArchived BIT = NULL
+)
+ AS
+ BEGIN
+ SET NOCOUNT ON
+    BEGIN TRY
+	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+				
+			IF(@OperationsPerformedBy = '00000000-0000-0000-0000-000000000000') SET @OperationsPerformedBy = NULL
+
+			DECLARE @HavePermission NVARCHAR(250)  = '1'--(SELECT [dbo].[Ufn_UserCanHaveAccess](@OperationsPerformedBy,(SELECT OBJECT_NAME(@@PROCID))))
+
+			DECLARE @CompanyId UNIQUEIDENTIFIER = (SELECT [dbo].[Ufn_GetCompanyIdBasedOnUserId](@OperationsPerformedBy))
+			
+			DECLARE @PriorityCount INT = (SELECT COUNT(1) FROM AuditPriority WHERE PriorityName = @PriorityName AND (Id <> @PriorityId OR @PriorityId  IS NULL) AND CompanyId = @CompanyId) 
+
+			DECLARE @RCount INT = (SELECT COUNT(1) FROM AuditQuestions A WHERE A.PriorityId = @PriorityId AND @PriorityId IS NOT NULL AND @IsArchived =  1)
+
+			IF(@PriorityCount > 0)
+			BEGIN
+					RAISERROR(50001,16,2,'PriorityName')
+			END
+			ELSE IF(@RCount > 0 AND @IsArchived = 1)
+			BEGIN
+
+			RAISERROR ('ThisAuditPriorityISUsedInAuditQUestionsCanNotArchived',11, 1)
+
+			END
+			ELSE
+			BEGIN
+				IF (@HavePermission = '1')
+				BEGIN
+						DECLARE @CurrentDate DATETIME = GETDATE()
+
+						IF(@PriorityId IS NULL)
+						BEGIN
+								SET @PriorityId = NEWID()
+
+								INSERT INTO [dbo].[AuditPriority](
+																Id,
+																PriorityName,
+																[Description],
+																[CreatedByUserId],
+																[CreatedDateTime],
+																[CompanyId]
+																)
+											SELECT @PriorityId,
+												   @PriorityName,
+												   @Description,
+												   @OperationsPerformedBy,
+												   @CurrentDate,
+												   @CompanyId
+
+					    END
+						ELSE
+						BEGIN
+
+							UPDATE [dbo].[AuditPriority]
+									SET PriorityName = @PriorityName,
+										[Description] = @Description,
+										[UpdatedByUserId] = @OperationsPerformedBy,
+										[UpdatedDateTime]=@CurrentDate,
+										[InActiveDateTime] = CASE WHEN @IsArchived= 1 THEN @CurrentDate ELSE NULL END
+										WHERE Id = @PriorityId
+
+						END	
+						SELECT @PriorityId
+				END
+				ELSE
+					RAISERROR (@HavePermission,11, 1)
+				
+			END
+
+
+		  END TRY
+    BEGIN CATCH
+        
+        THROW
+ 
+    END CATCH 
+ END
+ GO

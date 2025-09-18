@@ -1,0 +1,74 @@
+using System;
+
+namespace Btrak.Dapper.Dal.Models
+{
+	public class ProjectDbEntity
+	{
+		/// <summary>
+		/// Gets or sets the Id value.
+		/// </summary>
+		public Guid Id
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the CompanyId value.
+		/// </summary>
+		public Guid CompanyId
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the ProjectName value.
+		/// </summary>
+		public string ProjectName
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the ProjectResponsiblePersonId value.
+		/// </summary>
+		public Guid? ProjectResponsiblePersonId
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the IsArchived value.
+		/// </summary>
+		public bool? IsArchived
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the ArchivedDateTime value.
+		/// </summary>
+		public DateTime? ArchivedDateTime
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the CreatedDateTime value.
+		/// </summary>
+		public DateTime CreatedDateTime
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the CreatedByUserId value.
+		/// </summary>
+		public Guid CreatedByUserId
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the UpdatedDateTime value.
+		/// </summary>
+		public DateTime? UpdatedDateTime
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the UpdatedByUserId value.
+		/// </summary>
+		public Guid? UpdatedByUserId
+		{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the ProjectStatusColor value.
+		/// </summary>
+		public string ProjectStatusColor
+		{ get; set; }
+
+	}
+}

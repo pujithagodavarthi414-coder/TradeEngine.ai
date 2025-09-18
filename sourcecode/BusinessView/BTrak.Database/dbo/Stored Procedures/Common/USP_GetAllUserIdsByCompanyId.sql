@@ -1,0 +1,18 @@
+﻿CREATE PROCEDURE [dbo].[USP_GetAllUserIdsByCompanyId] 
+(
+    @CompanyId UNIQUEIDENTIFIER
+)
+AS
+BEGIN
+  SET NOCOUNT ON
+    BEGIN TRY
+	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+        IF(@CompanyId IS NOT NULL)
+        SELECT Id as UserId FROM [User] WHERE CompanyId = @CompanyId AND InActiveDateTime IS NULL
+    END TRY  
+	BEGIN CATCH 
+		
+		THROW
+
+	END CATCH
+END

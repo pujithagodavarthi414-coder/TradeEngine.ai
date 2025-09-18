@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ApiResourceScopes]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	Scope NVARCHAR(250),
+	ApiResourceId INT,
+	CONSTRAINT [PK_ApiResourceScopes] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)
+GO
+
+ALTER TABLE [dbo].[ApiResourceScopes]  WITH NOCHECK ADD  CONSTRAINT [FK_ApiResourceScopes_ApiResources_ApiResourceId] FOREIGN KEY([ApiResourceId])
+REFERENCES [dbo].[ApiResources] ([Id])
+GO

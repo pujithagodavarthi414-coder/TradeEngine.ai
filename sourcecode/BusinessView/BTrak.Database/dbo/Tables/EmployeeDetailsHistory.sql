@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[EmployeeDetailsHistory]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[EmployeeId] UNIQUEIDENTIFIER NULL,
+	[UserId] UNIQUEIDENTIFIER NULL,
+	[Category] NVARCHAR(100) NULL,
+	[OldValue] NVARCHAR(MAX) NULL,
+	[NewValue] NVARCHAR(MAX) NULL,
+	[CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+	[CreatedDateTime] DATETIME NOT NULL, 
+    [Description] NVARCHAR(100) NULL, 
+	[FieldName] NVARCHAR(100) NULL,
+    [TimeStamp] TIMESTAMP NULL,
+	[RecordTitle] NVARCHAR(MAX) NULL
+)

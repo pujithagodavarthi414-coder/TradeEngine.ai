@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ApiResourceClaims]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[Type] NVARCHAR(250) NOT NULL,
+	ApiResourceId INT,
+	CONSTRAINT [PK_ApiResourceClaims] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)
+GO
+
+ALTER TABLE [dbo].[ApiResourceClaims]  WITH NOCHECK ADD  CONSTRAINT [FK_ApiResourceClaims_ApiResources_ApiResourceId] FOREIGN KEY([ApiResourceId])
+REFERENCES [dbo].[ApiResources] ([Id])
+GO

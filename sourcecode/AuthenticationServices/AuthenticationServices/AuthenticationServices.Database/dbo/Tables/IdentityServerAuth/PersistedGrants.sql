@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PersistedGrants]
+(
+	[Key] NVARCHAR(250) NOT NULL PRIMARY KEY,
+	[Type] NVARCHAR(250) NOT NULL,
+	SubjectId NVARCHAR(250) NULL,
+	SessionId NVARCHAR(250) NULL,
+	ClientId NVARCHAR(250) NOT NULL,
+	[Description] NVARCHAR(800) NULL,
+	CreationTime DATETIME NOT NULL,
+	Expiration DATETIME NULL,
+	ConsumedTime NVARCHAR(250) NULL,
+	[Data] NVARCHAR(800) NOT NULL
+)

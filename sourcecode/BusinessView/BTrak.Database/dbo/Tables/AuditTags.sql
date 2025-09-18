@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[AuditTags]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL ,
+	[AuditId] UNIQUEIDENTIFIER NULL,
+	[AuditConductId] UNIQUEIDENTIFIER  NULL,
+	[TagName] NVARCHAR(MAX) NOT NULL,
+	[TagId] UNIQUEIDENTIFIER NOT NULL,
+	[CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+	[CreatedDateTime] DATETIME NOT NULL,
+	[UpdatedByUserId] UNIQUEIDENTIFIER NULL,
+	[UpdatedDateTime] DATETIME NULL,
+	[InActiveDateTime] DATETIME NULL,
+	[TimeStamp] TIMESTAMP NULL, 
+    CONSTRAINT [PK_AuditTags] PRIMARY KEY ([Id]), 
+    CONSTRAINT [FK_AuditTags_AuditCompliance] FOREIGN KEY ([AuditId]) REFERENCES [AuditCompliance]([Id])
+)

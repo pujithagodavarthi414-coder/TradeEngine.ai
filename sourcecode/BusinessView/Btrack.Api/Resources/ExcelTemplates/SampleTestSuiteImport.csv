@@ -1,0 +1,12 @@
+SuiteName,SectionHierarchy,SectionDescription,Template,Type,Preconditions,Title,StepOrder,StepDescription,StepsExpectedResult,EstimateInSeconds,Priority,AutomationType,References,Mission,Goals
+Sample suite,Section 1,,Test Case (Text),Other,Precondition as specified,Case 1 with its title,,1. steps with conditions 2. steps as specified,1. Expected result  2. expected result,,Critical,,,,
+,Section 1 > section 11,,Test Case (Text),Other,Precondition as specified,Case 2 with its title,,1. steps with conditions 2. steps as specified,1. Expected result  2. expected result,,Critical,,,,
+,Section 2,,Test Case (Steps),Other,Precondition as specified,Case 3 with its title,1,steps with conditions,Expected result,,Medium,,,,
+,,,,,,,2,steps as specified,steps as specified,,Medium,,,,
+,Section 2 > section 21,,Exploratory Session,Other,Precondition as specified,Case 4 with its title,,1. steps with conditions 2. steps as specified,1. Expected result  2. expected result,,Critical,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,`,,,,,,,,,,

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[WorkflowTrigger]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [TriggerId] UNIQUEIDENTIFIER NULL, 
+    [WorkflowId] UNIQUEIDENTIFIER NOT NULL, 
+	[RefereceTypeId] UNIQUEIDENTIFIER  NULL, 
+    [ReferenceId] UNIQUEIDENTIFIER  NULL,
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedDateTime] DATETIME NOT NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [UpdatedDateTime] DATETIME NULL, 
+    [InactiveDateTime] DATETIME NULL
+)

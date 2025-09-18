@@ -1,0 +1,13 @@
+﻿CREATE TABLE PermissionReason (
+Id UNIQUEIDENTIFIER NOT NULL,
+ReasonName NVARCHAR(800) NOT NULL,
+CreatedDateTime DATETIME NOT  NULL,
+CreatedByUserId UNIQUEIDENTIFIER NOT NULL,
+UpdatedBYUserId UNIQUEIDENTIFIER NULL,
+UpdatedDateTime DATETIME NULL,
+IsDeleted BIT,
+CompanyId UNIQUEIDENTIFIER NULL,
+[TimeStamp] TIMESTAMP,
+[InActiveDateTime] [datetime] NULL,
+    CONSTRAINT [PK_PermissionReason] PRIMARY KEY ([Id]),
+)

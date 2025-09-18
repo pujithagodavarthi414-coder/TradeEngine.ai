@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.17.0" />
+    <PackageReference Include="AutoFixture.AutoFakeItEasy" Version="4.17.0" />
+    <PackageReference Include="AutoFixture.NUnit3" Version="4.17.0" />
+    <PackageReference Include="FakeItEasy" Version="7.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PDFHTMLDesignerModels\PDFHTMLDesignerModels.csproj" />
+    <ProjectReference Include="..\PDFHTMLDesignerRepo\PDFHTMLDesignerRepo.csproj" />
+    <ProjectReference Include="..\PDFHTMLDesignerServices\PDFHTMLDesignerServices.csproj" />
+  </ItemGroup>
+
+</Project>

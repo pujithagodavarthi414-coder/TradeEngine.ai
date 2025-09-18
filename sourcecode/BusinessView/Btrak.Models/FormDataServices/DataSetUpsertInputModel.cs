@@ -1,0 +1,225 @@
+﻿using System;
+using System.Collections.Generic;
+using Btrak.Models.TradeManagement;
+
+namespace Btrak.Models.FormDataServices
+{
+    public class DataSetUpsertInputModel
+    {
+        public Guid? Id { get; set; }
+        public Guid? DataSourceId { get; set; }
+        public Guid? CompanyId { get; set; }
+        public Guid? CreatedByUserId { get; set; }
+        public Guid? UpdatedByUserId { get; set; }
+        public Guid? ArchivedByUserId { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+        public DateTime? UpdatedDateTime { get; set; }
+        public DateTime? ArchivedDateTime { get; set; }
+        public object DataJson { get; set; }
+        public bool? IsArchived { get; set; }
+        public string CommodityName { get; set; }
+        public bool? IsNewRecord { get; set; }
+        public Guid? SubmittedUserId { get; set; }
+        public Guid? SubmittedCompanyId { get; set; }
+        public bool SubmittedByFormDrill { get; set; }
+        public string RecordAccessibleUsers { get; set; }
+
+    }
+
+    public class DataSetConversionModel
+    {
+        public object FormData { get; set; }
+        public Guid? CustomApplicationId { get; set; }
+        public Guid? ClientId { get; set; }
+        public Guid? StatusId { get; set; }
+        public Guid? VesselConfirmationStatusId { get; set; }
+        public Guid? VesselConfirmationTemplateId { get; set; }
+        public Guid? BrokerId { get; set; }
+        public bool IsSelectPercentage { get; set; }
+        public bool IsSelectCommodityBroker { get; set; }
+        public bool IsSelectValue { get; set; }
+        public bool IsSGTraderSignatureVerificationNeed { get; set; }
+        public bool IsSellerSignatureVerificationNeed { get; set; }
+        public int BrokeragePercentage { get; set; }
+        public int BrokerageValue { get; set; }
+        public string ContractPdf { get; set; }
+        public string ContractType { get; set; }
+        public string UniqueNumber { get; set; }
+        public bool? IsApproved { get; set; }
+        public string SellerSignatureRejectedComments { get; set; }
+        public string SellerSignatureAcceptedComments { get; set; }
+        public string SgtraderSignatureRejectedComments { get; set; }
+        public string SgtraderSignatureAcceptedComments { get; set; }
+        public string DraftRejectComments { get; set; }
+        public string DraftAcceptComments { get; set; }
+        public Guid? ReferenceId { get; set; }
+        public Guid? TemplateTypeId { get; set; }
+        public string ContractNumber { get; set; }
+        public string CommodityName { get; set; }
+        public string CommodityDescriptionIfAny { get; set; }
+        public int QuanityNumber { get; set; }
+        public string QuantityMeasurementUnit { get; set; }
+        public string Tolerance { get; set; }
+        public Guid? VesselContractStatusId { get; set; }
+        public string ToleranceOther { get; set; }
+        public string LeadPort { get; set; }
+        public string OriginCountry { get; set; }
+        public string SellerName { get; set; }
+        public string SellerAddressLine1 { get; set; }
+        public string SellerAddressLine2 { get; set; }
+        public string SellerCountryCode { get; set; }
+        public string SellerContact { get; set; }
+        public string SellerSignature { get; set; }
+        public string SellerSignaturePlace { get; set; }
+        public DateTime? SellerSignatureDate { get; set; }
+        public string BuyerName { get; set; }
+        public string BuyerAddressLine1 { get; set; }
+        public string BuyerAddressLine2 { get; set; }
+        public string BuyerCountryCode { get; set; }
+        public string BuyerContact { get; set; }
+        public string BuyerSignature { get; set; }
+        public string BuyerSignaturePlace { get; set; }
+        public DateTime? BuyerSignatureDate { get; set; }
+        public bool IncludeBroker { get; set; }
+        public string Commission { get; set; }
+        public string BrokerName { get; set; }
+        public string BrokerCompany { get; set; }
+        public string BrokerAddressLine1 { get; set; }
+        public string BrokerAddressLine2 { get; set; }
+        public string BrokerCountryCode { get; set; }
+        public string BrokerContact { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
+        public string PriceCurrency { get; set; }
+        public string PriceAmount { get; set; }
+        public string PricePerUnit { get; set; }
+        public string Incoterms { get; set; }
+        public string AdditionalCommentsIfAny { get; set; }
+        public bool IrrevocableDocumentCredit { get; set; }
+        public bool ElectronicFundsTransfer { get; set; }
+        public string BeneficiaryName { get; set; }
+        public string AccountNumber { get; set; }
+        public string BankName { get; set; }
+        public string BankAddress { get; set; }
+        public string SWIFT { get; set; }
+        public string CorrespondentAddress { get; set; }
+        public string ABAOrSWIFT { get; set; }
+        public string PlaceOfIssue { get; set; }
+        public string PlaceOfConformation { get; set; }
+        public string ByPaymentAtSight { get; set; }
+        public string ByDeferredPaymentAt { get; set; }
+        public string ByAcceptanceOfDraftAt { get; set; }
+        public string DaysBeforeDayOfDelivery { get; set; }
+        public string ByNegotiation { get; set; }
+        public object ExecutionSteps { get; set; }
+        public int Days { get; set; }
+        public bool Allowed { get; set; }
+        public bool NotAllowed { get; set; }
+        public string OtherText { get; set; }
+        public string DocumentsRequired { get; set; }
+        public string PlaceOfArbitration { get; set; }
+        public string PlaceOfLitigation { get; set; }
+        public Guid? AcceptedByClientUserId { get; set; }
+        public Guid? AcceptedByTraderUserId { get; set; }
+        public bool? IsAccepted { get; set; }
+        public bool? IsRejected { get; set; }
+        public bool? IsVesselConfirmationAccepted { get; set; }
+        public bool? IsVesselConfirmationRejected { get; set; }
+        public string RejectedComments { get; set; }
+        public int? Version { get; set; }
+        public int? RFQId { get; set; }
+        public string RFQUniqueId { get; set; }
+        public Guid? ContractId { get; set; }
+        public object InvoiceId { get; set; }
+        public List<Guid> Q88SharedClientIds { get; set; }
+        public List<Guid> Q88SharedUserIds { get; set; }
+        public List<Guid> Q88AcceptedIds { get; set; }
+        public List<Guid> Q88RejectedIds { get; set; }
+        public List<Q88RejectedModel> Q88Reject { get; set; }
+        public DateTime? RFQAcceptedDateTime { get; set; }
+        public DateTime? RFQRejectedDateTime { get; set; }
+        public bool? IsQ88Accepted { get; set; }
+        public bool? IsContractLink { get; set; }
+        public List<Guid> PurchaseContractIds { get; set; }
+        public List<Guid> SalesContractIds { get; set; }
+        public decimal? PurchaseQuantitySum { get; set; }
+        public decimal? SalesQuantitySum { get; set; }
+        public Guid? VesselId { get; set; }
+        public int? VesselQuantity { get; set; }
+        public bool IsShareSwitchBlContract { get; set; }
+        public bool IsSwitchBl { get; set; }
+        public List<SwitchBlDetailsModel> SwitchBlDetails { get; set; }
+        public List<PurchaseContractDraftBlDetails> PurchaseBlDetails { get; set; }
+        public Guid? SaleContractId { get; set; }
+        public Guid? VesselOwnerId { get; set; }
+        public string StatusName { get; set; }
+        public List<DataSetConversionModel> PurchaseContracts { get; set; }
+        public List<DataSetConversionModel> SalesContracts { get; set; }
+        public bool? IsLinkingCompleted { get; set; }
+        public string ContracterInvoiceAcceptedComments { get; set; }
+        public string SgtraderInvoiceRejectedComments { get; set; }
+        public string ContracterInvoiceRejectedComments { get; set; }
+        public string SgtraderInvoiceAcceptedComments { get; set; }
+        public Guid? InvoicePaymentStatusId { get; set; }
+        public DateTime? ApprovedDate { get; set; }
+        public DateTime? PaidDate { get; set; }
+        public string InvoiceType { get; set; }
+        public bool IsGeneratedToPayables { get; set; }
+        public string InvoicePdfUrl { get; set; }
+        public bool? IsRfqConvertedToVessel { get; set; }
+        public Guid? RFQGuid { get; set; }
+        public string Status { get; set; }
+        public string Stage { get; set; }
+        public bool IsVesselOwnerorBrokerSignatureVerificationNeed { get; set; }
+        public bool IsSGTraderSignatureVerified { get; set; }
+        public bool IsVesselOwnerorBrokerSignatureVerified { get; set; }
+        public string VesselOwnerorBrokerSignatureRejectedComments { get; set; }
+        public string VesselOwnerorBrokerSignatureAcceptedComments { get; set; }
+        public Guid? SwitchBlDataSetId { get; set; }
+        public int? RemainingContractQuantity { get; set; }
+        public bool? IsVesselOwnerAccepted { get; set; }
+        public bool? IsContractSharedToVesselOwner { get; set; }
+        public string TermsAndConditions { get; set; }
+        public bool? SellerSignatureAcceptance { get; set; }
+        public bool? SgSignatureAcceptance { get; set; }
+        public bool? VesselOwnerorBrokerSignatureAcceptance { get; set; }
+        public DateTime? LinkCreatedDateTime { get; set; }
+        public object BlDraftForm { get; set; }
+        public bool? IsCreditNote { get; set; }
+        public bool? IsDebitNote { get; set; }
+        public object VesselConfirmationFormData { get; set; }
+        public DateTime? VesselConfirmationAcceptedDateTime { get; set; }
+        public DateTime? VesselConfirmationRejectedDateTime { get; set; }
+        public Guid? VesselConfirmationAcceptedByClientUserId { get; set; }
+        public Guid? VesselConfirmationAcceptedByTraderUserId { get; set; }
+        public Guid? VesselConfirmationRejectedByUserId { get; set; }
+        public bool? IsQ88Rejected { get; set; }
+        public Guid? VesselConfirmationId { get; set; }
+        public bool? IsVesselContract { get; set; }
+        public Guid? TradeId { get; set; }
+        public string TradeStatus { get; set; }
+        public string BuyerAcceptComment { get; set; }
+        public string BuyerRejectComment { get; set; }
+        public string VesselOwnerAcceptComment { get; set; }
+        public string VesselOwnerRejectComment { get; set; }
+        public bool? IsCancelContract { get; set; }
+        public bool? IsQ88Reshared { get; set; }
+        public string CronExpression { get; set; }
+        public bool? CronRadio { get; set; }
+        public string Timezone { get; set; }
+        public int? OffsetMinutes { get; set; }
+        public Guid? FormTypeId { get; set; }
+    }
+
+    public class UpdateDataSetJsonModel
+    {
+        public Guid? Id { get; set; }
+        public List<ParamsKeyModel> ParamsJsonModel { get; set; }
+    }
+
+    public class Q88RejectedModel
+    {
+        public Guid RejectedByUserId { get; set; }
+        public string Comment { get; set; }
+    }
+}

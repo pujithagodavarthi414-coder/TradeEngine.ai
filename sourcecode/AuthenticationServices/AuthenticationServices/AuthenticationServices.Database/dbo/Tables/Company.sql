@@ -1,0 +1,45 @@
+﻿CREATE TABLE [dbo].[Company]
+(
+	[Id] [uniqueidentifier] NOT NULL,
+	[CompanyName] [nvarchar](800) NOT NULL,
+	[CompanyLogo] [nvarchar](800) NULL,
+	[CreatedDateTime] [datetime] NOT NULL,
+	DatabaseConnectionString [NVARCHAR](250) NULL,
+	[TimeStamp] [TIMESTAMP] NULL,
+    [SiteAddress] [NVARCHAR](1000) NULL, 
+    [WorkEmail] [NVARCHAR](1000) NULL, 
+    [Password] [NVARCHAR](500) NULL, 
+    [IndustryId] [UNIQUEIDENTIFIER] NULL, 
+    [MainUseCaseId] [UNIQUEIDENTIFIER] NULL, 
+    [TeamSize] INT NULL, 
+	[NoOfPurchasedLicences] [INT] NULL, 
+	[IsRemoteAccess] [BIT] NULL, 
+    [PhoneNumber] [NVARCHAR](100) NULL, 
+    [CountryId] [UNIQUEIDENTIFIER] NULL, 
+    [TimeZoneId] [UNIQUEIDENTIFIER] NULL,
+	[CurrencyId] [UNIQUEIDENTIFIER] NULL,
+	[NumberFormatId] [UNIQUEIDENTIFIER] NULL,
+	[DateFormatId] [UNIQUEIDENTIFIER] NULL,
+	[TimeFormatId] [UNIQUEIDENTIFIER] NULL,
+	[IsDemoDataCleared] [BIT] NULL,
+	[IsDemoData] [BIT] NULL,
+    [UpdatedDateTime] [datetime] NULL,
+    [UpdatedByUserId] [uniqueidentifier] NULL,
+	[InActiveDateTime] [DATETIME] NULL, 
+    [IsSoftWare] BIT NULL, 
+	[Language]  [nvarchar](20) NULL,
+	[TrailDays] [INT] NULL,
+	[ConfigurationUrl] [nvarchar] (500) NULL,
+	[SiteDomain] [nvarchar] (500) NULL,
+	[IsVerify] BIT NULL
+	CONSTRAINT [PK_Company] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+	[ReDirectionUrl] NVARCHAR(500) NULL, 
+    [VAT] NVARCHAR(500) NULL, 
+    [PrimaryCompanyAddress] NVARCHAR(MAX) NULL, 
+    [RegistrerSiteAddress] NVARCHAR(MAX) NULL, 
+    [ResponsiblePersonName] NVARCHAR(250) NULL, 
+    [ApiUrl] NVARCHAR(250) NULL
+)

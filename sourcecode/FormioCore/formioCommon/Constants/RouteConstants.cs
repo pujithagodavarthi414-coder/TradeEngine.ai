@@ -1,0 +1,89 @@
+﻿
+namespace formioCommon.Constants
+{
+    public class RouteConstants
+    {
+        public const string CreateDataSet = "DataService/DataSetApi/CreateDataSet";
+        public const string CreateMultipleDataSet = "DataService/DataSetApi/CreateMultipleDataSet";
+        public const string CreateMultipleDataSetSteps = "DataService/DataSetApi/CreateMultipleDataSetSteps";
+        public const string CreatePublicDataSet = "DataService/DataSetApi/CreatePublicDataSet";
+        public const string CreateUserDataSetRelation = "DataService/DataSetApi/CreateUserDataSetRelation";
+        public const string UpdateDataSet = "DataService/DataSetApi/UpdateDataSet";
+        public const string UpdatePublicDataSet = "DataService/DataSetApi/UpdatePublicDataSet";
+        public const string UpdateDataSetJob = "DataService/DataSetApi/UpdateDataSetJob";
+        public const string UpdateDataSetJson = "DataService/DataSetApi/UpdateDataSetJson";
+        public const string SearchDataSets = "DataService/DataSetApi/SearchDataSet";
+        public const string SearchDataSetsForForms = "DataService/DataSetApi/SearchDataSetForForms";
+        public const string SearchDataSetsForJob = "DataService/DataSetApi/SearchDataSetsForJob"; 
+        public const string GetDataSetById = "DataService/DataSetApi/GetDataSetById";
+        public const string GetDataSetByDataSourceKeyId = "DataService/DataSetApi/GetDataSetByDataSourceKeyId";
+        public const string GetDataSetCountBasedOnTodaysCount = "DataService/DataSetApi/GetDataSetCountBasedOnTodaysCount";
+        public const string GetPublicDataSetCountBasedOnTodaysCount = "DataService/DataSetApi/GetPublicDataSetCountBasedOnTodaysCount";
+        public const string CreateDataSource = "DataService/DataSourceApi/CreateDataSource";
+        public const string UpdateDataSource = "DataService/DataSourceApi/UpdateDataSource";
+        public const string SearchDataSource = "DataService/DataSourceApi/SearchDataSource"; 
+        public const string SearchDataSourceForJob = "DataService/DataSourceApi/SearchDataSourceForJob";
+        public const string CreateDataSourceKeys = "DataService/DataSourceKeysApi/CreateDataSourceKeys";
+        public const string UpdateDataSourceKeys = "DataService/DataSourceKeysApi/UpdateDataSourceKeys";
+        public const string SearchDataSourceKeys = "DataService/DataSourceKeysApi/SearchDataSourceKeys";
+        public const string SearchDataSourceKeysAnonymous = "DataService/DataSourceKeysApi/SearchDataSourceKeysAnonymous";
+        public const string CreateDataSourceKeysConfiguration = "DataService/DataSourceKeysApi/CreateDataSourceKeysConfiguration";
+        public const string UpdateDataSourceKeysConfiguration = "DataService/DataSourceKeysApi/UpdateDataSourceKeysConfiguration";
+        public const string UpdateDataSourceKeysAndConfiguration = "DataService/DataSourceKeysApi/UpdateDataSourceKeysAndConfiguration";
+        public const string ArchiveDataSourceKeysConfiguration = "DataService/DataSourceKeysApi/ArchiveDataSourceKeysConfiguration";
+        public const string SearchDataSourceKeysConfiguration = "DataService/DataSourceKeysApi/SearchDataSourceKeysConfiguration";
+        public const string SearchDataSourceKeysConfigurationAnonymous = "DataService/DataSourceKeysApi/SearchDataSourceKeysConfigurationAnonymous";
+        public const string CreateDataSetHistory = "DataService/DataSetHistoryApi/CreateDataSetHistory";
+        public const string SearchDataSetHistory = "DataService/DataSetHistoryApi/SearchDataSetHistory";
+        public const string CreateDataSourceHistory = "DataService/DataSourceHistoryApi/CreateDataSourceHistory";
+        public const string SearchDataSourceHistory = "DataService/DataSourceHistoryApi/SearchDataSourceHistory";
+        public const string GetLatestSwitchBlDataSets = "DataService/DataSetApi/GetLatestSwitchBlDataSets";
+        public const string GetDataSetLatestProgramId = "DataService/DataSetApi/GetDataSetLatestProgramId";
+        public const string DeleteDatasetById = "DataService/DataSetApi/DeleteDatasetById";
+        public const string SearchAllDataSources = "DataService/DataSourceApi/SearchAllDataSources"; 
+        public const string GetDataSourcesById = "DataService/DataSourceApi/GetDataSourcesById"; 
+        public const string GenericQueryApi = "DataService/DataSourceApi/GenericQueryApi"; 
+        public const string GetFormFieldValues = "DataService/DataSourceApi/GetFormFieldValues"; 
+        public const string GetFormRecordValues = "DataService/DataSourceApi/GetFormRecordValues";
+        public const string GetDashboard = "DataService/DataSourceApi/GetDashboard";
+        public const string GetInstanceLevelDashboard = "DataService/DataSourceApi/GetInstanceLevelDashboard"; 
+        public const string CreateOrUpdateQunatityDetails = "DataService/DataSourceKeysApi/CreateOrUpdateQunatityDetails";
+        public const string GetRealisedPandLDashboard = "DataService/DataSourceApi/GetRealisedPandLDashboard";
+        public const string GetUnRealisedPandLDashboard = "DataService/DataSourceApi/GetUnRealisedPandLDashboard";
+        public const string GetInstanceLevelPandLDashboard = "DataService/DataSourceApi/GetInstanceLevelPandLDashboard";
+        public const string RefreshVesselSummary = "DataService/DataSourceApi/RefreshVesselSummary"; 
+        public const string CreateLevelKeyConfiguration = "DataService/DataLevelKeyConfiguration/CreateLevelKeyConfiguration";
+        public const string SearchLevelKeyConfiguration = "DataService/DataLevelKeyConfiguration/SearchLevelKeyConfiguration";
+        public const string GetAllHTMLDataSet = "DataService/PdfDesignerApi/GetAllHTMLDataSet"; 
+        public const string SaveDataSource = "DataService/PdfDesignerApi/SaveDataSource";
+        public const string SaveWebPageView = "DataService/PdfDesignerApi/SaveWebPageView";
+        public const string GetWebPageView = "DataService/PdfDesignerApi/GetWebPageView";
+        public const string ValidateAndRunMongoQuery = "DataService/PdfDesignerApi/ValidateAndRunMongoQuery";
+        public const string ValidateAndRunMongoQueryUnAuth = "DataService/PdfDesignerApi/ValidateAndRunMongoQueryUnAuth";
+        public const string UpdateHTMLDataSetById = "DataService/PdfDesignerApi/UpdateHTMLDataSetById";
+        public const string InsertHTMLDataSet = "DataService/PdfDesignerApi/InsertHTMLDataSet";
+        public const string RemoveHTMLDataSetById = "DataService/PdfDesignerApi/RemoveHTMLDataSetById"; 
+        public const string GetHTMLDataSetById = "DataService/PdfDesignerApi/GetHTMLDataSetById";
+        public const string GetAllPDFMenuDataSet = "DataService/PdfDesignerApi/GetAllPDFMenuDataSet";
+        public const string GetQueryDashboard = "DataService/DataSetApi/GetQueryData"; 
+        public const string GetCollections = "DataService/DataSetApi/GetCollections"; 
+        public const string GetVesselDashboardNew = "DataService/DataSourceApi/GetVesselDashboard";
+        public const string GetPositionsDashboard = "DataService/DataSourceApi/GetPositionsDashboard";
+        public const string StoreDownloadedTemplates = "DataService/PdfDesignerApi/StoreDownloadedTemplates";
+        public const string GetGeneratedInvoices = "DataService/PdfDesignerApi/GetGeneratedInvoices";
+        public const string UpdateYTDPandLHistory = "DataService/DataSourceApi/UpdateYTDPandLHistory";
+        public const string GetCO2EmmisionReport = "DataService/DataSetApi/GetCO2EmmisionReport";
+        public const string FieldUpdateWorkFlow = "DataService/DataSetApi/FieldUpdateWorkFlow"; 
+        public const string UpdateDataSetWorkFlow = "DataService/DataSetApi/UpdateDataSetWorkFlow"; 
+        public const string GetAllPDFMenuDataSetUnAuth = "DataService/PdfDesignerApi/GetAllPDFMenuDataSetUnAuth"; 
+        public const string GetHTMLDataSetByIdUnAuth = "DataService/PdfDesignerApi/GetHTMLDataSetByIdUnAuth";
+        public const string SearchDataSetsForFormsUnAuth = "DataService/DataSetApi/SearchDataSetForFormsUnAuth";
+        public const string SearchDataSourceUnAuth = "DataService/DataSourceApi/SearchDataSourceUnAuth";
+        public const string CreateDataSetUnAuth = "DataService/DataSetApi/CreateDataSetUnAuth";
+        public const string UpdateDataSetUnAuth = "DataService/DataSetApi/UpdateDataSetUnAuth";
+        public const string DeleteMultipleDataSets = "DataService/DataSetApi/DeleteMultipleDataSets";
+        public const string UnArchiveMultipleDataSets = "DataService/DataSetApi/UnArchiveMultipleDataSets";
+
+        public const string NotificationAlertWorkFlow = "DataService/NotificationApi/NotificationAlertWorkFlow";
+    }
+}

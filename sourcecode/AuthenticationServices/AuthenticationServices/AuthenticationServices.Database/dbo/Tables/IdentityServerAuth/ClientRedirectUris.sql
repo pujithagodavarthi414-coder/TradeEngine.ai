@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ClientRedirectUris]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	RedirectUri NVARCHAR(1000) NOT NULL,
+	ClientId INT NOT NULL,
+	CONSTRAINT [PK_ClientRedirectUris] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+)
+GO
+
+ALTER TABLE [dbo].[ClientRedirectUris]  WITH NOCHECK ADD  CONSTRAINT [FK_ClientRedirectUris_Clients_ClientId] FOREIGN KEY([ClientId])
+REFERENCES [dbo].[Clients] ([Id])
+GO

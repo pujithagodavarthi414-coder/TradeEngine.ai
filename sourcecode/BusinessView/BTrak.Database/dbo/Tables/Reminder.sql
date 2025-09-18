@@ -1,0 +1,34 @@
+﻿CREATE TABLE [dbo].[Reminder]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+    [RemindOn] DATE NOT NULL,
+	[OfUser] UNIQUEIDENTIFIER NOT NULL,
+    [NotificationType] INT NOT NULL, 
+    [ReferenceTypeId] UNIQUEIDENTIFIER NOT NULL, 
+    [ReferenceId] UNIQUEIDENTIFIER NOT NULL, 
+    [AdditionalInfo] NVARCHAR(650) NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedDateTime] DATETIME NULL, 
+    [UpdatedDateTime] DATETIME NULL, 
+    [InactiveDateTime] DATETIME NULL, 
+	[CompanyId] UNIQUEIDENTIFIER NOT NULL,
+    [Status] NVARCHAR(50) NOT NULL,
+    CONSTRAINT [PK_Reminder] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Reminder]  WITH CHECK ADD  CONSTRAINT [FK_Reminder_Company] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[Company] ([Id])
+GO
+
+ALTER TABLE [dbo].[Badge] CHECK CONSTRAINT [FK_Reminder_Company]
+GO
+ALTER TABLE [dbo].[Reminder]  WITH CHECK ADD  CONSTRAINT [FK_Reminder_User] FOREIGN KEY([CreatedByUserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[Reminder] CHECK CONSTRAINT [FK_Reminder_User]
+GO

@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6C325EA-7DC0-47E9-886B-14A68F908CE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Btrak.Dapper.Dal</RootNamespace>
+    <AssemblyName>Btrak.Dapper.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'srihari|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\srihari\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.4\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.4.2.2\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.9\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\MasterAssemblyInfo.cs">
+      <Link>Properties\MasterAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="Helpers\SqlValidationHelper.cs" />
+    <Compile Include="Models\BillReceipt.cs" />
+    <Compile Include="Models\AccessisbleIpAdresse.cs" />
+    <Compile Include="Models\BoardTypeApi.cs" />
+    <Compile Include="Models\BoardTypeUi.cs" />
+    <Compile Include="Models\BoardTypeWorkFlow.cs" />
+    <Compile Include="Models\BreakType.cs" />
+    <Compile Include="Models\BugMultiselect.cs" />
+    <Compile Include="Models\CashPaidThrough.cs" />
+    <Compile Include="Models\BugCausedUser.cs" />
+    <Compile Include="Models\BugPriority.cs" />
+    <Compile Include="Models\College.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Configuration.cs" />
+    <Compile Include="Models\ConfigurationType.cs" />
+    <Compile Include="Models\ConsiderHour.cs" />
+    <Compile Include="Models\ContractType.cs" />
+    <Compile Include="Models\ControllerApiFeature.cs" />
+    <Compile Include="Models\ControllerApiName.cs" />
+    <Compile Include="Models\CrmMasterTable.cs" />
+    <Compile Include="Models\CrmMasterTableType.cs" />
+    <Compile Include="Models\CrudOperation.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\CurrencyConversion.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Designation.cs" />
+    <Compile Include="Models\EmployeeBranch.cs" />
+    <Compile Include="Models\EmployeeDesignation.cs" />
+    <Compile Include="Models\EmployeeDocument.cs" />
+    <Compile Include="Models\EmployeeEmergencyContact.cs" />
+    <Compile Include="Models\EmployeeIdentification.cs" />
+    <Compile Include="Models\EmployeeShift.cs" />
+    <Compile Include="Models\EmployeeWorkAllocationToADate.cs" />
+    <Compile Include="Models\EmployeeWorkConfiguration.cs" />
+    <Compile Include="Models\EmploymentStatu.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\ExamCategory.cs" />
+    <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\ExpenseCategory.cs" />
+    <Compile Include="Models\ExpenseComment.cs" />
+    <Compile Include="Models\ExpenseReport.cs" />
+    <Compile Include="Models\ExpenseReportHistory.cs" />
+    <Compile Include="Models\ExpenseReportStatu.cs" />
+    <Compile Include="Models\ExpenseSplit.cs" />
+    <Compile Include="Models\ExpenseStatu.cs" />
+    <Compile Include="Models\Field.cs" />
+    <Compile Include="Models\FieldPermission.cs" />
+    <Compile Include="Models\FoodOrderStatu.cs" />
+    <Compile Include="Models\FoodOrderUser.cs" />
+    <Compile Include="Models\GoalReplan.cs" />
+    <Compile Include="Models\GoalReplanType.cs" />
+    <Compile Include="Models\GoalStatusConfiguration.cs" />
+    <Compile Include="Models\GoalTag.cs" />
+    <Compile Include="Models\GoalTypeConfiguration.cs" />
+    <Compile Include="Models\HRMS_MasterTable.cs" />
+    <Compile Include="Models\HRMS_MasterTableType.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\InvoiceItem.cs" />
+    <Compile Include="Models\InvoiceTask.cs" />
+    <Compile Include="Models\InvoiceType.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\LoginAudit.cs" />
+    <Compile Include="Models\LogTimeOption.cs" />
+    <Compile Include="Models\Merchant.cs" />
+    <Compile Include="Models\MessageCount.cs" />
+    <Compile Include="Models\MileStone.cs" />
+    <Compile Include="Models\PayGrade.cs" />
+    <Compile Include="Models\PaymentMethod.cs" />
+    <Compile Include="Models\PaymentStatu.cs" />
+    <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\PermissionConfiguration.cs" />
+    <Compile Include="Models\PermissionReason.cs" />
+    <Compile Include="Models\Policy.cs" />
+    <Compile Include="Models\PolicyCategory.cs" />
+    <Compile Include="Models\PolicyLink.cs" />
+    <Compile Include="Models\PolicyReviewAudit.cs" />
+    <Compile Include="Models\PolicyReviewUser.cs" />
+    <Compile Include="Models\ProcessDashboardStatu.cs" />
+    <Compile Include="Models\ProjectFeature.cs" />
+    <Compile Include="Models\ProjectFeatureResposiblePerson.cs" />
+    <Compile Include="Models\ProjectType.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\RoleConfiguration.cs" />
+    <Compile Include="Models\RoleConfigurationForWorkFlowEligibleStatusTransition.cs" />
+    <Compile Include="Models\RoleFeature.cs" />
+    <Compile Include="Models\ShiftWeek.cs" />
+    <Compile Include="Models\Stream.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\TestCase.cs" />
+    <Compile Include="Models\TestCaseAutomationType.cs" />
+    <Compile Include="Models\TestCasePreCondition.cs" />
+    <Compile Include="Models\TestCasePriority.cs" />
+    <Compile Include="Models\TestCaseStep.cs" />
+    <Compile Include="Models\TestCaseTemplate.cs" />
+    <Compile Include="Models\TestCaseType.cs" />
+    <Compile Include="Models\TestPlan.cs" />
+    <Compile Include="Models\TestRailHistoryAudit.cs" />
+    <Compile Include="Models\TestRun.cs" />
+    <Compile Include="Models\TestRunSelectedCase.cs" />
+    <Compile Include="Models\TestSuite.cs" />
+    <Compile Include="Models\TestSuiteSection.cs" />
+    <Compile Include="Models\TestSuiteSubSection.cs" />
+    <Compile Include="Models\TimeSheetUpload.cs" />
+    <Compile Include="Models\TransitionDeadline.cs" />
+    <Compile Include="Models\UsersByCompanyIdModel.cs" />
+    <Compile Include="Models\UserStoryPriority.cs" />
+    <Compile Include="Models\UserStoryReplan.cs" />
+    <Compile Include="Models\UserStoryReplanType.cs" />
+    <Compile Include="Models\UserStoryReview.cs" />
+    <Compile Include="Models\UserStoryReviewComment.cs" />
+    <Compile Include="Models\UserStoryReviewTemplate.cs" />
+    <Compile Include="Models\UserStoryStatusConfiguration.cs" />
+    <Compile Include="Models\UserStorySubType.cs" />
+    <Compile Include="Models\UserStoryTag.cs" />
+    <Compile Include="Models\UserStoryType.cs" />
+    <Compile Include="Models\UserUnPaidLeave.cs" />
+    <Compile Include="Models\WebhookSpEntity.cs" />
+    <Compile Include="Partial\ActTrackerRepository.cs" />
+    <Compile Include="Partial\AdhocWorkRepository.cs" />
+    <Compile Include="Partial\AssetAssignedToEmployeeRepository.cs" />
+    <Compile Include="Partial\AssetRepository.cs" />
+    <Compile Include="Partial\AuditRepository.cs" />
+    <Compile Include="Partial\AutomatedWorkflowmanagementRepository.cs" />
+    <Compile Include="Partial\BankDetailRepository.cs" />
+    <Compile Include="Partial\BillReceiptRepository.cs" />
+    <Compile Include="Partial\BoardTypeApiRepository.cs" />
+    <Compile Include="Partial\BoardTypeRepository.cs" />
+    <Compile Include="Partial\BoardTypeUiRepository.cs" />
+    <Compile Include="Partial\BoardTypeWorkFlowRepository.cs" />
+    <Compile Include="Partial\BranchRepository.cs" />
+    <Compile Include="Partial\BreakTypeRepository.cs" />
+    <Compile Include="Partial\BugCausedUserRepository.cs" />
+    <Compile Include="Partial\BugPriorityRepository.cs" />
+    <Compile Include="Partial\BusinessSuiteRepository.cs" />
+    <Compile Include="Partial\ButtonTypeRepository.cs" />
+    <Compile Include="Partial\CallRepository.cs" />
+    <Compile Include="Partial\CanteenFoodItemRepository.cs" />
+    <Compile Include="Partial\ChannelMemberRepository.cs" />
+    <Compile Include="Partial\ChannelRepository.cs" />
+    <Compile Include="Partial\CommentRepository.cs" />
+    <Compile Include="Partial\CompanyStructureRepository.cs" />
+    <Compile Include="Partial\CompanyLocationRepository.cs" />
+    <Compile Include="Partial\ComplianceAuditRepository.cs" />
+    <Compile Include="Partial\ConfigurationRepository.cs" />
+    <Compile Include="Partial\ConfigurationTypeRepository.cs" />
+    <Compile Include="Partial\ConsiderHourRepository.cs" />
+    <Compile Include="Partial\ContractTypeRepository.cs" />
+    <Compile Include="Partial\CountryRepository.cs" />
+    <Compile Include="Partial\CrudOperationRepository.cs" />
+    <Compile Include="Partial\CurrencyConversionRepository.cs" />
+    <Compile Include="Partial\CurrencyRepository.cs" />
+    <Compile Include="Partial\CustomApplicationRepository.cs" />
+    <Compile Include="Partial\CustomFieldRepository.cs" />
+    <Compile Include="Partial\CustomTagRepository.cs" />
+    <Compile Include="Partial\DailyUploadExcelRepository.cs" />
+    <Compile Include="Partial\DepartmentRepository.cs" />
+    <Compile Include="Partial\DesignationRepository.cs" />
+    <Compile Include="Partial\EmployeeContactDetailRepository.cs" />
+    <Compile Include="Partial\EmployeeDesignationRepository.cs" />
+    <Compile Include="Partial\EmployeeDocumentRepository.cs" />
+    <Compile Include="Partial\EmployeeEducationRepository.cs" />
+    <Compile Include="Partial\EmployeeEmergencyContactRepository.cs" />
+    <Compile Include="Partial\EmployeeImmigrationRepository.cs" />
+    <Compile Include="Partial\EmployeeJobRepository.cs" />
+    <Compile Include="Partial\EmployeeLanguageRepository.cs" />
+    <Compile Include="Partial\EmployeeLicenceRepository.cs" />
+    <Compile Include="Partial\EmployeeMembershipRepository.cs" />
+    <Compile Include="Partial\EmployeeReportToRepository.cs" />
+    <Compile Include="Partial\EmployeeRepository.cs" />
+    <Compile Include="Partial\EmployeeSalaryRepository.cs" />
+    <Compile Include="Partial\EmployeeShiftRepository.cs" />
+    <Compile Include="Partial\EmployeeSkillRepository.cs" />
+    <Compile Include="Partial\EmployeeWorkConfigurationRepository.cs" />
+    <Compile Include="Partial\EmployeeWorkExperienceRepository.cs" />
+    <Compile Include="Partial\EmploymentContractRepository.cs" />
+    <Compile Include="Partial\EntityFeatureRepository.cs" />
+    <Compile Include="Partial\EntityRoleFeatureRepository.cs" />
+    <Compile Include="Partial\EntityRoleRepository.cs" />
+    <Compile Include="Partial\ExpenseCommentRepository.cs" />
+    <Compile Include="Partial\ExpenseReportRepository.cs" />
+    <Compile Include="Partial\ExpenseReportStatuRepository.cs" />
+    <Compile Include="Partial\ExpenseRepository.cs" />
+    <Compile Include="Partial\ExternalServiceProviderRepository.cs" />
+    <Compile Include="Partial\FeatureRepository.cs" />
+    <Compile Include="Partial\FeedbackRepository.cs" />
+    <Compile Include="Partial\FeedbackTypeMasterDataRepository.cs" />
+    <Compile Include="Partial\FieldPermissionRepository.cs" />
+    <Compile Include="Partial\FileRepository.cs" />
+    <Compile Include="Partial\FoodOrderRepository.cs" />
+    <Compile Include="Partial\FoodOrderStatuRepository.cs" />
+    <Compile Include="Partial\FoodOrderUserRepository.cs" />
+    <Compile Include="Partial\GenericFormMasterDataRepository.cs" />
+    <Compile Include="Partial\GenericFormRepository.cs" />
+    <Compile Include="Partial\GoalReplanRepository.cs" />
+    <Compile Include="Partial\GoalReplanTypeRepository.cs" />
+    <Compile Include="Partial\GoalStatuRepository.cs" />
+    <Compile Include="Partial\GoalWorkFlowRepository.cs" />
+    <Compile Include="Partial\HtmlTemplateRepository.cs" />
+    <Compile Include="Partial\JobRepository.cs" />
+    <Compile Include="Partial\HrDashboardRepository.cs" />
+    <Compile Include="Partial\LeadRepository.cs" />
+    <Compile Include="Partial\LeadsManagementNoteRepository.cs" />
+    <Compile Include="Partial\LeadTemplateRepository.cs" />
+    <Compile Include="Partial\LeaveSessionRepository.cs" />
+    <Compile Include="Partial\LeaveStatusRepository.cs" />
+    <Compile Include="Partial\LeaveTypeRepository.cs" />
+    <Compile Include="Partial\LogTimeOptionRepository.cs" />
+    <Compile Include="Partial\MailTemplateActivityRepository.cs" />
+    <Compile Include="Partial\MasterDataManagementRepository.cs" />
+    <Compile Include="Partial\MenuItemRepository.cs" />
+    <Compile Include="Partial\MessageRepository.cs" />
+    <Compile Include="Partial\MyWorkRepository.cs" />
+    <Compile Include="Partial\NotificationRepository.cs" />
+    <Compile Include="Partial\PayGradeRateRepository.cs" />
+    <Compile Include="Partial\PayGradeRepository.cs" />
+    <Compile Include="Partial\PaymentRepository.cs" />
+    <Compile Include="Partial\PerformanceRepository.cs" />
+    <Compile Include="Partial\PermissionReasonRepository.cs" />
+    <Compile Include="Partial\PermissionRepository.cs" />
+    <Compile Include="Partial\PersistanceRepository.cs" />
+    <Compile Include="Partial\PolicyRepository.cs" />
+    <Compile Include="Partial\ProcessDashboardStatuRepository.cs" />
+    <Compile Include="Partial\ProductDetailRepository.cs" />
+    <Compile Include="Partial\ProductivityDashboardRepository.cs" />
+    <Compile Include="Partial\ProcessDashboardRepository.cs" />
+    <Compile Include="Partial\ProductRepository.cs" />
+    <Compile Include="Partial\ProjectFeatureRepository.cs" />
+    <Compile Include="Partial\ProjectFeatureResposiblePersonRepository.cs" />
+    <Compile Include="Partial\ProjectTypeRepository.cs" />
+    <Compile Include="Partial\RateTypeRepository.cs" />
+    <Compile Include="Partial\RecruitmentMasterDataRepository.cs" />
+    <Compile Include="Partial\RegionRepository.cs" />
+    <Compile Include="Partial\RepositoryCommitsRepository.cs" />
+    <Compile Include="Partial\ResetPasswordRepository.cs" />
+    <Compile Include="Partial\RoleFeatureRepository.cs" />
+    <Compile Include="Partial\RoleRepository.cs" />
+    <Compile Include="Partial\RoomTemperatureRepository.cs" />
+    <Compile Include="Partial\RosterRepository.cs" />
+    <Compile Include="Partial\SeatingArrangementRepository.cs" />
+    <Compile Include="Partial\LeaveApplicationRepository.cs" />
+    <Compile Include="Partial\MasterTableRepository.cs" />
+    <Compile Include="Partial\ShiftTimingRepository.cs" />
+    <Compile Include="Partial\SkillRepository.cs" />
+    <Compile Include="Partial\SlackFilesRepository.cs" />
+    <Compile Include="Partial\SmsRepository.cs" />
+    <Compile Include="Partial\SoftLabelsRepository.cs" />
+    <Compile Include="Partial\SprintRepository.cs" />
+    <Compile Include="Partial\StatusReportingAttachmentRepository.cs" />
+    <Compile Include="Partial\StatusReportingConfigurationRepository.cs" />
+    <Compile Include="Partial\StatusReportingRepository.cs" />
+    <Compile Include="Partial\StoreManagementRepository.cs" />
+    <Compile Include="Partial\SupplierRepository.cs" />
+    <Compile Include="Partial\SystemCountryRepository.cs" />
+    <Compile Include="Partial\SystemCurrencyRepository.cs" />
+    <Compile Include="Partial\SystemRoleRepository.cs" />
+    <Compile Include="Partial\TemplatesRepository.cs" />
+    <Compile Include="Partial\TestRailFileRepository.cs" />
+    <Compile Include="Partial\TestRailPartialRepository.cs" />
+    <Compile Include="Partial\TestSuitePartialRepository.cs" />
+    <Compile Include="Partial\TimeSheetRepository.cs" />
+    <Compile Include="Partial\TimeZoneRepository.cs" />
+    <Compile Include="Partial\TrainingCourseRepository.cs" />
+    <Compile Include="Partial\TransitionDeadlineRepository.cs" />
+    <Compile Include="Partial\UserAuthTokenRepository.cs" />
+    <Compile Include="Partial\UserBreakRepository.cs" />
+    <Compile Include="Partial\UserCanteenCreditRepository.cs" />
+    <Compile Include="Partial\UserPurchasedCanteenFoodItemRepository.cs" />
+    <Compile Include="Partial\UserStoryLinkRepository.cs" />
+    <Compile Include="Partial\UserStoryPriorityRepository.cs" />
+    <Compile Include="Partial\UserStoryReplanRepository.cs" />
+    <Compile Include="Partial\UserStoryReplanTypeRepository.cs" />
+    <Compile Include="Partial\UserStoryRepository.cs" />
+    <Compile Include="Partial\UserStoryReviewCommentRepository.cs" />
+    <Compile Include="Partial\UserStorySpentTimeRepository.cs" />
+    <Compile Include="Partial\UserStoryStatuRepository.cs" />
+    <Compile Include="Partial\UserStorySubTypeRepository.cs" />
+    <Compile Include="Partial\VendorDetailRepository.cs" />
+    <Compile Include="Partial\WebHookRepository.cs" />
+    <Compile Include="Partial\WidgetRepository.cs" />
+    <Compile Include="Partial\WorkAllocationManagementRepository.cs" />
+    <Compile Include="Partial\WorkflowEligibleStatusTransitionRepository.cs" />
+    <Compile Include="Partial\WorkFlowRepository.cs" />
+    <Compile Include="Partial\WorkflowStatuRepository.cs" />
+    <Compile Include="Partial\WorkRepository.cs" />
+    <Compile Include="Repositories\AccessibleIpAddressesRepository.cs" />
+    <Compile Include="Repositories\BankAccountRepository.cs" />
+    <Compile Include="Repositories\BillingEstimateRepository.cs" />
+    <Compile Include="Repositories\BillingExpenseRepository.cs" />
+    <Compile Include="Repositories\BillingInvoiceRepository.cs" />
+    <Compile Include="Repositories\ActivityTrackerRepository.cs" />
+    <Compile Include="Repositories\BillReceiptRepository.cs" />
+    <Compile Include="Repositories\AccessisbleIpAdresseRepository.cs" />
+    <Compile Include="Repositories\BoardTypeApiRepository.cs" />
+    <Compile Include="Repositories\BoardTypeUiRepository.cs" />
+    <Compile Include="Repositories\BoardTypeWorkFlowRepository.cs" />
+    <Compile Include="Repositories\BreakTypeRepository.cs" />
+    <Compile Include="Repositories\BugMultiselectRepository.cs" />
+    <Compile Include="Repositories\ButtonTypeRepository.cs" />
+    <Compile Include="Repositories\CashPaidThroughRepository.cs" />
+    <Compile Include="Repositories\BugCausedUserRepository.cs" />
+    <Compile Include="Repositories\BugPriorityRepository.cs" />
+    <Compile Include="Repositories\ClientRepository.cs" />
+    <Compile Include="Repositories\CommentRepository.cs" />
+    <Compile Include="Repositories\ConfigurationRepository.cs" />
+    <Compile Include="Repositories\ConfigurationTypeRepository.cs" />
+    <Compile Include="Repositories\ConsiderHourRepository.cs" />
+    <Compile Include="Repositories\ContractTypeRepository.cs" />
+    <Compile Include="Repositories\CrudOperationRepository.cs" />
+    <Compile Include="Repositories\CurrencyConversionRepository.cs" />
+    <Compile Include="Repositories\CurrencyRepository.cs" />
+    <Compile Include="Repositories\DepartmentRepository.cs" />
+    <Compile Include="Repositories\DesignationRepository.cs" />
+    <Compile Include="Repositories\EmployeeEmergencyContactRepository.cs" />
+    <Compile Include="Repositories\ExpenseCategoryRepository.cs" />
+    <Compile Include="Repositories\ExpenseCommentRepository.cs" />
+    <Compile Include="Repositories\ExpenseReportHistoryRepository.cs" />
+    <Compile Include="Repositories\ExpenseReportRepository.cs" />
+    <Compile Include="Repositories\ExpenseReportStatuRepository.cs" />
+    <Compile Include="Repositories\ExpenseRepository.cs" />
+    <Compile Include="Repositories\ExpenseSplitRepository.cs" />
+    <Compile Include="Repositories\ExpenseStatuRepository.cs" />
+    <Compile Include="Repositories\EmployeeWorkAllocationToADateRepository.cs" />
+    <Compile Include="Repositories\EmployeeWorkConfigurationRepository.cs" />
+    <Compile Include="Repositories\FieldPermissionRepository.cs" />
+    <Compile Include="Repositories\FieldRepository.cs" />
+    <Compile Include="Repositories\FoodOrderStatuRepository.cs" />
+    <Compile Include="Repositories\FoodOrderUserRepository.cs" />
+    <Compile Include="Repositories\GoalReplanTypeRepository.cs" />
+    <Compile Include="Repositories\GoalStatusConfigurationRepository.cs" />
+    <Compile Include="Repositories\GoalTypeConfigurationRepository.cs" />
+    <Compile Include="Repositories\GRDRepository.cs" />
+    <Compile Include="Repositories\GroupeERomandeRepository.cs" />
+    <Compile Include="Repositories\IntegrationRepository.cs" />
+    <Compile Include="Repositories\IntroRepository.cs" />
+    <Compile Include="Repositories\JobRepository.cs" />
+    <Compile Include="Repositories\LivesRepository.cs" />
+    <Compile Include="Repositories\LogTimeOptionRepository.cs" />
+    <Compile Include="Repositories\MessageCountRepository.cs" />
+    <Compile Include="Repositories\MileStoneRepository.cs" />
+    <Compile Include="Repositories\NotificationRepository.cs" />
+    <Compile Include="Repositories\PayGradeRepository.cs" />
+    <Compile Include="Repositories\PaymentMethodRepository.cs" />
+    <Compile Include="Repositories\PaymentTypeMasterDataRepository.cs" />
+    <Compile Include="Repositories\PayRollRepository.cs" />
+    <Compile Include="Repositories\PermissionConfigurationRepository.cs" />
+    <Compile Include="Repositories\PermissionReasonRepository.cs" />
+    <Compile Include="Repositories\PermissionRepository.cs" />
+    <Compile Include="Repositories\PolicyCategoryRepository.cs" />
+    <Compile Include="Repositories\PolicyLinkRepository.cs" />
+    <Compile Include="Repositories\PolicyRepository.cs" />
+    <Compile Include="Repositories\PolicyReviewAuditRepository.cs" />
+    <Compile Include="Repositories\PolicyReviewUserRepository.cs" />
+    <Compile Include="Repositories\MerchantRepository.cs" />
+    <Compile Include="Repositories\PositionTableRepository.cs" />
+    <Compile Include="Repositories\ProcessDashboardStatuRepository.cs" />
+    <Compile Include="Repositories\ProductivityDashboardRepositary.cs" />
+    <Compile Include="Repositories\ProjectFeatureRepository.cs" />
+    <Compile Include="Repositories\ProjectFeatureResposiblePersonRepository.cs" />
+    <Compile Include="Repositories\ProjectTypeRepository.cs" />
+    <Compile Include="Repositories\RecentSearchRepository.cs" />
+    <Compile Include="Partial\RatesheetRepository.cs" />
+    <Compile Include="Repositories\RecruitmentRepository.cs" />
+    <Compile Include="Repositories\RelationshipRepository.cs" />
+    <Compile Include="Repositories\RoleConfigurationForWorkFlowEligibleStatusTransitionRepository.cs" />
+    <Compile Include="Repositories\RoleConfigurationRepository.cs" />
+    <Compile Include="Repositories\ScheduleRepository.cs" />
+    <Compile Include="Repositories\SiteRepository.cs" />
+    <Compile Include="Repositories\TestCaseAutomationTypeRepository.cs" />
+    <Compile Include="Repositories\TestCasePreConditionRepository.cs" />
+    <Compile Include="Repositories\TestCasePriorityRepository.cs" />
+    <Compile Include="Repositories\TestCaseRepository.cs" />
+    <Compile Include="Repositories\TestCaseStepRepository.cs" />
+    <Compile Include="Repositories\TestCaseTemplateRepository.cs" />
+    <Compile Include="Repositories\TestCaseTypeRepository.cs" />
+    <Compile Include="Repositories\TestPlanRepository.cs" />
+    <Compile Include="Repositories\TestRailHistoryAuditRepository.cs" />
+    <Compile Include="Repositories\TestRunRepository.cs" />
+    <Compile Include="Repositories\TestRunSelectedCaseRepository.cs" />
+    <Compile Include="Repositories\TestSuiteRepository.cs" />
+    <Compile Include="Repositories\TestSuiteSectionRepository.cs" />
+    <Compile Include="Repositories\TestSuiteSubSectionRepository.cs" />
+    <Compile Include="Repositories\TimeSheetUploadRepository.cs" />
+    <Compile Include="Repositories\TimeZoneRepository.cs" />
+    <Compile Include="Repositories\TradingRepository.cs" />
+    <Compile Include="Repositories\TransitionDeadlineRepository.cs" />
+    <Compile Include="Repositories\UserStoryPriorityRepository.cs" />
+    <Compile Include="Repositories\UserStoryReplanTypeRepository.cs" />
+    <Compile Include="Repositories\UserStoryReviewCommentRepository.cs" />
+    <Compile Include="Repositories\UserStoryReviewRepository.cs" />
+    <Compile Include="Repositories\UserStoryReviewTemplateRepository.cs" />
+    <Compile Include="Repositories\UserStoryStatusConfigurationRepository.cs" />
+    <Compile Include="Repositories\UserStorySubTypeRepository.cs" />
+    <Compile Include="Repositories\UserStoryTypeRepository.cs" />
+    <Compile Include="Repositories\UserUnPaidLeaveRepository.cs" />
+    <Compile Include="Repositories\VenueBookingRepository.cs" />
+    <Compile Include="Repositories\WorkflowManagementRepository.cs" />
+    <Compile Include="SpModels\AssetDetailsSpEntity.cs" />
+    <Compile Include="SpModels\AssetProductSpEntity.cs" />
+    <Compile Include="Repositories\CollegeRepository.cs" />
+    <Compile Include="Repositories\ControllerApiFeatureRepository.cs" />
+    <Compile Include="Repositories\ControllerApiNameRepository.cs" />
+    <Compile Include="Repositories\CrmMasterTableRepository.cs" />
+    <Compile Include="Repositories\CrmMasterTableTypeRepository.cs" />
+    <Compile Include="Repositories\EmployeeBranchRepository.cs" />
+    <Compile Include="Repositories\EmployeeDesignationRepository.cs" />
+    <Compile Include="Repositories\EmployeeDocumentRepository.cs" />
+    <Compile Include="Repositories\EmployeeIdentificationRepository.cs" />
+    <Compile Include="Repositories\EmployeeShiftRepository.cs" />
+    <Compile Include="Repositories\ExamCategoryRepository.cs" />
+    <Compile Include="Repositories\ExamRepository.cs" />
+    <Compile Include="Repositories\GoalReplanRepository.cs" />
+    <Compile Include="Repositories\GoalTagRepository.cs" />
+    <Compile Include="Repositories\HRMS_MasterTableRepository.cs" />
+    <Compile Include="Repositories\HRMS_MasterTableTypeRepository.cs" />
+    <Compile Include="Repositories\InvoiceItemRepository.cs" />
+    <Compile Include="Repositories\InvoiceRepository.cs" />
+    <Compile Include="Repositories\InvoiceTaskRepository.cs" />
+    <Compile Include="Repositories\InvoiceTypeRepository.cs" />
+    <Compile Include="Repositories\LoginAuditRepository.cs" />
+    <Compile Include="Repositories\PaymentStatuRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\RoleFeatureRepository.cs" />
+    <Compile Include="Repositories\ShiftWeekRepository.cs" />
+    <Compile Include="Repositories\StreamRepository.cs" />
+    <Compile Include="Repositories\StudentRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\UserStoryReplanRepository.cs" />
+    <Compile Include="Repositories\UserStoryTagRepository.cs" />
+    <Compile Include="SpModels\AssetSpEntity.cs" />
+    <Compile Include="SpModels\CanteenBalanceSpEntity.cs" />
+    <Compile Include="SpModels\CanteenCreditSpEntity.cs" />
+    <Compile Include="SpModels\CanteenPurchasesSpEntity.cs" />
+    <Compile Include="Partial\UserRepository.cs" />
+    <Compile Include="SpModels\ChannelsListEntity.cs" />
+    <Compile Include="SpModels\CommentsSpEntity.cs" />
+    <Compile Include="SpModels\EmergencyAndDependentContactsSpEntity.cs" />
+    <Compile Include="SpModels\EmployeeSpEntity.cs" />
+    <Compile Include="SpModels\EmployeeWorkConfigurationSpEntity.cs" />
+    <Compile Include="SpModels\FeatureSpEntity.cs" />
+    <Compile Include="SpModels\FoodItemSpEntity.cs" />
+    <Compile Include="SpModels\FoodOrderExpensesSpEntity.cs" />
+    <Compile Include="SpModels\FoodOrderReceiptSpEntity.cs" />
+    <Compile Include="SpModels\FoodOrderSpEntity.cs" />
+    <Compile Include="SpModels\ImmigrationSpEntity.cs" />
+    <Compile Include="SpModels\JobSpEntity.cs" />
+    <Compile Include="SpModels\HrDashboardSpEntity.cs" />
+    <Compile Include="SpModels\LeadNotesSpEntity.cs" />
+    <Compile Include="SpModels\DashboardSpEntity.cs" />
+    <Compile Include="SpModels\LeavesSpEntity.cs" />
+    <Compile Include="SpModels\MasterTable.cs" />
+    <Compile Include="SpModels\MemberShipSpEntity.cs" />
+    <Compile Include="SpModels\MessagesListSpEntity.cs" />
+    <Compile Include="SpModels\PermissionSpEntity.cs" />
+    <Compile Include="SpModels\ProductSpEntity.cs" />
+    <Compile Include="SpModels\ProjectFeatureSpEntity.cs" />
+    <Compile Include="SpModels\ProjectMemberSpEntity.cs" />
+    <Compile Include="SpModels\ProjectsSpEntity.cs" />
+    <Compile Include="SpModels\RoleSpEntity.cs" />
+    <Compile Include="SpModels\SeatingSpEntity.cs" />
+    <Compile Include="SpModels\StatusReportConfigurationSpEntity.cs" />
+    <Compile Include="SpModels\StatusReportOfAnEmployeeSpEntity.cs" />
+    <Compile Include="SpModels\StatusReportSpEntity.cs" />
+    <Compile Include="SpModels\SupplierSpEntity.cs" />
+    <Compile Include="SpModels\TimesheetAuditModel.cs" />
+    <Compile Include="SpModels\TimeSheetSpEntity.cs" />
+    <Compile Include="SpModels\UserAuthTokenSpEntity.cs" />
+    <Compile Include="SpModels\UserBreakSpEntity.cs" />
+    <Compile Include="SpModels\UserSpEntity.cs" />
+    <Compile Include="TestDataRepository.cs" />
+    <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\AssetAssignedToEmployee.cs" />
+    <Compile Include="Models\AssetComment.cs" />
+    <Compile Include="Models\Audit.cs" />
+    <Compile Include="Models\BoardType.cs" />
+    <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\CanteenFoodItem.cs" />
+    <Compile Include="Models\Channel.cs" />
+    <Compile Include="Models\ChannelMember.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeContactDetail.cs" />
+    <Compile Include="Models\EmployeeEducation.cs" />
+    <Compile Include="Models\EmployeeImmigration.cs" />
+    <Compile Include="Models\EmployeeLanguage.cs" />
+    <Compile Include="Models\EmployeeLeaveAllowance.cs" />
+    <Compile Include="Models\EmployeeLicence.cs" />
+    <Compile Include="Models\EmployeeMembership.cs" />
+    <Compile Include="Models\EmployeeReportTo.cs" />
+    <Compile Include="Models\EmployeeSalary.cs" />
+    <Compile Include="Models\EmployeeSkill.cs" />
+    <Compile Include="Models\EmployeeTermination.cs" />
+    <Compile Include="Models\EmployeeWorkExperience.cs" />
+    <Compile Include="Models\ExcludedUser.cs" />
+    <Compile Include="Models\Feature.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\FeedBackType.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FoodOrder.cs" />
+    <Compile Include="Models\Goal.cs" />
+    <Compile Include="Models\GoalStatu.cs" />
+    <Compile Include="Models\GoalWorkFlow.cs" />
+    <Compile Include="Models\Holiday.cs" />
+    <Compile Include="Models\InvoiceCategory.cs" />
+    <Compile Include="Models\Lead.cs" />
+    <Compile Include="Models\LeadComment.cs" />
+    <Compile Include="Models\LeadsManagementNote.cs" />
+    <Compile Include="Models\LeaveAllowance.cs" />
+    <Compile Include="Models\LeaveApplication.cs" />
+    <Compile Include="Models\LeaveApplicationStatu.cs" />
+    <Compile Include="Models\LeaveComment.cs" />
+    <Compile Include="Models\LeaveSession.cs" />
+    <Compile Include="Models\LeaveStatu.cs" />
+    <Compile Include="Models\LeaveType.cs" />
+    <Compile Include="Models\LeaveWorkFlow.cs" />
+    <Compile Include="Models\MasterTable.cs" />
+    <Compile Include="Models\MasterTableType.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessageType.cs" />
+    <Compile Include="Models\Mode.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PaymentType.cs" />
+    <Compile Include="Models\ProcessDashboard.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ResetPassword.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoomTemperature.cs" />
+    <Compile Include="Models\SeatingArrangement.cs" />
+    <Compile Include="Models\ShiftTiming.cs" />
+    <Compile Include="Models\StatusReporting.cs" />
+    <Compile Include="Models\StatusReportingAttachment.cs" />
+    <Compile Include="Models\StatusReportingConfiguration.cs" />
+    <Compile Include="Models\StatusReportingConfigurationDetail.cs" />
+    <Compile Include="Models\StatusReportingOption.cs" />
+    <Compile Include="Models\StatusReportingStatu.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\TimeSheet.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserActiveDetail.cs" />
+    <Compile Include="Models\UserAuthToken.cs" />
+    <Compile Include="Models\UserBreak.cs" />
+    <Compile Include="Models\UserCanteenBalanceCredit.cs" />
+    <Compile Include="Models\UserCanteenCredit.cs" />
+    <Compile Include="Models\UserProject.cs" />
+    <Compile Include="Models\UserPurchasedCanteenFoodItem.cs" />
+    <Compile Include="Models\UserStory.cs" />
+    <Compile Include="Models\UserStoryDailySnapshot.cs" />
+    <Compile Include="Models\UserStoryLogTime.cs" />
+    <Compile Include="Models\UserStorySpentTime.cs" />
+    <Compile Include="Models\UserStoryStatu.cs" />
+    <Compile Include="Models\UserStoryWorkflowStatusTransition.cs" />
+    <Compile Include="Models\VendorDetail.cs" />
+    <Compile Include="Models\WorkFlow.cs" />
+    <Compile Include="Models\WorkflowEligibleStatusTransition.cs" />
+    <Compile Include="Models\WorkflowStatu.cs" />
+    <Compile Include="Partial\GoalRepository.cs" />
+    <Compile Include="Partial\ProjectRepository.cs" />
+    <Compile Include="Partial\UserProjectRepository.cs" />
+    <Compile Include="Repositories\AssetAssignedToEmployeeRepository.cs" />
+    <Compile Include="Repositories\AssetCommentRepository.cs" />
+    <Compile Include="Repositories\AssetRepository.cs" />
+    <Compile Include="Repositories\AuditRepository.cs" />
+    <Compile Include="Repositories\BoardTypeRepository.cs" />
+    <Compile Include="Repositories\BranchRepository.cs" />
+    <Compile Include="Repositories\CanteenFoodItemRepository.cs" />
+    <Compile Include="Repositories\ChannelMemberRepository.cs" />
+    <Compile Include="Repositories\ChannelRepository.cs" />
+    <Compile Include="Repositories\CompanyRepository.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\EmployeeContactDetailRepository.cs" />
+    <Compile Include="Repositories\EmployeeEducationRepository.cs" />
+    <Compile Include="Repositories\EmployeeImmigrationRepository.cs" />
+    <Compile Include="Repositories\EmployeeLanguageRepository.cs" />
+    <Compile Include="Repositories\EmployeeLeaveAllowanceRepository.cs" />
+    <Compile Include="Repositories\EmployeeLicenceRepository.cs" />
+    <Compile Include="Repositories\EmployeeMembershipRepository.cs" />
+    <Compile Include="Repositories\EmployeeReportToRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\EmployeeSalaryRepository.cs" />
+    <Compile Include="Repositories\EmployeeSkillRepository.cs" />
+    <Compile Include="Repositories\EmployeeTerminationRepository.cs" />
+    <Compile Include="Repositories\EmployeeWorkExperienceRepository.cs" />
+    <Compile Include="Repositories\EmploymentStatuRepository.cs" />
+    <Compile Include="Repositories\ExcludedUserRepository.cs" />
+    <Compile Include="Repositories\FeatureRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
+    <Compile Include="Repositories\FeedBackTypeRepository.cs" />
+    <Compile Include="Repositories\FileRepository.cs" />
+    <Compile Include="Repositories\FoodOrderRepository.cs" />
+    <Compile Include="Repositories\GoalRepository.cs" />
+    <Compile Include="Repositories\GoalStatuRepository.cs" />
+    <Compile Include="Repositories\GoalWorkFlowRepository.cs" />
+    <Compile Include="Repositories\HolidayRepository.cs" />
+    <Compile Include="Repositories\InvoiceCategoryRepository.cs" />
+    <Compile Include="Repositories\LeadCommentRepository.cs" />
+    <Compile Include="Repositories\LeadRepository.cs" />
+    <Compile Include="Repositories\LeadsManagementNoteRepository.cs" />
+    <Compile Include="Repositories\LeaveAllowanceRepository.cs" />
+    <Compile Include="Repositories\LeaveApplicationRepository.cs" />
+    <Compile Include="Repositories\LeaveApplicationStatuRepository.cs" />
+    <Compile Include="Repositories\LeaveCommentRepository.cs" />
+    <Compile Include="Repositories\LeaveSessionRepository.cs" />
+    <Compile Include="Repositories\LeaveStatuRepository.cs" />
+    <Compile Include="Repositories\LeaveTypeRepository.cs" />
+    <Compile Include="Repositories\LeaveWorkFlowRepository.cs" />
+    <Compile Include="Repositories\MasterTableRepository.cs" />
+    <Compile Include="Repositories\MasterTableTypeRepository.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
+    <Compile Include="Repositories\MessageTypeRepository.cs" />
+    <Compile Include="Repositories\ModeRepository.cs" />
+    <Compile Include="Repositories\PaymentRepository.cs" />
+    <Compile Include="Repositories\PaymentTypeRepository.cs" />
+    <Compile Include="Repositories\ProcessDashboardRepository.cs" />
+    <Compile Include="Repositories\ProductDetailRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProjectRepository.cs" />
+    <Compile Include="Repositories\ResetPasswordRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\RoomTemperatureRepository.cs" />
+    <Compile Include="Repositories\SeatingArrangementRepository.cs" />
+    <Compile Include="Repositories\ShiftTimingRepository.cs" />
+    <Compile Include="Repositories\StatusReportingAttachmentRepository.cs" />
+    <Compile Include="Repositories\StatusReportingConfigurationDetailRepository.cs" />
+    <Compile Include="Repositories\StatusReportingConfigurationRepository.cs" />
+    <Compile Include="Repositories\StatusReportingOptionRepository.cs" />
+    <Compile Include="Repositories\StatusReportingRepository.cs" />
+    <Compile Include="Repositories\StatusReportingStatuRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
+    <Compile Include="Repositories\TimeSheetRepository.cs" />
+    <Compile Include="Repositories\UserActiveDetailRepository.cs" />
+    <Compile Include="Repositories\UserAuthTokenRepository.cs" />
+    <Compile Include="Repositories\UserBreakRepository.cs" />
+    <Compile Include="Repositories\UserCanteenBalanceCreditRepository.cs" />
+    <Compile Include="Repositories\UserCanteenCreditRepository.cs" />
+    <Compile Include="Repositories\UserProjectRepository.cs" />
+    <Compile Include="Repositories\UserPurchasedCanteenFoodItemRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\UserStoryDailySnapshotRepository.cs" />
+    <Compile Include="Repositories\UserStoryLogTimeRepository.cs" />
+    <Compile Include="Repositories\UserStoryRepository.cs" />
+    <Compile Include="Repositories\UserStorySpentTimeRepository.cs" />
+    <Compile Include="Repositories\UserStoryStatuRepository.cs" />
+    <Compile Include="Repositories\UserStoryWorkflowStatusTransitionRepository.cs" />
+    <Compile Include="Repositories\VendorDetailRepository.cs" />
+    <Compile Include="Repositories\WorkflowEligibleStatusTransitionRepository.cs" />
+    <Compile Include="Repositories\WorkFlowRepository.cs" />
+    <Compile Include="Repositories\WorkflowStatuRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BusinessView.Dapper.Dal.csproj.DotSettings" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Btrak.Models\BTrak.Models.csproj">
+      <Project>{85744ae1-1569-4570-bb7f-acc7e7b42d02}</Project>
+      <Name>BTrak.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessView.Common\BTrak.Common.csproj">
+      <Project>{cee56890-3668-4910-89b9-bed45d9cc273}</Project>
+      <Name>BTrak.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

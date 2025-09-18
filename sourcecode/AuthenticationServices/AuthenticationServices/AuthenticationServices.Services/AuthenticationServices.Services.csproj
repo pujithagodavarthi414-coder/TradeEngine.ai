@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.7.24" />
+    <PackageReference Include="IdentityModel" Version="5.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AuthenticationServices.Common\AuthenticationServices.Common.csproj" />
+    <ProjectReference Include="..\AuthenticationServices.Models\AuthenticationServices.Models.csproj" />
+    <ProjectReference Include="..\AuthenticationServices.Repositories\AuthenticationServices.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

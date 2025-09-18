@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.14.1" />
+    <PackageReference Include="CamundaClient" Version="0.0.3" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.25" />
+    <PackageReference Include="JsonDiffPatch.Net" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="22.2.10" />
+    <PackageReference Include="Syncfusion.EJ2.WordEditor.AspNet.Core" Version="22.2.10" />
+    <PackageReference Include="Syncfusion.HtmlToPdfConverter.Net.Windows" Version="22.2.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PDFHTMLDesignerCommon\PDFHTMLDesignerCommon.csproj" />
+    <ProjectReference Include="..\PDFHTMLDesignerHelpers\PDFHTMLDesignerHelpers.csproj" />
+    <ProjectReference Include="..\PDFHTMLDesignerModels\PDFHTMLDesignerModels.csproj" />
+    <ProjectReference Include="..\PDFHTMLDesignerRepo\PDFHTMLDesignerRepo.csproj" />
+  </ItemGroup>
+
+</Project>

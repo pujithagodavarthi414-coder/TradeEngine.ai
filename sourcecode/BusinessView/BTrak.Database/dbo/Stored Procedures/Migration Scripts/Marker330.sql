@@ -1,0 +1,4978 @@
+﻿CREATE PROCEDURE [dbo].[Marker330]
+(
+    @CompanyId UNIQUEIDENTIFIER,
+    @UserId UNIQUEIDENTIFIER,
+    @RoleId UNIQUEIDENTIFIER
+)
+AS 
+BEGIN 
+MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES (NEWID(),'InterviewScheduleCancelledTemplate',
+        '<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Service Canceled</title>
+    <style type="text/css">
+      a { text-decoration: none; outline: none; }
+      @media (max-width: 649px) {
+        .o_col-full { max-width: 100% !important; }
+        .o_col-half { max-width: 50% !important; }
+        .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+        .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+        .o_xs-center { text-align: center !important; }
+        .o_xs-left { text-align: left !important; }
+        .o_xs-right { text-align: left !important; }
+        table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+        table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+        table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+        h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+        h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+        h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+        .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+        .o_xs-pt-xs { padding-top: 8px !important; }
+        .o_xs-pb-xs { padding-bottom: 8px !important; }
+      }
+      @media screen {
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+        .o_heading, strong, b { font-weight: 700 !important; }
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+      }
+    </style>
+    <!--[if mso]>
+    <style>
+      table { border-collapse: collapse; }
+      .o_col { float: left; }
+    </style>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+  </head>
+  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+    <!-- preview-text -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- header-primary -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- hero-white-icon-outline -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                    <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                            <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/cancel-Icon.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">Interview Schedule Canceled</h2>                   
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- service-dark -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-dark o_px o_pb-md" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-3" style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                      <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text o_text-white o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #ffffff;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xxs" style="margin-top: 0px;margin-bottom: 4px;"><strong>##InterviewRound##</strong> 
+                        <p class="o_text-xs" style="font-size: 14px;line-height: 21px;margin-top: 0px;margin-bottom: 0px;">##InterviewDate## ##InterviewTime##</p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- pricing-2cols -->   
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- content-lg -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+				  <p style="margin-top: 0px;margin-bottom: 0px;">The interview which was scheduled on the above date was canceled. We will reschedule it if needed and let you know.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- footer-light -->
+    <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                    <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+					<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                    <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+					<p style="margin-top: 0px;margin-bottom: 0px;">
+                          Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+                      </p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                      </div>
+                    </div>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+  </body>
+</html>
+
+',
+														GETDATE(),@UserId,@CompanyId)
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+
+		
+MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES 
+            (NEWID(),'InterviewStatusChangeEmail','<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Store Review</title>
+    <style type="text/css">
+      a { text-decoration: none; outline: none; }
+      @media (max-width: 649px) {
+        .o_col-full { max-width: 100% !important; }
+        .o_col-half { max-width: 50% !important; }
+        .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+        .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+        .o_xs-center { text-align: center !important; }
+        .o_xs-left { text-align: left !important; }
+        .o_xs-right { text-align: left !important; }
+        table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+        table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+        table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+        h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+        h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+        h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+        .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+        .o_xs-pt-xs { padding-top: 8px !important; }
+        .o_xs-pb-xs { padding-bottom: 8px !important; }
+      }
+      @media screen {
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+        .o_heading, strong, b { font-weight: 700 !important; }
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+      }
+    </style>
+    <!--[if mso]>
+    <style>
+      table { border-collapse: collapse; }
+      .o_col { float: left; }
+    </style>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+  </head>
+  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+    <!-- preview-text -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- header -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-dark o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #242b3d;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- hero-primary-icon-lines -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-primary o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-white" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #126de5;color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td class="o_bb-white" height="40" width="32" style="border-bottom: 1px solid #ffffff;">&nbsp; </td>
+                          <td rowspan="2" class="o_sans o_text o_text-white o_px o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #ffffff;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                            <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/notifications-48-primary.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                          </td>
+                          <td class="o_bb-white" height="40" width="32" style="border-bottom: 1px solid #ffffff;">&nbsp; </td>
+                        </tr>
+                        <tr>
+                          <td height="40">&nbsp; </td>
+                          <td height="40">&nbsp; </td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 8px; line-height: 8px; height: 8px;">&nbsp; </td>
+                          <td style="font-size: 8px; line-height: 8px; height: 8px;">&nbsp; </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h2 class="o_heading o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;font-size: 30px;line-height: 39px;">##HeaderMessage##</h2>                   
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- order-summary -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_sans o_text-xs o_text-light o_px-md o_pt-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 8px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;">##DearMessage##</p>
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td class="o_re o_bb-light" style="font-size: 8px;line-height: 8px;height: 8px;vertical-align: top;border-bottom: 1px solid #d3dce0;">&nbsp; </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- product-review -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-white o_px o_pt" align="center" style="font-size: 0;vertical-align: top;background-color: #ffffff;padding-left: 16px;padding-right: 16px;padding-top: 16px;">
+                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="100" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-1 o_col-full" style="display: inline-block;vertical-align: top;width: 100%;max-width: 100px;">
+                      <div class="o_px-xs o_sans o_text o_center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: center;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-primary" href="https://example.com/" style="text-decoration: none;outline: none;color: #126de5;"><img src="images/thumb_84.jpg" width="84" height="84" alt="" style="max-width: 84px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="300" align="left" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-3 o_col-full" style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                      <div style="font-size: 16px; line-height: 16px; height: 16px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #82899a;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <h4 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 18px;line-height: 23px;">##RoundName##</h4>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="200" align="right" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2 o_col-full" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 16px; line-height: 16px; height: 16px;">&nbsp; </div>
+                      <div class="o_px-xs o_right o_xs-center" style="text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation" style="text-align: right;margin-left: auto;margin-right: 0;">
+                          <tbody>
+                            <tr>
+                              <td class="o_btn-xs o_bg-dark o_br o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 16px;background-color: #242b3d;border-radius: 4px;">
+                                <a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 7px 16px;mso-text-raise: 3px;">##Status##</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--[if mso]></td></tr><tr><td colspan="3" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                        <tbody>
+                          <tr>
+                            <td class="o_re o_bb-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-bottom: 1px solid #d3dce0;">&nbsp; </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- content -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;">##statusMessage##</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- footer-white-2cols -->
+    <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                    <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+					<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                    <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+					<p style="margin-top: 0px;margin-bottom: 0px;">
+                          Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+                      </p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                      </div>
+                    </div>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+  </body>
+</html>
+',
+														GETDATE(),@UserId,@CompanyId)
+
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+
+MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES 
+                 (NEWID(),'JobOpeningEmailTemplate',
+        '<!doctype html>  
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Account New Sign-in</title>
+    <style type="text/css">
+      a { text-decoration: none; outline: none; }
+      @media (max-width: 649px) {
+        .o_col-full { max-width: 100% !important; }
+        .o_col-half { max-width: 50% !important; }
+        .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+        .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+        .o_xs-center { text-align: center !important; }
+        .o_xs-left { text-align: left !important; }
+        .o_xs-right { text-align: left !important; }
+        table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+        table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+        table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+        h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+        h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+        h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+        .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+        .o_xs-pt-xs { padding-top: 8px !important; }
+        .o_xs-pb-xs { padding-bottom: 8px !important; }
+      }
+      @media screen {
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+        .o_heading, strong, b { font-weight: 700 !important; }
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+      }
+    </style>
+      <!--[if mso]>      
+    <style>
+      table { border-collapse: collapse; }
+      .o_col { float: left; }
+    </style>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->    
+   </head>
+   <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+      <!-- preview-text -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- header-primary -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                                          <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+                           </td>
+                        </tr>
+      </tbody>
+                  </table>
+    <!-- hero-white-icon-outline -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                    <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                            <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-assignee.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+               </td>
+            </tr>
+                        <tr>
+                          <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                        </tr>
+         </tbody>
+      </table>
+                    <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">You''ve Been Assigned</h2>                 
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- device-row -->
+    
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                     <tbody>
+                        <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+				     <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                        <tbody>
+                          <tr>
+                            <td class="o_re o_bt-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-top: 1px solid #d3dce0;">&nbsp; </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                   <p style="margin-top: 0px;margin-bottom: 0px;">Hi ##HiringManager##, You have been assigned to a new Job Opening.</p>
+					</p>
+                  </td>
+                </tr> 
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">		   
+                    <p style="margin-top: 0px;margin-bottom: 0px;">Please click the following link for further details.</p>					
+                  </td>
+                </tr> 
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                             <tbody>
+                                                <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py-xs" align="center" style="background-color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 8px;padding-bottom: 8px;">
+                    <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;">
+                            <a class="o_text-white" href="##siteAddress##" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">Click here</a>
+                          </td>
+                                                </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+                                                <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+    <!-- alert-primary -->
+   
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+                           </td>
+                        </tr>
+      </tbody>
+                  </table>
+    <!-- content -->
+    
+    <!-- spacer-lg -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- footer-3cols -->
+    <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                    <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+					<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                    <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+					<p style="margin-top: 0px;margin-bottom: 0px;">
+                          Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+                      </p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                      </div>
+                    </div>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+  </body>
+</html>',GETDATE(),@UserId,@CompanyId)
+,(NEWID(),'CandidateCreationEmailTemplate',
+        '<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Account New Sign-in</title>
+    <style type="text/css">
+      a { text-decoration: none; outline: none; }
+      @media (max-width: 649px) {
+        .o_col-full { max-width: 100% !important; }
+        .o_col-half { max-width: 50% !important; }
+        .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+        .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+        .o_xs-center { text-align: center !important; }
+        .o_xs-left { text-align: left !important; }
+        .o_xs-right { text-align: left !important; }
+        table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+        table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+        table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+        h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+        h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+        h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+        .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+        .o_xs-pt-xs { padding-top: 8px !important; }
+        .o_xs-pb-xs { padding-bottom: 8px !important; }
+      }
+      @media screen {
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+        .o_heading, strong, b { font-weight: 700 !important; }
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+      }
+    </style>
+    <!--[if mso]>
+    <style>
+      table { border-collapse: collapse; }
+      .o_col { float: left; }
+    </style>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+                  <![endif]-->            
+  </head>
+  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+    <!-- preview-text -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- header-primary -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- hero-white-icon-outline -->
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                    <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                            <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-assignee.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">You''ve Successfully Registered</h2>                 
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- device-row -->
+    
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                                          <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                                             <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                                <tbody>
+                                                   <tr>
+                                                      <td class="o_re o_bt-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-top: 1px solid #d3dce0;">&nbsp; </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                   <p style="margin-top: 0px;margin-bottom: 0px;">Hi ##CandidateName##, you have successfully registered.</p>
+                                          <br> 
+				   <p style="margin-top: 0px;margin-bottom: 0px;">Your Registration Id is ##CandidateUniqueName##.</p>
+                                          </p>                    
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+                           </td>
+                        </tr>
+      </tbody>
+    </table>
+	
+
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+                  </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+               </td>
+            </tr>
+         </tbody>
+      </table>
+    <!-- alert-primary -->
+   
+      <!-- spacer -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- content -->
+    
+    <!-- spacer-lg -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- footer-3cols -->
+    <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                    <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+					<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                    <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+					<p style="margin-top: 0px;margin-bottom: 0px;">
+                          Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+                      </p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                      </div>
+                    </div>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+  </body>
+</html>
+
+',
+														GETDATE(),@UserId,@CompanyId)
+, (NEWID(),'CandidateAssignedToManagerEmail',
+        '<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Account New Sign-in</title>
+    <style type="text/css">
+      a { text-decoration: none; outline: none; }
+      @media (max-width: 649px) {
+        .o_col-full { max-width: 100% !important; }
+        .o_col-half { max-width: 50% !important; }
+        .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+        .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+        .o_xs-center { text-align: center !important; }
+        .o_xs-left { text-align: left !important; }
+        .o_xs-right { text-align: left !important; }
+        table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+        table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+        table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+        h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+        h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+        h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+        .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+        .o_xs-pt-xs { padding-top: 8px !important; }
+        .o_xs-pb-xs { padding-bottom: 8px !important; }
+      }
+      @media screen {
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+        .o_heading, strong, b { font-weight: 700 !important; }
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+      }
+    </style>
+                  <!--[if mso]>
+    <style>
+      table { border-collapse: collapse; }
+      .o_col { float: left; }
+    </style>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+  </head>
+  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+    <!-- preview-text -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- header-primary -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- hero-white-icon-outline -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                    <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                            <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-assignee.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">You''ve Been Assigned</h2>                 
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- device-row -->
+    
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+				     <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                        <tbody>
+                          <tr>
+                            <td class="o_re o_bt-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-top: 1px solid #d3dce0;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                    </div>
+                   <p style="margin-top: 0px;margin-bottom: 0px;">Hi ##HiringManager##, Candidate has been assigned to you.</p>
+					</p>
+                           </td>
+                        </tr>
+              </tbody>
+                  </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- alert-primary -->           <!-- spacer -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>               
+				 <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">		   
+                    <p style="margin-top: 0px;margin-bottom: 0px;">Please click the following link for further candidate details.</p>					
+                  </td>
+                </tr> 
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                  <td class="o_bg-white o_px-md o_py-xs" align="center" style="background-color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 8px;padding-bottom: 8px;">
+                    <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;">
+                            <a class="o_text-white" href="##siteAddress##" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">Click here</a>
+                          </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+              </tbody>
+                  </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+               </td>
+            </tr>
+         </tbody>
+      </table>
+
+    <!-- spacer -->
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- alert-primary -->
+   
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+                           </td>
+                        </tr>
+      </tbody>
+    </table>
+    <!-- content -->
+    
+    <!-- spacer-lg -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+                  </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- footer-3cols -->      
+      <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+         <tbody>
+            <tr>
+               <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                  <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                     <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                     <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+					<p style="margin-top: 0px;margin-bottom: 0px;">
+                          Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+                      </p>
+                     </div>
+                  </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                  <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                     <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                     <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                       <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>',GETDATE(),@UserId,@CompanyId)
+
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+
+		MERGE INTO [dbo].[HtmlTemplates] AS Target 
+			USING ( VALUES 
+	(N'UserRegistrationNotificationTemplate',
+			'<!doctype html>
+	<html lang="en">
+	  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="x-apple-disable-message-reformatting">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Account New Sign-in</title>
+		<style type="text/css">
+		  a { text-decoration: none; outline: none; }
+		  @media (max-width: 649px) {
+			.o_col-full { max-width: 100% !important; }
+			.o_col-half { max-width: 50% !important; }
+			.o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+			.o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+			.o_xs-center { text-align: center !important; }
+			.o_xs-left { text-align: left !important; }
+			.o_xs-right { text-align: left !important; }
+			table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+			table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+			table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+			h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+			h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+			h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+			.o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+			.o_xs-pt-xs { padding-top: 8px !important; }
+			.o_xs-pb-xs { padding-bottom: 8px !important; }
+		  }
+		  @media screen {
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			.o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+			.o_heading, strong, b { font-weight: 700 !important; }
+			a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+		  }
+		</style>
+		<!--[if mso]>
+		<style>
+		  table { border-collapse: collapse; }
+		  .o_col { float: left; }
+		</style>
+		<xml>
+		  <o:OfficeDocumentSettings>
+			<o:PixelsPerInch>96</o:PixelsPerInch>
+		  </o:OfficeDocumentSettings>
+		</xml>
+		<![endif]-->
+	  </head>
+	  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+		<!-- preview-text -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- header-primary -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyRegistrationLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- hero-white-icon-outline -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+						<table cellspacing="0" cellpadding="0" border="0" role="presentation">
+						  <tbody>
+							<tr>
+							  <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+								<img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-assignee.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+							  </td>
+							</tr>
+							<tr>
+							  <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+							</tr>
+						  </tbody>
+						</table>
+						<h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">You''ve Been Invited</h2>
+						<p style="margin-top: 0px;margin-bottom: 0px;">Welcome to ##CompanyName##!</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- device-row -->
+    
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>               
+					 <tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						 <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+						  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+							<tbody>
+							  <tr>
+								<td class="o_re o_bt-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-top: 1px solid #d3dce0;">&nbsp; </td>
+							  </tr>
+							</tbody>
+						  </table>
+						</div>
+					   <p style="margin-top: 0px;margin-bottom: 0px;">We are pleased to have you joining our team. Are you ready to fall in love with your new job and meet your great new colleagues.</p>
+						</p>
+					  </td>
+					</tr> 
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>               
+					 <tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">		   
+						<p style="margin-top: 0px;margin-bottom: 0px;">Please click the following link on your browser to join us.</p>					
+					  </td>
+					</tr> 
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py-xs" align="center" style="background-color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 8px;padding-bottom: 8px;">
+						<table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
+						  <tbody>
+							<tr>
+							  <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;">
+								<a class="o_text-white" href="##siteUrl##" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">Join Us</a>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Username</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##UserName##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- label-xs -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Password</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##Password##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- alert-primary -->
+   
+		<!-- spacer -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- content -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">Thanks for choosing to be part of our company! We are all working towards a common goal and your contribution is integral. Congratulations and welcome aboard!</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- footer-3cols -->
+		<table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+							  Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+						  </p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+						  </div>
+						</div>
+					   </td>
+					</tr>
+				  </tbody>
+				</table>
+	  </body>
+	</html>',@CompanyId),
+	('ProjectMemberRemovedEmailTemplate','<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--[if !mso]><!--> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!--<![endif]--> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title></title> <style type="text/css"> * { -webkit-font-smoothing: antialiased; } body { Margin: 0; padding: 0; min-width: 100%; font-family: Arial, sans-serif; -webkit-font-smoothing: antialiased; mso-line-height-rule: exactly; } table { border-spacing: 0; color: #333333; font-family: Arial, sans-serif; } img { border: 0; } .wrapper { width: 100%; table-layout: fixed; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; } .webkit { max-width: 600px; } .outer { Margin: 0 auto; width: 100%; max-width: 600px; } .full-width-image img { width: 100%; max-width: 600px; height: auto; } .inner { padding: 10px; } p { Margin: 0; padding-bottom: 10px; } .h1 { font-size: 21px; font-weight: bold; Margin-top: 15px; Margin-bottom: 5px; font-family: Arial, sans-serif; -webkit-font-smoothing: antialiased; } .h2 { font-size: 18px; font-weight: bold; Margin-top: 10px; Margin-bottom: 5px; font-family: Arial, sans-serif; -webkit-font-smoothing: antialiased; } .one-column .contents { text-align: left; font-family: Arial, sans-serif; -webkit-font-smoothing: antialiased; } .one-column p { font-size: 14px; Margin-bottom: 10px; font-family: Arial, sans-serif; -webkit-font-smoothing: antialiased; } .two-column { text-align: center; font-size: 0; } .two-column .column { width: 100%; max-width: 300px; display: inline-block; vertical-align: top; } .contents { width: 100%; } .two-column .contents { font-size: 14px; text-align: left; } .two-column img { width: 100%; max-width: 280px; height: auto; } .two-column .text { padding-top: 10px; } .three-column { text-align: center; font-size: 0; padding-top: 10px; padding-bottom: 10px; } .three-column .column { width: 100%; max-width: 200px; display: inline-block; vertical-align: top; } .three-column .contents { font-size: 14px; text-align: center; } .three-column img { width: 100%; max-width: 180px; height: auto; } .three-column .text { padding-top: 10px; } .img-align-vertical img { display: inline-block; vertical-align: middle; } .download-button { background-color: #009999; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; } @@media only screen and (max-device-width: 480px) { table[class=hide], img[class=hide], td[class=hide] { display: none !important; } .contents1 { width: 100%; } .contents1 { width: 100%; } } </style> </head> <body style="Margin:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;min-width:100%;background-color:#f3f2f0;"> <center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color:#f3f2f0;"> <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f3f2f0;" bgcolor="#f3f2f0;"> <tr> <td width="100%"> <div class="webkit" style="max-width:600px;Margin:0 auto;"> <table class="outer" align="center" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;Margin:0 auto;width:100%;max-width:600px;"> <tr> <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;"> <table border="0" width="100%" cellpadding="0" cellspacing="0"> <tr> <td> <table style="width:100%;" cellpadding="0" cellspacing="0" border="0"> <tbody> <tr> <td align="center"> <center> <table border="0" align="center" width="100%" cellpadding="0" cellspacing="0" style="Margin: 0 auto;"> <tbody> <tr> <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" bgcolor="#FFFFFF"> <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#f3f2f0"> <tr> <td class="two-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:left;font-size:0;"> <div class="column" style="max-width:150px;height:11px;display:inline-block;vertical-align:top;"> <table class="contents" style="border-spacing:0; width:100%"> <tr> <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:5px;" align="left"> <a href="#" target="_blank"><img src=##CompanyLogo## alt="" width="60" height="60" style="border-width:0; height:auto; display:block" align="left" /></a> </td> </tr> </table> </div> <div class="column" style="width:100%;max-width:518px;display:inline-block;vertical-align:top;"> <table width="100" style="border-spacing:0" cellpadding="0" cellspacing="0" border="0"> <tr> <td class="inner" style="padding-top:0px;padding-bottom:10px; padding-right:10px;padding-left:10px;"> <table class="contents" style="border-spacing:0; width:100%" cellpadding="0" cellspacing="0" border="0"> <tr> <td align="left" valign="top">&nbsp;</td> </tr> <tr></tr> </table> </td> </tr> </table> </div> </td> </tr> <tr> <td>&nbsp;</td> </tr> </table> </td> </tr> </tbody> </table> </center> </td> </tr> </tbody> </table> </td> </tr> </table> <table class="one-column" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing:0; border-left:1px solid #e8e7e5; border-right:1px solid #e8e7e5; border-bottom:1px solid #e8e7e5; border-top:1px solid #e8e7e5" bgcolor="#FFFFFF"> <tr> <td align="left" style="padding:50px 50px 50px 50px"> <p style="color:#262626; font-size:24px; text-align:left; font-family: Verdana, Geneva, sans-serif"> <h2>##OperationPerformedUser## removed access to project - ##ProjectName##</h2> </p> <p style="color:#000000; font-size:16px; text-align:left; font-family: Verdana, Geneva, sans-serif; line-height:22px "> <br /> Best Regards, <br /> ##footerName## </p> </td> </tr> </table> </td> </tr> </table> </div> </td> </tr> </table> </center> </body></html>',@CompanyId)
+ )
+        AS Source ([TemplateName], [HtmlTemplate],CompanyId) 
+        ON Target.[TemplateName] = Source.[TemplateName]  
+        AND Target.CompanyId = Source.CompanyId  
+        WHEN MATCHED THEN 
+        UPDATE SET [HtmlTemplate] = Source.[HtmlTemplate];
+
+	MERGE INTO [dbo].[HtmlTemplates] AS Target 
+			USING ( VALUES 
+	(N'RemoteSiteCompanyRegistrationTemplate',
+			'<!doctype html>
+	<html lang="en">
+	  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="x-apple-disable-message-reformatting">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Account Addons</title>
+		<style type="text/css">
+		  a { text-decoration: none; outline: none; }
+		  @media (max-width: 649px) {
+			.o_col-full { max-width: 100% !important; }
+			.o_col-half { max-width: 50% !important; }
+			.o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+			.o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+			.o_xs-center { text-align: center !important; }
+			.o_xs-left { text-align: left !important; }
+			.o_xs-right { text-align: left !important; }
+			table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+			table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+			table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+			h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+			h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+			h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+			.o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+			.o_xs-pt-xs { padding-top: 8px !important; }
+			.o_xs-pb-xs { padding-bottom: 8px !important; }
+		  }
+		  @media screen {
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			.o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+			.o_heading, strong, b { font-weight: 700 !important; }
+			a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+		  }
+		</style>
+		<!--[if mso]>
+		<style>
+		  table { border-collapse: collapse; }
+		  .o_col { float: left; }
+		</style>
+		<xml>
+		  <o:OfficeDocumentSettings>
+			<o:PixelsPerInch>96</o:PixelsPerInch>
+		  </o:OfficeDocumentSettings>
+		</xml>
+		<![endif]-->
+	  </head>
+	  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+		<!-- preview-text -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- header-primary-button -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-primary o_px o_pb-md o_br-t" align="center" style="font-size: 0;vertical-align: top;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+						<!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="200" align="left" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyRegistrationLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+						  <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+							<table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation" style="text-align: right;margin-left: auto;margin-right: 0;">
+							  <!-- <tbody> -->
+								<!-- <tr> -->
+								  <!-- <td class="o_btn-xs o_bg-white o_br o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 16px;background-color: #ffffff;border-radius: 4px;"> -->
+									<!-- <a class="o_text-primary" href="https://example.com/" style="text-decoration: none;outline: none;color: #126de5;display: block;padding: 7px 16px;mso-text-raise: 3px;">Get the App</a> -->
+								  <!-- </td> -->
+								<!-- </tr> -->
+							  <!-- </tbody> -->
+							</table>
+						  </div>
+						</div>
+						<!--[if mso]></td></tr></table><![endif]-->
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- hero-primary -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-primary o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-white" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #126de5;color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+						<h1 class="o_heading o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;font-size: 36px;line-height: 47px;">Thank you and congratulations for choosing ##footerName##</h1>
+						<p style="margin-top: 0px;margin-bottom: 0px;">We are really excited you''ve joined ##footerName##.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- content-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<h4 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">Your Account Details</h4>
+						<p style="margin-top: 0px;margin-bottom: 0px;">We are here to help you get started with this software. Many people use this software to track their productivity, so you''re in great company. To get the most out of your free trial, take a minute to set up your account and to start tracking your productivity.</p>
+					  </td>
+					</tr>
+					 <tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">Please click the following link on your browser to access the application.</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+						<a target="_blank" href="##siteAddress##" style="color:#5fb92a;font-weight:bold;text-decoration:underline" >##footerName## Link</a>
+						</p>
+					  </td>
+					</tr> 
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- label-xs -->
+	
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Username</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##userName##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- label-xs -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Password</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##password##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>               
+					 <tr>
+					  <td style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;">
+					  <ul>
+						  <li><p><em></em><a target="_blank" href="##chatApllication##" style="color:#5fb92a;font-weight:bold;text-decoration:underline">Snovasys Remote Working Desktop Tool</a> As needed, you could install a light weight tool on your computer to help tracking, messaging purposes. Please click here or paste this link in your browser.</p></li>
+						  <li><p><em></em><a target="_blank" href="##guidelink##" style="color:#5fb92a;font-weight:bold;text-decoration:underline">Snovasys Remote Working User Guide</a> You could also access our user guide by clicking on this link.</p></li> 
+					  </ul>
+					  </td>
+					</tr> 				
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	
+		 <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+					  <p style= "font-size:small"><img goomoji="23f0" data-goomoji="23f0" style="margin:0 0.2ex;vertical-align:middle;max-height:18px" alt="⏰" src="https://mail.google.com/mail/e/23f0" data-image-whitelisted="" class="CToWUd">Kick off your free trial by quickly setting everything up. Watch our 2 min tutorial video.</p>
+						<iframe width="500" height="250" src="https://www.youtube.com/embed/5DdFUtuL5fw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	
+   
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">Thank you again for your registration and all the very best. For further queries, please reach out to your dedicated account manager and our Whatsapp number (0044-7944144944).</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- footer -->
+	   <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+							  Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+						  </p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+						  </div>
+						</div>
+					   </td>
+					</tr>
+				  </tbody>
+				</table>
+	  </body>
+	</html>',@CompanyId),
+	(N'CompanyRegistrationTemplate',
+			'<!doctype html>
+	<html lang="en">
+	  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="x-apple-disable-message-reformatting">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Account Addons</title>
+		<style type="text/css">
+		  a { text-decoration: none; outline: none; }
+		  @media (max-width: 649px) {
+			.o_col-full { max-width: 100% !important; }
+			.o_col-half { max-width: 50% !important; }
+			.o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+			.o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+			.o_xs-center { text-align: center !important; }
+			.o_xs-left { text-align: left !important; }
+			.o_xs-right { text-align: left !important; }
+			table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+			table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+			table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+			h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+			h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+			h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+			.o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+			.o_xs-pt-xs { padding-top: 8px !important; }
+			.o_xs-pb-xs { padding-bottom: 8px !important; }
+		  }
+		  @media screen {
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			.o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+			.o_heading, strong, b { font-weight: 700 !important; }
+			a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+		  }
+		</style>
+		<!--[if mso]>
+		<style>
+		  table { border-collapse: collapse; }
+		  .o_col { float: left; }
+		</style>
+		<xml>
+		  <o:OfficeDocumentSettings>
+			<o:PixelsPerInch>96</o:PixelsPerInch>
+		  </o:OfficeDocumentSettings>
+		</xml>
+		<![endif]-->
+	  </head>
+	  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+		<!-- preview-text -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- header-primary-button -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-primary o_px o_pb-md o_br-t" align="center" style="font-size: 0;vertical-align: top;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+						<!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="200" align="left" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyRegistrationLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+						  <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+							<table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation" style="text-align: right;margin-left: auto;margin-right: 0;">
+							  <!-- <tbody> -->
+								<!-- <tr> -->
+								  <!-- <td class="o_btn-xs o_bg-white o_br o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 16px;background-color: #ffffff;border-radius: 4px;"> -->
+									<!-- <a class="o_text-primary" href="https://example.com/" style="text-decoration: none;outline: none;color: #126de5;display: block;padding: 7px 16px;mso-text-raise: 3px;">Get the App</a> -->
+								  <!-- </td> -->
+								<!-- </tr> -->
+							  <!-- </tbody> -->
+							</table>
+						  </div>
+						</div>
+						<!--[if mso]></td></tr></table><![endif]-->
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- hero-primary -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-primary o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-white" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #126de5;color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+						<h1 class="o_heading o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;font-size: 36px;line-height: 47px;">Thank you and congratulations for choosing ##footerName## </h1>
+						<p style="margin-top: 0px;margin-bottom: 0px;">We are really excited you''ve joined ##footerName##.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- content-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<h4 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">Your Account Details</h4>
+						<p style="margin-top: 0px;margin-bottom: 0px;">We are here to help you get started with this software. Many people use this software, so you''re in great company. To get the most out of your free trial, take a minute to set up your account and to start using this software.</p>
+					  </td>
+					</tr>
+					 <tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">Please click the following link on your browser to access the application.</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+						<a target="_blank" href="##siteAddress##" style="color:#5fb92a;font-weight:bold;text-decoration:underline" >Site Link</a>
+						</p>
+					  </td>
+					</tr> 
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- label-xs -->
+	
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Username</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##userName##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- label-xs -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Password</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##password##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>               
+					 <tr>
+					  <td style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;">
+					  <ul>
+						  <li><p><em></em><a target="_blank" href="https://snovasys.com/Documents/SnovasysTerms.pdf" style="color:#5fb92a;font-weight:bold;text-decoration:underline">Terms and Conditions</a> Please go through this link and find the terms and conditions of ##footerName##.</p></li>				     
+					  </ul>
+					  </td>
+					</tr> 				
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">Thank you again for your registration and all the very best. For further queries, please reach out to your dedicated account manager and our Whatsapp number (0044-7944144944).</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- footer -->
+	   <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+							  Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+						  </p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+						  </div>
+						</div>
+					   </td>
+					</tr>
+				  </tbody>
+				</table>
+	  </body>
+	</html>',@CompanyId),
+	(N'ResetPasswordTemplate',
+			'<!doctype html>
+	<html lang="en">
+	  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="x-apple-disable-message-reformatting">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Account Password Reset</title>
+		<style type="text/css">
+		  a { text-decoration: none; outline: none; }
+		  @media (max-width: 649px) {
+			.o_col-full { max-width: 100% !important; }
+			.o_col-half { max-width: 50% !important; }
+			.o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+			.o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+			.o_xs-center { text-align: center !important; }
+			.o_xs-left { text-align: left !important; }
+			.o_xs-right { text-align: left !important; }
+			table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+			table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+			table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+			h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+			h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+			h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+			.o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+			.o_xs-pt-xs { padding-top: 8px !important; }
+			.o_xs-pb-xs { padding-bottom: 8px !important; }
+		  }
+		  @media screen {
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			.o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+			.o_heading, strong, b { font-weight: 700 !important; }
+			a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+		  }
+		</style>
+		<!--[if mso]>
+		<style>
+		  table { border-collapse: collapse; }
+		  .o_col { float: left; }
+		</style>
+		<xml>
+		  <o:OfficeDocumentSettings>
+			<o:PixelsPerInch>96</o:PixelsPerInch>
+		  </o:OfficeDocumentSettings>
+		</xml>
+		<![endif]-->
+	  </head>
+	  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+		<!-- preview-text -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- header-white-link -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-white o_px o_pb-md o_br-t" align="center" style="font-size: 0;vertical-align: top;background-color: #ffffff;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+						<!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="200" align="left" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-primary" style="text-decoration: none;outline: none;color: #126de5;"><img src=##CompanyLogo## width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 22px; line-height: 22px; height: 22px;">&nbsp; </div>
+						  <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+							<table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation" style="text-align: right;margin-left: auto;margin-right: 0;">
+							  <tbody>
+								<tr>
+								  <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
+									<a class="o_text-light" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;"><span style="mso-text-raise: 6px;display: inline;color: #82899a;">##userName## </span> <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-icon.png" width="24" height="24" alt="" style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a>
+								  </td>
+								</tr>
+							  </tbody>
+							</table>
+						  </div>
+						</div>
+						<!--[if mso]></td></tr></table><![endif]-->
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- hero-icon-lines -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-ultra_light o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ebf5fa;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td class="o_bb-primary" height="40" width="32" style="border-bottom: 1px solid #126de5;">&nbsp; </td>
+							  <td rowspan="2" class="o_sans o_text o_text-secondary o_px o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+								<img src="https://live.snovasys.com/backend/File/FileApi/GetGenericFileDetails?fileId=2FFE10BE-B337-46F8-AFCB-9F899DC850B6" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+							  </td>
+							  <td class="o_bb-primary" height="40" width="32" style="border-bottom: 1px solid #126de5;">&nbsp; </td>
+							</tr>
+							<tr>
+							  <td height="40">&nbsp; </td>
+							  <td height="40">&nbsp; </td>
+							</tr>
+							<tr>
+							  <td style="font-size: 8px; line-height: 8px; height: 8px;">&nbsp; </td>
+							  <td style="font-size: 8px; line-height: 8px; height: 8px;">&nbsp; </td>
+							</tr>
+						  </tbody>
+						</table>
+						<h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">Forgot Your Password?</h2>
+						<p style="margin-top: 0px;margin-bottom: 0px;">Protecting your data is important to us.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- content -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">We''re sending you this email because you requested a password reset for your account. Please reset your password by clicking on the below button.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- button-primary -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py-xs" align="center" style="background-color: #ffffff;padding-left: 24px;padding-right: 24px;padding-top: 8px;padding-bottom: 8px;">
+						<table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
+						  <tbody>
+							<tr>
+							  <td width="300" class="o_btn o_bg-primary o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #126de5;border-radius: 4px;">
+								<a class="o_text-white" href="##resetPasswordLink##" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">Reset My Password</a>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		 <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">If you didn''t request a password reset, you can ignore this email.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- footer-white-2cols -->
+		<table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+							  Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+						  </p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+						  </div>
+						</div>
+					   </td>
+					</tr>
+				  </tbody>
+				</table>
+	  </body>
+	</html>',@CompanyId),
+	(N'RegistrationVerificationEmailTemplate',
+			'<!doctype html>
+	<html lang="en">
+	  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="x-apple-disable-message-reformatting">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Account Verification</title>
+		<style type="text/css">
+		  a { text-decoration: none; outline: none; }
+		  @media (max-width: 649px) {
+			.o_col-full { max-width: 100% !important; }
+			.o_col-half { max-width: 50% !important; }
+			.o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+			.o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+			.o_xs-center { text-align: center !important; }
+			.o_xs-left { text-align: left !important; }
+			.o_xs-right { text-align: left !important; }
+			table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+			table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+			table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+			h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+			h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+			h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+			.o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+			.o_xs-pt-xs { padding-top: 8px !important; }
+			.o_xs-pb-xs { padding-bottom: 8px !important; }
+		  }
+		  @media screen {
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+			  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+			@font-face {
+			  font-family: Roboto;
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+			.o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+			.o_heading, strong, b { font-weight: 700 !important; }
+			a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+		  }
+		</style>
+		<!--[if mso]>
+		<style>
+		  table { border-collapse: collapse; }
+		  .o_col { float: left; }
+		</style>
+		<xml>
+		  <o:OfficeDocumentSettings>
+			<o:PixelsPerInch>96</o:PixelsPerInch>
+		  </o:OfficeDocumentSettings>
+		</xml>
+		<![endif]-->
+	  </head>
+	  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+		<!-- preview-text -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- header -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-dark o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #242b3d;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src=##CompanyLogo## width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- hero-icon-lines -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-ultra_light o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ebf5fa;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td class="o_bb-primary" height="40" width="32" style="border-bottom: 1px solid #126de5;">&nbsp; </td>
+							  <td rowspan="2" class="o_sans o_text o_text-secondary o_px o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+								<img src="https://live.snovasys.com/backend/File/FileApi/GetGenericFileDetails?fileId=71F394A4-A1C2-481E-82B5-066E1B2C995F" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+							  </td>
+							  <td class="o_bb-primary" height="40" width="32" style="border-bottom: 1px solid #126de5;">&nbsp; </td>
+							</tr>
+							<tr>
+							  <td height="40">&nbsp; </td>
+							  <td height="40">&nbsp; </td>
+							</tr>
+							<tr>
+							  <td style="font-size: 8px; line-height: 8px; height: 8px;">&nbsp; </td>
+							  <td style="font-size: 8px; line-height: 8px; height: 8px;">&nbsp; </td>
+							</tr>
+						  </tbody>
+						</table>
+						<h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">Let''s make sure it''s really you</h2>
+						<p style="margin-top: 0px;margin-bottom: 0px;">Thank you and congratulations for choosing ##footerName##.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		 <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">All you have to do now is to enter the below verification code in the registration form to confirm your identity.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- label-xs -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text-xs o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p class="o_mb" style="margin-top: 0px;margin-bottom: 16px;"><strong>Verification Code</strong></p>
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+						  <tbody>
+							<tr>
+							  <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;background-color: #ebf5fa;border-radius: 4px;padding-left: 8px;padding-right: 8px;padding-top: 16px;padding-bottom: 16px;">
+								<p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;"><strong>##OTP##</strong></p>
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- button-primary -->
+   
+ 
+   
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">If you have closed the window or navigated away from the registration form, you may register again because we only store user data after successful email validation.</p>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- spacer-lg -->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+		  <tbody>
+			<tr>
+			  <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+				<!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+				<table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+					</tr>
+				  </tbody>
+				</table>
+				<!--[if mso]></td></tr></table><![endif]-->
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		<!-- footer-white -->
+		 <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+				  <tbody>
+					<tr>
+					  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+						<div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+							<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+						<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+						<p style="margin-top: 0px;margin-bottom: 0px;">
+							  Learn more at <a class="o_text-dark_light o_underline" href=##Registersite## style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+						  </p>
+						  </div>
+						</div>
+						<!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+						<div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+						  <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+						  <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+							<p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+						  </div>
+						</div>
+					   </td>
+					</tr>
+				  </tbody>
+				</table>
+	  </body>
+	</html>',@CompanyId)
+        )
+        AS Source ([TemplateName], [HtmlTemplate],CompanyId) 
+        ON Target.[TemplateName] = Source.[TemplateName]  
+        AND Target.CompanyId = Source.CompanyId  
+        WHEN MATCHED THEN 
+        UPDATE SET [HtmlTemplate] = Source.[HtmlTemplate];
+
+		
+MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES 
+                 (NEWID(),'HiredDocumentsEmailTemplate',
+        '<!doctype html>  
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Account New Sign-in</title>
+      <style type="text/css">        a { text-decoration: none; outline: none; }        @media (max-width: 649px) {          .o_col-full { max-width: 100% !important; }          .o_col-half { max-width: 50% !important; }          .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }          .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }          .o_xs-center { text-align: center !important; }          .o_xs-left { text-align: left !important; }          .o_xs-right { text-align: left !important; }          table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }          table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }          table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }          h1.o_heading { font-size: 32px !important; line-height: 41px !important; }          h2.o_heading { font-size: 26px !important; line-height: 37px !important; }          h3.o_heading { font-size: 20px !important; line-height: 30px !important; }          .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }          .o_xs-pt-xs { padding-top: 8px !important; }          .o_xs-pb-xs { padding-bottom: 8px !important; }        }        @media screen {          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 400;            src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 400;            src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 700;            src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 700;            src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }          .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }          .o_heading, strong, b { font-weight: 700 !important; }          a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }        }      </style>
+      <!--[if mso]>      
+      <style>        table { border-collapse: collapse; }        .o_col { float: left; }      </style>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->    
+   </head>
+   <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+      <!-- preview-text -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- header-primary -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                                          <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- hero-white-icon-outline -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                                          <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                             <tbody>
+                                                <tr>
+                                                   <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">                              <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-assignee.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">                            </td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                          <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;"> </h2>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- device-row -->         
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="left" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                                          <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                                             <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                                <tbody>
+                                                   <tr>
+                                                      <td class="o_re o_bt-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-top: 1px solid #d3dce0;">&nbsp; </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+										    <h5  style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 20px;text-align:start">Hi ##CandidateName## </h5>
+										  
+                                          <br> 
+ <p style="margin-top: 0px;margin-bottom: 0px;text-align:start">Greetings from  ##CompanyName##</p>
+</br> 
+                                          <p style="margin-top: 0px;margin-bottom: 0px;text-align:start">Welcome to ##CompanyName## ! We are sure you are eagerly waiting the day you will make your entry into the ##CompanyName## family, just as we are preparing to welcome you to our fold. </p>
+										  </br>
+										   <p style="margin-top: 0px;margin-bottom: 0px;text-align:start">Submission of the following documents is mandatory for joining us.Please do ensure you submit these documents. </p>
+										  </br>
+                                       <h4 style="margin-top: 0px;margin-bottom: 0px;text-align:start">##Document##</h4>
+                                          </p>                    
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- spacer -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- alert-primary -->           <!-- spacer -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- content -->            <!-- spacer-lg -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- footer-3cols -->      
+      <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+         <tbody>
+            <tr>
+               <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                  <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                     <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                     <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+                        <p style="margin-top: 0px;margin-bottom: 0px;">                            Learn more at <a class="o_text-dark_light o_underline" href="https://snovasys.com/" style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a>                         </p>
+                     </div>
+                  </div>
+                  <!--[if mso]>
+               </td>
+               <td width="400" align="right" valign="top" style="padding:0px 8px;">
+                  <![endif]-->                      
+                  <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                     <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                     <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>',
+														GETDATE(),@UserId,@CompanyId)
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+	
+MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES 
+                 (NEWID(),'OfferMailTemplate',
+        '<!doctype html>  
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="x-apple-disable-message-reformatting">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Account New Sign-in</title>
+      <style type="text/css">        a { text-decoration: none; outline: none; }        @media (max-width: 649px) {          .o_col-full { max-width: 100% !important; }          .o_col-half { max-width: 50% !important; }          .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }          .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }          .o_xs-center { text-align: center !important; }          .o_xs-left { text-align: left !important; }          .o_xs-right { text-align: left !important; }          table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }          table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }          table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }          h1.o_heading { font-size: 32px !important; line-height: 41px !important; }          h2.o_heading { font-size: 26px !important; line-height: 37px !important; }          h3.o_heading { font-size: 20px !important; line-height: 30px !important; }          .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }          .o_xs-pt-xs { padding-top: 8px !important; }          .o_xs-pb-xs { padding-bottom: 8px !important; }        }        @media screen {          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 400;            src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 400;            src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 700;            src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }          @font-face {            font-family: ''Roboto'';            font-style: normal;            font-weight: 700;            src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }          .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }          .o_heading, strong, b { font-weight: 700 !important; }          a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }        }      </style>
+      <!--[if mso]>      
+      <style>        table { border-collapse: collapse; }        .o_col { float: left; }      </style>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->    
+   </head>
+   <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+      <!-- preview-text -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- header-primary -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-top: 24px;padding-bottom: 24px;">
+                                          <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-white" style="text-decoration: none;outline: none;color: #ffffff;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- hero-white-icon-outline -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ffffff;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                                          <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                             <tbody>
+                                                <tr>
+                                                   <td class="o_sans o_text o_text-secondary o_b-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #424651;border: 2px solid #126de5;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">                              <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-assignee.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">                            </td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                          <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;"> </h2>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- device-row -->         
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="left" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                                          <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                                             <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                                <tbody>
+                                                   <tr>
+                                                      <td class="o_re o_bt-light" style="font-size: 16px;line-height: 16px;height: 16px;vertical-align: top;border-top: 1px solid #d3dce0;">&nbsp; </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+										    <h5  style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 20px;text-align:start">Hi ##Candidate## </h5>
+										  
+                                          <br> 
+ <p style="margin-top: 0px;margin-bottom: 0px;text-align:start">Greetings from  ##CompanyName##</p>
+</br> 
+                                          <p style="margin-top: 0px;margin-bottom: 0px;text-align:start">On behalf of the entire company, I’d like to say that it brings me great pleasure to formally offer you.</p>
+										  </br> 
+										   <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-primary o_px o_pb-md" align="center" style="font-size: 0;vertical-align: top;background-color: #126de5;padding-left: 16px;padding-right: 100px;padding-bottom: 24px;">
+                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                   
+                    <!--[if mso]></td><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-3" style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                      <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                        <table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation" style="text-align: right;margin-left: auto;margin-right: 0;">
+                          <tbody>
+                            <tr>
+                              <td class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
+                                <a class="o_text-primary" href=''##PdfUrl##'' style="text-decoration: none;outline: none;color: #126de5;display: block;padding: 12px 24px;mso-text-raise: 3px;">Download offer letter</a>
+                           
+          </td>
+        </tr>
+      </tbody>
+    </table>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- spacer -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- alert-primary -->           <!-- spacer -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- content -->            <!-- spacer-lg -->      
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+         <tbody>
+            <tr>
+               <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                  <!--[if mso]>
+                  <table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <![endif]-->              
+                              <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+                                 <tbody>
+                                    <tr>
+                                       <td class="o_bg-white" style="font-size: 48px;line-height: 48px;height: 48px;background-color: #ffffff;">&nbsp; </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                  </table>
+                  <![endif]-->            
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <!-- footer-3cols -->      
+      <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+         <tbody>
+            <tr>
+               <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                  <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                     <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                     <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+                        <p style="margin-top: 0px;margin-bottom: 0px;">                            Learn more at <a class="o_text-dark_light o_underline" href="https://snovasys.com/" style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a>                         </p>
+                     </div>
+                  </div>
+                  <!--[if mso]>
+               </td>
+               <td width="400" align="right" valign="top" style="padding:0px 8px;">
+                  <![endif]-->                      
+                  <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                     <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                     <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>',
+														GETDATE(),@UserId,@CompanyId)
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+
+	UPDATE [dbo].[HtmlTemplates]
+	SET [HtmlTemplate] = '<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Service Confirmation</title>
+    <style type="text/css">
+      a { text-decoration: none; outline: none; }
+      @media (max-width: 649px) {
+        .o_col-full { max-width: 100% !important; }
+        .o_col-half { max-width: 50% !important; }
+        .o_hide-lg { display: inline-block !important; font-size: inherit !important; max-height: none !important; line-height: inherit !important; overflow: visible !important; width: auto !important; visibility: visible !important; }
+        .o_hide-xs, .o_hide-xs.o_col_i { display: none !important; font-size: 0 !important; max-height: 0 !important; width: 0 !important; line-height: 0 !important; overflow: hidden !important; visibility: hidden !important; height: 0 !important; }
+        .o_xs-center { text-align: center !important; }
+        .o_xs-left { text-align: left !important; }
+        .o_xs-right { text-align: left !important; }
+        table.o_xs-left { margin-left: 0 !important; margin-right: auto !important; float: none !important; }
+        table.o_xs-right { margin-left: auto !important; margin-right: 0 !important; float: none !important; }
+        table.o_xs-center { margin-left: auto !important; margin-right: auto !important; float: none !important; }
+        h1.o_heading { font-size: 32px !important; line-height: 41px !important; }
+        h2.o_heading { font-size: 26px !important; line-height: 37px !important; }
+        h3.o_heading { font-size: 20px !important; line-height: 30px !important; }
+        .o_xs-py-md { padding-top: 24px !important; padding-bottom: 24px !important; }
+        .o_xs-pt-xs { padding-top: 8px !important; }
+        .o_xs-pb-xs { padding-bottom: 8px !important; }
+      }
+      @media screen {
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 400;
+          src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+          unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face {
+          font-family: ''Roboto'';
+          font-style: normal;
+          font-weight: 700;
+          src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .o_sans, .o_heading { font-family: "Roboto", sans-serif !important; }
+        .o_heading, strong, b { font-weight: 700 !important; }
+        a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
+      }
+    </style>
+    
+  </head>
+  <body class="o_body o_bg-light" style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+    <!-- preview-text -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_hide" align="center" style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">Email Summary (Hidden)</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- header-white-link -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-white o_px o_pb-md o_br-t" align="center" style="font-size: 0;vertical-align: top;background-color: #ffffff;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="200" align="left" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-primary" style="text-decoration: none;outline: none;color: #126de5;"><img src="##CompanyLogo##" width="136" height="36" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a></p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                      <div style="font-size: 22px; line-height: 22px; height: 22px;">&nbsp; </div>
+                      <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                        <table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation" style="text-align: right;margin-left: auto;margin-right: 0;">
+                          <tbody>
+                            <tr>
+                              <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
+                                <a class="o_text-light" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;"><span style="mso-text-raise: 6px;display: inline;color: #82899a;">##AssigneeName## </span> <img src="images/person-24-light.png" width="24" height="24" alt="" style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-ultra_light o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ebf5fa;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                    <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                      <tbody>
+                        <tr>
+                          <td class="o_sans o_text o_text-white o_bg-primary o_px o_py o_br-max" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;color: #ffffff;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                            <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/notifications-48-primary.png" width="48" height="48" alt="" style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">Interview Schedule Remainder</h2>                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+	    <!-- service-primary -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-primary o_px o_pb-md" align="center" style="font-size: 0;vertical-align: top;background-color: #126de5;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-3" style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                      <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text o_text-white o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #ffffff;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xxs" style="margin-top: 0px;margin-bottom: 4px;"><strong>##InterviewRound##</strong></p>
+                        <p class="o_text-xs" style="font-size: 14px;line-height: 21px;margin-top: 0px;margin-bottom: 0px;">##InterviewDate## ##StartTime##</p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                    <div class="o_col o_col-3" style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                      <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                      <div class="o_px-xs o_right o_xs-center" style="text-align: right;padding-left: 8px;padding-right: 8px;">
+                    </div>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- content -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                    <p style="margin-top: 0px;margin-bottom: 0px;">##Description##</p>
+                  </td>
+                </tr>
+				<tr>
+					<td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+						<p style="margin-top: 0px;margin-bottom: 0px;">##JoinDescription##</p>
+					</td>
+				</tr
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+      <tbody>
+        <tr>
+          <td class="o_bg-light o_px-xs" align="center" style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+            <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+            <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_bg-white" style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- footer-white-3cols -->
+     <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
+              <tbody>
+                <tr>
+                  <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                    <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                        <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved</p>
+					<p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944    - info@snovasys.com</p>
+                    <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4 6JQ</p>
+					<p style="margin-top: 0px;margin-bottom: 0px;">
+                          Learn more at <a class="o_text-dark_light o_underline" href="https://snovasys.com/" style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> 
+                      </p>
+                      </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                      <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                      <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                        <p style="margin-top:0;margin-bottom:0">
+						<a class="o_text-dark_light" href="https://www.facebook.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png" width="36" height="36" alt="fb" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://twitter.com/snovasys" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png" width="36" height="36" alt="tw" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/" style="text-decoration:none;outline:0;color:#a0a3ab"><img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png" width="36" height="36" alt="ig" style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                        </p>
+                      </div>
+                    </div>
+                   </td>
+                </tr>
+              </tbody>
+            </table>
+  </body>
+</html>'
+	WHERE [TemplateName] = 'CandidateScheduleRemainderTemplate' AND CompanyId = @CompanyId
+
+	
+MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES 
+                (NEWID(),'InterviewScheduleApprovalTemplate',
+        '<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Service Confirmation</title>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+
+        @media (max-width: 649px) {
+            .o_col-full {
+                max-width: 100% !important;
+            }
+
+            .o_col-half {
+                max-width: 50% !important;
+            }
+
+            .o_hide-lg {
+                display: inline-block !important;
+                font-size: inherit !important;
+                max-height: none !important;
+                line-height: inherit !important;
+                overflow: visible !important;
+                width: auto !important;
+                visibility: visible !important;
+            }
+
+            .o_hide-xs,
+            .o_hide-xs.o_col_i {
+                display: none !important;
+                font-size: 0 !important;
+                max-height: 0 !important;
+                width: 0 !important;
+                line-height: 0 !important;
+                overflow: hidden !important;
+                visibility: hidden !important;
+                height: 0 !important;
+            }
+
+            .o_xs-center {
+                text-align: center !important;
+            }
+
+            .o_xs-left {
+                text-align: left !important;
+            }
+
+            .o_xs-right {
+                text-align: left !important;
+            }
+
+            table.o_xs-left {
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            table.o_xs-right {
+                margin-left: auto !important;
+                margin-right: 0 !important;
+                float: none !important;
+            }
+
+            table.o_xs-center {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            h1.o_heading {
+                font-size: 32px !important;
+                line-height: 41px !important;
+            }
+
+            h2.o_heading {
+                font-size: 26px !important;
+                line-height: 37px !important;
+            }
+
+            h3.o_heading {
+                font-size: 20px !important;
+                line-height: 30px !important;
+            }
+
+            .o_xs-py-md {
+                padding-top: 24px !important;
+                padding-bottom: 24px !important;
+            }
+
+            .o_xs-pt-xs {
+                padding-top: 8px !important;
+            }
+
+            .o_xs-pb-xs {
+                padding-bottom: 8px !important;
+            }
+        }
+
+        @media screen {
+            @font-face {
+                font-family: ''Roboto'';
+                font-style: normal;
+                font-weight: 400;
+                src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+                unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            }
+
+            @font-face {
+                font-family: ''Roboto'';
+                font-style: normal;
+                font-weight: 400;
+                src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+
+            @font-face {
+                font-family: ''Roboto'';
+                font-style: normal;
+                font-weight: 700;
+                src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+                unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            }
+
+            @font-face {
+                font-family: ''Roboto'';
+                font-style: normal;
+                font-weight: 700;
+                src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+
+            .o_sans,
+            .o_heading {
+                font-family: "Roboto", sans-serif !important;
+            }
+
+            .o_heading,
+            strong,
+            b {
+                font-weight: 700 !important;
+            }
+
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="o_body o_bg-light"
+    style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+    <!-- preview-text -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_hide" align="center"
+                    style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">
+                    Email Summary (Hidden)</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- header-white-link -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center"
+                    style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+                    <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                    <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="max-width: 632px;margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td class="o_re o_bg-white o_px o_pb-md o_br-t" align="center"
+                                    style="font-size: 0;vertical-align: top;background-color: #ffffff;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+                                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="200" align="left" valign="top" style="padding:0px 8px;"><![endif]-->
+                                    <div class="o_col o_col-2"
+                                        style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                                        <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                                        <div class="o_px-xs o_sans o_text o_left o_xs-center"
+                                            style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
+                                            <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-primary"
+                                                    style="text-decoration: none;outline: none;color: #126de5;"><img
+                                                        src="##CompanyLogo##" width="136" height="36"
+                                                        style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                                    <div class="o_col o_col-4"
+                                        style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                                        <div style="font-size: 22px; line-height: 22px; height: 22px;">&nbsp; </div>
+                                        <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                                            <table class="o_right o_xs-center" cellspacing="0" cellpadding="0"
+                                                border="0" role="presentation"
+                                                style="text-align: right;margin-left: auto;margin-right: 0;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="o_btn-b o_heading o_text-xs" align="center"
+                                                            style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
+                                                            <a class="o_text-light"
+                                                                style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;"><span
+                                                                    style="mso-text-raise: 6px;display: inline;color: #82899a;">##AssigneeName##
+                                                                </span> <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/user-icon.png" width="24"
+                                                                    height="24" alt=""
+                                                                    style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;"></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_bg-light o_px-xs" align="center"
+                    style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                    <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                    <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="max-width: 632px;margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td class="o_bg-ultra_light o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light"
+                                    align="center"
+                                    style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ebf5fa;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                                    <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                                        <tbody>
+                                            <tr>
+                                                <td class="o_sans o_text o_text-white o_bg-primary o_px o_py o_br-max"
+                                                    align="center"
+                                                    style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;color: #ffffff;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                                                    <img src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/notifications-48-primary.png"
+                                                        width="48" height="48" alt=""
+                                                        style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <h2 class="o_heading o_text-dark o_mb-xxs"
+                                        style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">
+                                        ##TemplateName##</h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- service-primary -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_bg-light o_px-xs" align="center"
+                    style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                    <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                    <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="max-width: 632px;margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td class="o_re o_bg-primary o_px o_pb-md" align="center"
+                                    style="font-size: 0;vertical-align: top;background-color: #126de5;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+                                    <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                                    <div class="o_col o_col-3"
+                                        style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                                        <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                                        <div class="o_px-xs o_sans o_text o_text-white o_left o_xs-center"
+                                            style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #ffffff;text-align: left;padding-left: 8px;padding-right: 8px;">
+                                            <p class="o_mb-xxs" style="margin-top: 0px;margin-bottom: 4px;">
+                                                <strong>##InterviewRound##</strong></p>
+                                            <p class="o_text-xs"
+                                                style="font-size: 14px;line-height: 21px;margin-top: 0px;margin-bottom: 0px;">
+                                                ##InterviewDate## ##InterviewTime##</p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                                    <div class="o_col o_col-3"
+                                        style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                                        <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp; </div>
+                                        <div class="o_px-xs o_right o_xs-center"
+                                            style="text-align: right;padding-left: 8px;padding-right: 8px;">
+                                            <table class="o_right o_xs-center" cellspacing="0" cellpadding="0"
+                                                border="0" role="presentation"
+                                                style="text-align: right;margin-left: auto;margin-right: 0;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="o_btn o_bg-white o_br o_heading o_text"
+                                                            align="center"
+                                                            style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
+                                                            <a class="o_text-primary" href='' ##ApprovalUrl##''
+                                                                style="text-decoration: none;outline: none;color: #126de5;display: block;padding: 12px 24px;mso-text-raise: 3px;">##ButtonName##</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--[if mso]></td></tr></table><![endif]-->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_bg-light o_px-xs" align="center"
+                    style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                    <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                    <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="max-width: 632px;margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td class="o_bg-white"
+                                    style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">
+                                    &nbsp; </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- content -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_bg-light o_px-xs" align="center"
+                    style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                    <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                    <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="max-width: 632px;margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center"
+                                    style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                                    <p style="margin-top: 0px;margin-bottom: 0px;">##Description##</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- spacer -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+        <tbody>
+            <tr>
+                <td class="o_bg-light o_px-xs" align="center"
+                    style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+                    <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+                    <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="max-width: 632px;margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td class="o_bg-white"
+                                    style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">
+                                    &nbsp; </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- footer-white-3cols -->
+    <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+        style="max-width: 632px;margin: 0 auto;">
+        <tbody>
+            <tr>
+                <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center"
+                    style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+                    <div class="o_col o_col-4"
+                        style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                        <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                        <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center"
+                            style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+                            <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All
+                                rights reserved</p>
+                            <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944 -
+                                info@snovasys.com</p>
+                            <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury
+                                Road London - TW4 6JQ</p>
+                            <p style="margin-top: 0px;margin-bottom: 0px;">
+                                Learn more at <a class="o_text-dark_light o_underline" href="https://snovasys.com/"
+                                    style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                    <div class="o_col o_col-2"
+                        style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                        <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+                        <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center"
+                            style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+                            <p style="margin-top:0;margin-bottom:0">
+                                <a class="o_text-dark_light" href="https://www.facebook.com/snovasys"
+                                    style="text-decoration:none;outline:0;color:#a0a3ab"><img
+                                        src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png"
+                                        width="36" height="36" alt="fb"
+                                        style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                                <a class="o_text-dark_light" href="https://twitter.com/snovasys"
+                                    style="text-decoration:none;outline:0;color:#a0a3ab"><img
+                                        src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png"
+                                        width="36" height="36" alt="tw"
+                                        style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                                <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/"
+                                    style="text-decoration:none;outline:0;color:#a0a3ab"><img
+                                        src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png"
+                                        width="36" height="36" alt="ig"
+                                        style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+                            </p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+',
+														GETDATE(),@UserId,@CompanyId)
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+
+		
+		MERGE INTO [dbo].[HtmlTemplates] AS Target 
+        USING ( VALUES 
+                 (NEWID(),'InterviewScheduleConfirmedTemplate',
+        '<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Service Confirmation</title>
+  <style type="text/css">
+    a {
+      text-decoration: none;
+      outline: none;
+    }
+
+    @media (max-width: 649px) {
+      .o_col-full {
+        max-width: 100% !important;
+      }
+
+      .o_col-half {
+        max-width: 50% !important;
+      }
+
+      .o_hide-lg {
+        display: inline-block !important;
+        font-size: inherit !important;
+        max-height: none !important;
+        line-height: inherit !important overflow: visible !important;
+        width: auto !important;
+        visibility: visible !important;
+      }
+
+      .o_hide-xs,
+      .o_hide-xs.o_col_i {
+        display: none !important;
+        font-size: 0 !important;
+        max-height: 0 !important;
+        width: 0 !important;
+        line-height: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        height: 0 !important;
+      }
+
+      .o_xs-center {
+        text-align: center !important;
+      }
+
+      .o_xs-left {
+        text-align: left !important;
+      }
+
+      .o_xs-right {
+        text-align: left !important;
+      }
+
+      table.o_xs-left {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        float: none !important;
+      }
+
+      table.o_xs-right {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        float: none !important;
+      }
+
+      table.o_xs-center {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        float: none !important;
+      }
+
+      h1.o_heading {
+        font-size: 32px !important;
+        line-height: 41px !important;
+      }
+
+      h2.o_heading {
+        font-size: 26px !important;
+        line-height: 37px !important;
+      }
+
+      h3.o_heading {
+        font-size: 20px !important;
+        line-height: 30px !important;
+      }
+
+      .o_xs-py-md {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+      }
+
+      .o_xs-pt-xs {
+        padding-top: 8px !important;
+      }
+
+      .o_xs-pb-xs {
+        padding-bottom: 8px !important;
+      }
+    }
+
+    @media screen {
+      @font-face {
+        font-family: ''Roboto'';
+        font-style: normal;
+        font-weight: 400;
+        src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format("woff2");
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: ''Roboto'';
+        font-style: normal;
+        font-weight: 400;
+        src: local("Roboto"), local("Roboto-Regular"), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: ''Roboto'';
+        font-style: normal;
+        font-weight: 700;
+        src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format("woff2");
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: ''Roboto'';
+        font-style: normal;
+        font-weight: 700;
+        src: local("Roboto Bold"), local("Roboto-Bold"), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      .o_sans,
+      .o_heading {
+        font-family: "Roboto", sans-serif !important;
+      }
+
+      .o_heading,
+      strong,
+      b {
+        font-weight: 700 !important;
+      }
+
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="o_body o_bg-light"
+  style="width: 100%;margin: 0px;padding: 0px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dbe5ea;">
+  <!-- preview-text -->
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_hide" align="center"
+          style="display: none;font-size: 0;max-height: 0;width: 0;line-height: 0;overflow: hidden;mso-hide: all;visibility: hidden;">
+          Email Summary (Hidden)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- header-white-link -->
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center"
+          style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;padding-top: 32px;">
+          <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+          <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+            style="max-width: 632px;margin: 0 auto;">
+            <tbody>
+              <tr>
+                <td class="o_re o_bg-white o_px o_pb-md o_br-t" align="center"
+                  style="font-size: 0;vertical-align: top;background-color: #ffffff;border-radius: 4px 4px 0px 0px;padding-left: 16px;padding-right: 16px;padding-bottom: 24px;">
+                  <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="200" align="left" valign="top" style="padding:0px 8px;"><![endif]-->
+                  <div class="o_col o_col-2"
+                    style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+                    <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp;
+                    </div>
+                    <div class="o_px-xs o_sans o_text o_left o_xs-center"
+                      style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
+                      <p style="margin-top: 0px;margin-bottom: 0px;"><a class="o_text-primary"
+                          href="https://example.com/" style="text-decoration: none;outline: none;color: #126de5;"><img
+                            src="https://bviewstorage.blob.core.windows.net/5cfabe47-dd1d-454b-8a71-72580aa92ad4/localsiteuploads/54910103-9ebe-4020-a347-4be1cbfc36be/snovasys-5ac4c12f-20b1-425f-b550-076cf851f59e.png"
+                            width="136" height="36"
+                            style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+                  <div class="o_col o_col-4"
+                    style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+                    <div style="font-size: 22px; line-height: 22px; height: 22px;">&nbsp;
+                    </div>
+                    <div class="o_px-xs" style="padding-left: 8px;padding-right: 8px;">
+                      <table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="text-align: right;margin-left: auto;margin-right: 0;">
+                        <tbody>
+                          <tr>
+                            <td class="o_btn-b o_heading o_text-xs" align="center"
+                              style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
+                              <a class="o_text-light"
+                                style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                <span style="mso-text-raise: 6px;display: inline;color: #82899a;">##AssigneeName##
+                                </span>
+                                <img src="images/person-24-light.png" width="24" height="24" alt=""
+                                  style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_bg-light o_px-xs" align="center"
+          style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+          <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+          <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+            style="max-width: 632px;margin: 0 auto;">
+            <tbody>
+              <tr>
+                <td class="o_bg-ultra_light o_px-md o_py-xl o_xs-py-md o_sans o_text-md o_text-light" align="center"
+                  style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 19px;line-height: 28px;background-color: #ebf5fa;color: #82899a;padding-left: 24px;padding-right: 24px;padding-top: 64px;padding-bottom: 64px;">
+                  <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+                    <tbody>
+                      <tr>
+                        <td class="o_sans o_text o_text-white o_bg-primary o_px o_py o_br-max" align="center"
+                          style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #126de5;color: #ffffff;border-radius: 96px;padding-left: 16px;padding-right: 16px;padding-top: 16px;padding-bottom: 16px;">
+                          <img
+                            src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/notifications-48-primary.png"
+                            width="48" height="48" alt=""
+                            style="max-width: 48px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp;
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h2 class="o_heading o_text-dark o_mb-xxs"
+                    style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">
+                    Interview Schedule confirmed</h2>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- service-primary -->
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_bg-light o_px-xs" align="center"
+          style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+          <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+          <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+            style="max-width: 632px;margin: 0 auto;">
+            <tbody>
+              <tr>
+                <td class="o_re o_bg-primary o_px o_pb-md" align="center"
+                  style="font-size: 0;vertical-align: top;background-color: #126de5;padding-left: 50px;padding-right: 16px;padding-bottom: 24px;">
+                  <!--[if mso]><table cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                  <div class="o_col o_col-3"
+                    style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                    <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp;
+                    </div>
+                    <div class="o_px-xs o_sans o_text o_text-white o_left o_xs-center"
+                      style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;color: #ffffff;text-align: left;padding-left: 8px;padding-right: 8px;">
+                      <p class="o_mb-xxs" style="margin-top: 0px;margin-bottom: 4px;">
+                        <strong>##InterviewRound##</strong></p>
+                      <p class="o_text-xs"
+                        style="font-size: 14px;line-height: 21px;margin-top: 0px;margin-bottom: 0px;">##InterviewDate##
+                        ##InterviewTime##</p>
+                    </div>
+                  </div>
+                  <!--[if mso]></td><td width="300" align="center" valign="top" style="padding: 0px 8px;"><![endif]-->
+                  <div class="o_col o_col-3"
+                    style="display: inline-block;vertical-align: top;width: 100%;max-width: 300px;">
+                    <div style="font-size: 24px; line-height: 24px; height: 24px;">&nbsp;
+                    </div>
+                    <div class="o_px-xs o_right o_xs-center"
+                      style="text-align: right;padding-left: 8px;padding-right: 8px;">
+                      <table class="o_right o_xs-center" cellspacing="0" cellpadding="0" border="0" role="presentation"
+                        style="text-align: right;margin-left: auto;margin-right: 0;">
+                        <tbody>
+                          <tr>
+                            <td class="o_btn o_bg-white o_br o_heading o_text" align="center"
+                              style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- spacer -->
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_bg-light o_px-xs" align="center"
+          style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+          <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+          <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+            style="max-width: 632px;margin: 0 auto;">
+            <tbody>
+              <tr>
+                <td class="o_bg-white"
+                  style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- content -->
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_bg-light o_px-xs" align="center"
+          style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+          <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+          <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+            style="max-width: 632px;margin: 0 auto;">
+            <tbody>
+              <tr>
+                <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center"
+                  style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
+                  <p style="margin-top: 0px;margin-bottom: 0px;">The interview which was scheduled on the above date was
+                    confirmed</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table> <!-- spacer -->
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+    <tbody>
+      <tr>
+        <td class="o_bg-light o_px-xs" align="center"
+          style="background-color: #dbe5ea;padding-left: 8px;padding-right: 8px;">
+          <!--[if mso]><table width="632" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td><![endif]-->
+          <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+            style="max-width: 632px;margin: 0 auto;">
+            <tbody>
+              <tr>
+                <td class="o_bg-white"
+                  style="font-size: 24px;line-height: 24px;height: 24px;background-color: #ffffff;">&nbsp; </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table> <!-- footer-white-3cols -->
+  <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"
+    style="max-width: 632px;margin: 0 auto;">
+    <tbody>
+      <tr>
+        <td class="o_re o_bg-dark o_px o_pb-lg o_br-b" align="center"
+          style="font-size: 0;vertical-align: top;background-color: #242b3d;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 32px;">
+          <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
+            <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+            <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_left o_xs-center"
+              style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: left;padding-left: 8px;padding-right: 8px;">
+              <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">© 2008-2020 Snovasys. All rights reserved
+              </p>
+              <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;"> (+44) 07944 144 944 - info@snovasys.com
+              </p>
+              <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">Vista Centre 50 Salisbury Road London - TW4
+                6JQ</p>
+              <p style="margin-top: 0px;margin-bottom: 0px;"> Learn more at <a class="o_text-dark_light o_underline"
+                  href="https://snovasys.com/"
+                  style="text-decoration: underline;outline: none;color: #dbe5ea;">snovasys.com</a> </p>
+            </div>
+          </div>
+          <!--[if mso]></td><td width="400" align="right" valign="top" style="padding:0px 8px;"><![endif]-->
+          <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
+            <div style="font-size: 32px; line-height: 32px; height: 32px;">&nbsp; </div>
+            <div class="o_px-xs o_sans o_text-xs o_text-dark_light o_right o_xs-center"
+              style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #a0a3ab;text-align: right;padding-left: 8px;padding-right: 8px;">
+              <p style="margin-top:0;margin-bottom:0"><a class="o_text-dark_light"
+                href="https://www.facebook.com/snovasys"
+                style="text-decoration:none;outline:0;color:#a0a3ab"><img
+                    src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/facebookicon.png"
+                    width="36" height="36" alt="fb"
+                    style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+            <a class="o_text-dark_light" href="https://twitter.com/snovasys"
+                style="text-decoration:none;outline:0;color:#a0a3ab"><img
+                    src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/twittericon.png"
+                    width="36" height="36" alt="tw"
+                    style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+            <a class="o_text-dark_light" href="https://www.linkedin.com/company/snovasys/"
+                style="text-decoration:none;outline:0;color:#a0a3ab"><img
+                    src="https://bviewstorage.blob.core.windows.net/mailtemplatefiles/linkedIn.png"
+                    width="36" height="36" alt="ig"
+                    style="max-width:36px;-ms-interpolation-mode:bicubic;vertical-align:middle;border:0;line-height:100%;height:auto;outline:0;text-decoration:none"></a><span>&nbsp;</span>
+        </p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>',	GETDATE(),@UserId,@CompanyId)
+        )
+        AS Source ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        ON Target.[TemplateName] = Source.[TemplateName]  AND Target.[CompanyId] = Source.[CompanyId]
+        WHEN MATCHED THEN 
+        UPDATE SET [TemplateName] = Source.[TemplateName],
+                   [HtmlTemplate] = Source.[HtmlTemplate],
+                   [CreatedDateTime] = Source.[CreatedDateTime],
+                   [CreatedByUserId] = Source.[CreatedByUserId],
+                   [CompanyId] = Source.[CompanyId]
+        WHEN NOT MATCHED BY TARGET THEN 
+        INSERT ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]) 
+        VALUES ([Id], [TemplateName], [HtmlTemplate], [CreatedDateTime], [CreatedByUserId],[CompanyId]);
+
+END
+GO

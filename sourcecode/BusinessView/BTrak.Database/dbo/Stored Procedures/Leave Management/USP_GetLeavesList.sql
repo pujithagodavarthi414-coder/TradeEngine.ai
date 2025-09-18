@@ -1,0 +1,97 @@
+﻿--CREATE PROCEDURE [dbo].[USP_GetLeavesList]
+--(
+--	@UserId UNIQUEIDENTIFIER,
+--	@CompanyId UNIQUEIDENTIFIER
+--)
+--AS
+--BEGIN
+--    DECLARE @Employeeid UNIQUEIDENTIFIER
+--    SELECT @EmployeeId = Id FROM Employee WHERE UserId = @UserId
+--    DECLARE @DesignationId UNIQUEIDENTIFIER
+--    SELECT @DesignationId = DesignationId FROM EmployeeDesignation WHERE EmployeeId = @EmployeeId AND ActiveTo IS NULL
+--    DECLARE @ApprovedDesignations INT
+--    SELECT @ApprovedDesignations = COUNT(1) FROM LeaveWorkFlow WHERE ApprovedDesignationId = @DesignationId
+--    DECLARE @GetParent UNIQUEIDENTIFIER
+--    SELECT @GetParent = @EmployeeId
+--    DECLARE @ret TABLE 
+--    (
+--        lvl INTEGER,
+--        ParentId UNIQUEIDENTIFIER,
+--        ChildId UNIQUEIDENTIFIER
+--    )
+--    DECLARE @lvl INTEGER
+--    SET @lvl = 1
+--    INSERT INTO @ret (lvl, ParentId, ChildId) SELECT @lvl, @GetParent, EmployeeId FROM EmployeeReportTo WHERE ReportToEmployeeId = @GetParent
+--    WHILE (@@ROWCOUNT > 0)
+--    BEGIN
+--        SET @lvl = @lvl + 1
+--        INSERT INTO @ret (lvl, ParentId, ChildId)
+--        SELECT @lvl, p.ReportToEmployeeId, p.EmployeeId
+--        FROM EmployeeReportTo p 
+--        JOIN @ret r ON r.lvl = @lvl - 1 and p.ReportToEmployeeId = r.ChildId
+--		JOIN Employee E ON E.Id = p.EmployeeId JOIN [User] U ON U.Id = E.UserId 
+--		WHERE u.CompanyId = @CompanyId
+--    END
+--    DECLARE @LeaveApplication TABLE 
+--    (
+--        LeaveApplicationId UNIQUEIDENTIFIER,
+--        UserId UNIQUEIDENTIFIER,
+--        EmployeeName VARCHAR(800),
+--        DesignationId UNIQUEIDENTIFIER,
+--        Designation VARCHAR(800),
+--        LeaveAppliedDate DATETIME,
+--        TeamLeadStatus VARCHAR(100),
+--        CEOStatus VARCHAR(100),
+--        Edit BIT,
+--        [Delete] BIT,
+--        Approve BIT,
+--        Reject BIT,
+--        OverallLeaveStatusId UNIQUEIDENTIFIER,
+--        OverallLeaveStatus VARCHAR(100)
+--    )
+    
+--    INSERT INTO @LeaveApplication(LeaveApplicationId,UserId,EmployeeName,LeaveAppliedDate,OverallLeaveStatusId,OverallLeaveStatus,DesignationId,Designation)
+--    SELECT LA.Id,LA.UserId,U.FirstName+' '+U.SurName,LA.LeaveAppliedDate,LA.OverallLeaveStatusId,LS.LeaveStatusName,ED.DesignationId,D.DesignationName
+--    FROM  LeaveApplication LA WITH (NOLOCK) JOIN Employee E ON E.UserId = LA.UserId JOIN @ret R ON R.ChildId = E.Id JOIN [User] U ON U.Id = E.UserId
+--          LEFT JOIN LeaveStatus LS ON LS.Id = LA.OverallLeaveStatusId
+--          LEFT JOIN EmployeeDesignation ED ON ED.EmployeeId = E.Id AND ActiveTo IS NULL
+--          LEFT JOIN Designation D ON D.Id = ED.DesignationId
+--    WHERE LA.IsDeleted <> 1 AND U.CompanyId = @CompanyId
+--    UNION ALL
+--    SELECT LA.Id,LA.UserId,U.FirstName+' '+U.SurName,LA.LeaveAppliedDate,LA.OverallLeaveStatusId,LS.LeaveStatusName,ED.DesignationId,DesignationName
+--    FROM  LeaveApplication LA WITH (NOLOCK) JOIN Employee E WITH (NOLOCK) ON E.UserId = LA.UserId JOIN [User] U ON LA.UserId = U.Id LEFT JOIN LeaveStatus LS ON LS.Id = LA.OverallLeaveStatusId
+--          LEFT JOIN EmployeeDesignation ED ON ED.EmployeeId = E.Id AND ActiveTo IS NULL
+--          LEFT JOIN Designation D ON D.Id = ED.DesignationId
+--    WHERE LA.UserId = @UserId AND LA.IsDeleted <> 1 AND U.CompanyId = @CompanyId
+--    UPDATE @LeaveApplication SET Edit = CASE WHEN OverallLeaveStatusId IS NULL AND UserId = @UserId THEN 1 ELSE 0 END,
+--                                 [Delete] = CASE WHEN OverallLeaveStatusId IS NULL AND UserId = @UserId THEN 1 ELSE 0 END,
+--                                 Approve = CASE WHEN OverallLeaveStatusId IS NULL AND @ApprovedDesignations >= 1 AND UserId <> @UserId THEN 1 ELSE 0 END,
+--                                 Reject = CASE WHEN OverallLeaveStatusId IS NULL AND @ApprovedDesignations >= 1 AND UserId <> @UserId THEN 1 ELSE 0 END 
+--    UPDATE @LeaveApplication SET TeamLeadStatus = CASE WHEN Designation IN ('Lead Developer','CEO') THEN '-' END,
+--                                 CEOStatus = CASE WHEN Designation IN ('CEO') THEN '-' END
+--    UPDATE @LeaveApplication SET TeamLeadStatus = LAInner.LeaveStatusName
+--    FROM @LeaveApplication LA
+--         JOIN (SELECT LA.LeaveApplicationId,LAS.LeaveStatusId,LS.LeaveStatusName
+--               FROM @LeaveApplication LA JOIN LeaveApplicationStatus LAS ON LAS.LeaveApplicationId = LA.LeaveApplicationId
+--                    JOIN Employee E ON E.UserId = LAS.LeaveStuatusSetByUserId JOIN EmployeeDesignation ED ON ED.EmployeeId = E.Id AND ActiveTo IS NULL
+--                    JOIN Designation D ON D.Id = ED.DesignationId AND D.DesignationName IN ('Lead Developer')
+--                    LEFT JOIN LeaveStatus LS ON LS.Id = LAS.LeaveStatusId) LAINner ON LAInner.LeaveApplicationId = LA.LeaveApplicationId
+--    WHERE TeamLeadStatus <> '-' OR TeamLeadStatus IS NULL
+--    UPDATE @LeaveApplication SET CEOStatus = LAInner.LeaveStatusName
+--    FROM @LeaveApplication LA
+--         JOIN (SELECT LA.LeaveApplicationId,LAS.LeaveStatusId,LS.LeaveStatusName
+--               FROM @LeaveApplication LA JOIN LeaveApplicationStatus LAS ON LAS.LeaveApplicationId = LA.LeaveApplicationId
+--                    JOIN Employee E ON E.UserId = LAS.LeaveStuatusSetByUserId JOIN EmployeeDesignation ED ON ED.EmployeeId = E.Id AND ActiveTo IS NULL
+--                    JOIN Designation D ON D.Id = ED.DesignationId AND D.DesignationName IN ('CEO')
+--                    LEFT JOIN LeaveStatus LS ON LS.Id = LAS.LeaveStatusId) LAINner ON LAInner.LeaveApplicationId = LA.LeaveApplicationId
+--    WHERE CEOStatus <> '-' OR CEOStatus IS NULL
+--    UPDATE @LeaveApplication SET CEOStatus = CASE WHEN OverallLeaveStatus IS NULL AND (CEOStatus <> '-' OR CEOStatus IS NULL) THEN 'Waiting For Approval' END
+--    WHERE CEOStatus IS NULL
+--    UPDATE @LeaveApplication SET TeamLeadStatus = CASE WHEN OverallLeaveStatus IS NULL AND (TeamLeadStatus <> '-' OR TeamLeadStatus IS NULL) THEN 'Waiting For Approval' END
+--    WHERE TeamLeadStatus IS NULL
+      
+--    UPDATE @LeaveApplication SET  Approve = CASE WHEN TeamLeadStatus = 'Waiting For Approval' AND OverallLeaveStatus IS NULL THEN 1 ELSE 0 END,
+--                                  Reject = CASE WHEN TeamLeadStatus = 'Waiting For Approval' AND OverallLeaveStatus IS NULL THEN 1 ELSE 0 END
+--                                  WHERE @DesignationId = '3CA7F983-7B24-44AF-B09C-842C3750082F' --If it is 'Lead Developer'
+--    SELECT * FROM @LeaveApplication
+--END

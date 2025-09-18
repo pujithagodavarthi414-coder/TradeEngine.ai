@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[PayrollInput]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[InputName] NVARCHAR(250) NOT NULL,
+	[CreatedDateTime] DATETIME NOT NULL,
+	[CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+	[UpdatedDateTime] [datetime] NULL,
+    [UpdatedByUserId] [uniqueidentifier] NULL,
+	[InactiveDateTime] [datetime] NULL,
+	IsPercentage BIT NOT NULL DEFAULT 0,
+	IsEditable BIT NOT NULL DEFAULT 0,
+	[ParentInputId] UNIQUEIDENTIFIER NULL,
+CONSTRAINT [PK_PayrollInput] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+   
+)
+GO

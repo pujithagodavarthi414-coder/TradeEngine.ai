@@ -1,0 +1,14 @@
+﻿CREATE PROCEDURE [dbo].[USP_GetTimeZone]
+(
+	 @TimeZoneTableId UNIQUEIDENTIFIER,
+	 @TimeZoneId UNIQUEIDENTIFIER
+)
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+	SELECT [TimeZoneName] FROM [TimeZone] T WITH (NOLOCK)
+	JOIN [User] U WITH (NOLOCK) ON U.TimeZoneId = T.Id
+	WHERE T.Id = @TimeZoneId
+END

@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[IndustryModule]
+(
+	[Id] [UNIQUEIDENTIFIER] NOT NULL,
+    [IndustryId] [UNIQUEIDENTIFIER] NOT NULL,
+	[ModuleId] [UNIQUEIDENTIFIER] NOT NULL,
+    [CreatedDateTime] [DATETIME] NOT NULL,
+    [CreatedByUserId] [UNIQUEIDENTIFIER]	NOT NULL,
+    [UpdatedDateTime] [DATETIME] NULL,
+    [UpdatedByUserId] [UNIQUEIDENTIFIER] NULL,
+    [InActiveDateTime] [DATETIME] NULL,
+    [TimeStamp]	[TIMESTAMP],
+ CONSTRAINT [PK_IndustryModule] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+    CONSTRAINT [FK_IndustryModule_CreatedByUserId] FOREIGN KEY ([CreatedByUserId]) REFERENCES [User]([Id]),
+	CONSTRAINT [FK_IndustryModule_UpdatedByUserId] FOREIGN KEY ([UpdatedByUserId]) REFERENCES [User]([Id])
+)
+GO

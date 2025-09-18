@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[AuditComplianceVersions]
+(
+	[Id] [uniqueidentifier] NOT NULL,
+	[AuditId] [uniqueidentifier] NOT NULL,
+	[VersionName] NVARCHAR(100) NOT NULL,
+	[VersionNumber] INT NOT NULL,
+	[CompanyId] [uniqueidentifier] NOT NULL,
+	[AuditName] [nvarchar](150) NOT NULL,
+	[Description] [nvarchar](800) NULL,
+    [IsRAG] [bit] NULL DEFAULT 0,
+    [CanLogTime] [bit] NULL DEFAULT 0,
+    [InboundPercent] [float] NULL,
+    [OutboundPercent] [float] NULL,
+	[ResposibleUserId] UNIQUEIDENTIFIER NULL,
+	[EnableQuestionLevelWorkFlow] BIT NULL,
+	AuditFolderId UNIQUEIDENTIFIER NULL,
+	[CreatedDateTime] [datetime] NOT NULL,
+    [CreatedByUserId] [uniqueidentifier] NOT NULL,
+    [InActiveDateTime] [datetime] NULL,
+	[ProjectId] [uniqueidentifier] NULL, 
+)

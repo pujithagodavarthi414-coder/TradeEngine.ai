@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[ModuleLayout]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL , 
+    [ModulePageId] UNIQUEIDENTIFIER NULL, 
+    [LayoutName] NVARCHAR(250) NULL, 
+    [CreatedDateTime] DATETIME NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [UpdatedDateTime] DATETIME NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [InActiveDateTime] DATETIME NULL, 
+    [TimeStamp] TIMESTAMP NULL
+CONSTRAINT [PK_ModuleLayout] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY], 
+    [IsNameEdit] NVARCHAR(250) NULL,
+
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ModuleLayout]  WITH NOCHECK ADD  CONSTRAINT [FK_ModuleLayout_ModulePageId] FOREIGN KEY([ModulePageId])
+REFERENCES [dbo].[ModulePage] ([Id])
+GO
+
+ALTER TABLE [dbo].[ModuleLayout] CHECK CONSTRAINT [FK_ModuleLayout_ModulePageId]
+GO

@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[ApiKey]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [Key] NVARCHAR(20) NOT NULL, 
+    [ExpiryDate] DATETIME NOT NULL, 
+    [CompanyId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedDateTime] DATETIME NOT NULL, 
+)
+GO
+
+ALTER TABLE [dbo].[ApiKey]  WITH NOCHECK ADD  CONSTRAINT [FK_Company_ApiKey_CompanyId] FOREIGN KEY(CompanyId)
+REFERENCES [dbo].[Company] ([Id])
+GO
+
+ALTER TABLE [dbo].[ApiKey] CHECK CONSTRAINT [FK_Company_ApiKey_CompanyId]
+GO

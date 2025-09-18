@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[ActivityTrackerBrowser]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	BowserName NVARCHAR(100) NOT NULL,
+	CreatedDateTime DATETIME,
+	CreatedByUserId UNIQUEIDENTIFIER,
+	InactiveDateTime DATETIME
+)

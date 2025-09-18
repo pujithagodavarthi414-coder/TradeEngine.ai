@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[AuditImpact]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL ,
+	[ImpactName] NVARCHAR(50) NOT NULL,
+	[Description] NVARCHAR(800) NULL,
+	[CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+	[CreatedDateTime] DATETIME NOT NULL,
+	[UpdatedByUserId] UNIQUEIDENTIFIER NULL,
+	[UpdatedDateTime] DATETIME NULL,
+	[InActiveDateTime] DATETIME NULL,
+	[TimeStamp] TIMESTAMP NULL, 
+	[CompanyId] UNIQUEIDENTIFIER NULL,
+    CONSTRAINT [PK_AuditImpact] PRIMARY KEY ([Id]), 
+)

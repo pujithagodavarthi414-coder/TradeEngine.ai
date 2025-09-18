@@ -1,0 +1,11 @@
+﻿CREATE PROCEDURE [dbo].USP_GetErrorInformation
+AS
+BEGIN
+
+		DECLARE @Value1  NVARCHAR(500) = ERROR_MESSAGE()
+		DECLARE @Value2  INT = ERROR_SEVERITY()
+		DECLARE @Value3  INT  = ERROR_STATE()		
+ 
+		RAISERROR (@Value1,@Value2,@Value3)
+ 
+END

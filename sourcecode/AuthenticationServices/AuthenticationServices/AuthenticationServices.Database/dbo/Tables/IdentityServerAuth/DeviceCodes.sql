@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[DeviceCodes]
+(
+	[UserCode] NVARCHAR(250) NOT NULL PRIMARY KEY,
+	DeviceCode  NVARCHAR(250) NOT NULL,
+	SubjectId NVARCHAR(250) NULL,
+	SessionId NVARCHAR(250) NULL,
+	ClientId NVARCHAR(250) NOT NULL,
+	[Description] NVARCHAR(800) NULL,
+	CreationTime DATETIME NOT NULL,
+	Expiration DATETIME NOT NULL,
+	[Data] NVARCHAR(250) NOT NULL
+)

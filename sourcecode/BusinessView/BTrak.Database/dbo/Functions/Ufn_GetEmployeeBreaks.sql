@@ -1,0 +1,25 @@
+﻿CREATE FUNCTION Ufn_GetEmployeeBreaks
+(
+    @UserId UNIQUEIDENTIFIER,
+    @Date DATETIME 
+)
+RETURNS NVARCHAR(3000)
+AS 
+BEGIN
+
+    DECLARE @UserBreaks NVARCHAR(3000) = '  '
+    
+    SELECT @UserBreaks = @UserBreaks + ISNULL(' , ' +IIF(LEN(CAST(DATEPART(HOUR,BreakIn) AS NVARCHAR(5))) = 1,('0' + CAST(DATEPART(HOUR,BreakIn) AS NVARCHAR(5))),CAST(DATEPART(HOUR,BreakIn) AS NVARCHAR(5)))
+    + ':' + IIF(LEN(CAST(DATEPART(MINUTE,BreakIn) AS NVARCHAR(5))) = 1,('0' + CAST(DATEPART(MINUTE,BreakIn) AS NVARCHAR(5))),CAST(DATEPART(MINUTE,BreakIn) AS NVARCHAR(5)))
+    + ' - ' + IIF(LEN(CAST(DATEPART(HOUR,BreakOut) AS NVARCHAR(5))) = 1,('0' + CAST(DATEPART(HOUR,BreakOut) AS NVARCHAR(5))),CAST(DATEPART(HOUR,BreakOut) AS NVARCHAR(5)))
+    + ':' + IIF(LEN(CAST(DATEPART(MINUTE,BreakOut) AS NVARCHAR(5))) = 1,('0' + CAST(DATEPART(MINUTE,BreakOut) AS NVARCHAR(5))),CAST(DATEPART(MINUTE,BreakOut) AS NVARCHAR(5)))
+    + ISNULL(' (' + CAST(DATEDIFF(MINUTE,BreakIn,BreakOut) / 60 AS VARCHAR(50))
+    + 'hr:' + CAST(DATEDIFF(MINUTE, BreakIn,BreakOut) % 60 AS VARCHAR(50)) + 'min' + ')',''),'') FROM UserBreak WHERE UserId = @UserId
+    AND [Date] = @Date
+
+    SET @UserBreaks = REPLACE(@UserBreaks,'  ,','')
+   
+   RETURN @UserBreaks
+
+END
+GO

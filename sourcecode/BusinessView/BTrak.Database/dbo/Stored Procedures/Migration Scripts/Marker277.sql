@@ -1,0 +1,13 @@
+﻿CREATE PROCEDURE [dbo].[Marker277]
+(
+    @CompanyId UNIQUEIDENTIFIER,
+    @UserId UNIQUEIDENTIFIER,
+    @RoleId UNIQUEIDENTIFIER
+)
+AS 
+BEGIN 
+SET NOCOUNT ON
+    
+	
+END
+GO

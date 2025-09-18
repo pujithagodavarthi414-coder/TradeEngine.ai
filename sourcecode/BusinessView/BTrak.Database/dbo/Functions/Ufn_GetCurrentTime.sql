@@ -1,0 +1,16 @@
+﻿ CREATE FUNCTION Ufn_GetCurrentTime
+(
+	@Offset NVARCHAR(100) = NULL
+)
+RETURNS DATETIMEOFFSET
+AS 
+BEGIN
+
+    IF(@Offset = '')SET @Offset = NULL
+
+  DECLARE @Currentdate DATETIMEOFFSET = CASE WHEN @Offset IS NOT NULL THEN SWITCHOFFSET(SYSDATETIMEOFFSET(),STUFF(@Offset,4,0,':')) ELSE SYSDATETIMEOFFSET() END
+                          
+RETURN @Currentdate
+
+END
+GO

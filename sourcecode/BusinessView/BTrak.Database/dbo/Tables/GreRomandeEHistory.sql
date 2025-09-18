@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[GreRomandeEHistory]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL , 
+    [FieldName] NVARCHAR(250) NULL, 
+    [Description] NVARCHAR(MAX) NULL, 
+    [NewValue] NVARCHAR(MAX) NULL, 
+    [OldValue] NVARCHAR(MAX) NULL, 
+    [CreatedDateTime] DATETIME NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [UpdatedByDateTime] DATETIME NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL
+CONSTRAINT [PK_GreRomandeEHistory] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+    [GreRomandeId] UNIQUEIDENTIFIER NULL, 
+    [OldJson] NVARCHAR(MAX) NULL, 
+    [InActiveDateTime] DATETIME NULL
+)
+GO

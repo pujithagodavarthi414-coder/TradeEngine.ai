@@ -1,0 +1,14 @@
+﻿CREATE PROCEDURE [dbo].[Marker233]
+(
+    @CompanyId UNIQUEIDENTIFIER,
+    @UserId UNIQUEIDENTIFIER,
+    @RoleId UNIQUEIDENTIFIER
+)
+AS 
+BEGIN 
+UPDATE AutomatedWorkFlow SET WorkFlowTypeId = 'AB71A18F-4A69-4BC5-88AE-7598BF3AB695' WHERE WorkflowName = 'Generic mail' AND CompanyId = @CompanyId
+UPDATE AutomatedWorkFlow SET WorkFlowTypeId = 'AB71A18F-4A69-4BC5-88AE-7598BF3AB695' WHERE WorkflowName = 'Upload evidence' AND CompanyId = @CompanyId
+UPDATE AutomatedWorkFlow SET [WorkflowXml] = N'<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn"><bpmn:process id="genmail" name="gen mail" isExecutable="true"><bpmn:startEvent id="StartEvent_1"><bpmn:outgoing>Flow_11b98fm</bpmn:outgoing></bpmn:startEvent><bpmn:sequenceFlow id="Flow_11b98fm" sourceRef="StartEvent_1" targetRef="Activity_1swcocc" /><bpmn:serviceTask id="Activity_1swcocc" name="mail" camunda:type="external" camunda:topic="notification-activity"><bpmn:extensionElements><camunda:inputOutput><camunda:inputParameter name="message">Created ${name}</camunda:inputParameter><camunda:inputParameter name="responsibleUser">i@snovasys.com</camunda:inputParameter><camunda:inputParameter name="spanInDays" /></camunda:inputOutput></bpmn:extensionElements><bpmn:incoming>Flow_11b98fm</bpmn:incoming><bpmn:outgoing>Flow_17ias8z</bpmn:outgoing></bpmn:serviceTask><bpmn:endEvent id="Event_0hyqz6x"><bpmn:incoming>Flow_17ias8z</bpmn:incoming></bpmn:endEvent><bpmn:sequenceFlow id="Flow_17ias8z" sourceRef="Activity_1swcocc" targetRef="Event_0hyqz6x" /></bpmn:process><bpmndi:BPMNDiagram id="BPMNDiagram_1"><bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="genmail"><bpmndi:BPMNEdge id="Flow_17ias8z_di" bpmnElement="Flow_17ias8z"><di:waypoint x="360" y="120" /><di:waypoint x="412" y="120" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="Flow_11b98fm_di" bpmnElement="Flow_11b98fm"><di:waypoint x="209" y="120" /><di:waypoint x="260" y="120" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1"><dc:Bounds x="173" y="102" width="36" height="36" /></bpmndi:BPMNShape><bpmndi:BPMNShape id="Activity_1b1lnic_di" bpmnElement="Activity_1swcocc"><dc:Bounds x="260" y="80" width="100" height="80" /></bpmndi:BPMNShape><bpmndi:BPMNShape id="Event_0hyqz6x_di" bpmnElement="Event_0hyqz6x"><dc:Bounds x="412" y="102" width="36" height="36" /></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>'
+WHERE WorkflowName = 'Generic mail' AND CompanyId = @CompanyId
+END

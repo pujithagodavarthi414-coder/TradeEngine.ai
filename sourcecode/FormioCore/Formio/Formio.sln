@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formio", "Formio.csproj", "{4AE915D3-2A16-4FF8-B635-731525386F8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "formioServices", "..\formioServices\formioServices.csproj", "{687DFADA-EE57-485B-B956-6092E0EC5B61}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "formioModels", "..\formioModels\formioModels.csproj", "{A549CA6E-072F-48E8-9631-39E79734B05C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "formioCommon", "..\formioCommon\formioCommon.csproj", "{2AB790BA-54D0-4202-BBBB-72E5CB2C2559}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "formioRepo", "..\formioRepo\formioRepo.csproj", "{1209A340-D5E3-41BC-916C-02F9A89F6EF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "formioHelpers", "..\formioHelpers\formioHelpers.csproj", "{058C603B-350F-4E08-89BF-125788E4DAC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "formioTest", "..\formioTest\formioTest.csproj", "{5DEC7C59-922C-47B8-90FD-098F55B4D58A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AE915D3-2A16-4FF8-B635-731525386F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE915D3-2A16-4FF8-B635-731525386F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE915D3-2A16-4FF8-B635-731525386F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE915D3-2A16-4FF8-B635-731525386F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{687DFADA-EE57-485B-B956-6092E0EC5B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687DFADA-EE57-485B-B956-6092E0EC5B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687DFADA-EE57-485B-B956-6092E0EC5B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687DFADA-EE57-485B-B956-6092E0EC5B61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A549CA6E-072F-48E8-9631-39E79734B05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A549CA6E-072F-48E8-9631-39E79734B05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A549CA6E-072F-48E8-9631-39E79734B05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A549CA6E-072F-48E8-9631-39E79734B05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB790BA-54D0-4202-BBBB-72E5CB2C2559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB790BA-54D0-4202-BBBB-72E5CB2C2559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB790BA-54D0-4202-BBBB-72E5CB2C2559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB790BA-54D0-4202-BBBB-72E5CB2C2559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1209A340-D5E3-41BC-916C-02F9A89F6EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1209A340-D5E3-41BC-916C-02F9A89F6EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1209A340-D5E3-41BC-916C-02F9A89F6EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1209A340-D5E3-41BC-916C-02F9A89F6EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{058C603B-350F-4E08-89BF-125788E4DAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058C603B-350F-4E08-89BF-125788E4DAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058C603B-350F-4E08-89BF-125788E4DAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058C603B-350F-4E08-89BF-125788E4DAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DEC7C59-922C-47B8-90FD-098F55B4D58A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DEC7C59-922C-47B8-90FD-098F55B4D58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DEC7C59-922C-47B8-90FD-098F55B4D58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DEC7C59-922C-47B8-90FD-098F55B4D58A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2A3A3B4-E838-46B3-B0AB-1E1CB4C7F5C5}
+	EndGlobalSection
+EndGlobal

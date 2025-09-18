@@ -1,0 +1,70 @@
+﻿--CREATE PROC [dbo].[USP_GetNotSubmittedReports] 
+--(
+--   @Page AS INT,
+--   @Pagesize AS INT,
+--    @UserId UNIQUEIDENTIFIER
+--)
+--AS
+--BEGIN
+--DECLARE @StatusDetails TABLE
+--(
+ 
+--    StatusSetToUserId UNIQUEIDENTIFIER,
+--    [Name] VARCHAR(500),
+--    ReportingOptionId UNIQUEIDENTIFIER,
+--    MasterValue VARCHAR(100),
+--    ReportId UNIQUEIDENTIFIER,
+--    ReportName VARCHAR(800),
+--    DisplayName VARCHAR(800),
+--    ShowPopup VARCHAR(10),
+--    ProfileImage VARCHAR(800),
+--    TotalNotSubmittedReports INT
+--)
+--INSERT INTO @StatusDetails(StatusSetToUserId,[Name],ReportingOptionId,MasterValue,ReportId,ReportName,DisplayName,ProfileImage)
+-- SELECT StatusSetToUserId,U.[FirstName] + ' ' + U.SurName,SRCD.StatusReportingOptionId,MT.[Option],SRC1.Id,SRC1.ReportText, SRC1.ReportText+' '+
+--   STUFF((SELECT DISTINCT ', ' +  MT.[Option]
+--          FROM  StatusReportingConfiguration SRC JOIN StatusReportingConfigurationDetails SRCD ON SRC.Id = SRCD.StatusReportingConfigurationId 
+--             JOIN StatusReportingOption MT ON MT.Id = SRCD.StatusReportingOptionId WHERE SRCD.StatusReportingStatusId =  '54C11970-7D19-4202-9FD5-DF72ED28FC44'
+--          and SRC1.id = SRC.id
+--         FOR XML PATH('')), 1, 2, ''),U.ProfileImage
+--FROM  StatusReportingConfiguration SRC1 JOIN StatusReportingConfigurationDetails SRCD ON SRC1.Id = SRCD.StatusReportingConfigurationId 
+--             JOIN StatusReportingOption MT ON MT.Id = SRCD.StatusReportingOptionId 
+--             JOIN [User] U ON U.id = SRC1.StatusSetToUserId
+--             WHERE SRCD.StatusReportingStatusId =  '54C11970-7D19-4202-9FD5-DF72ED28FC44' 
+--             UPDATE @StatusDetails SET ShowPopup = CASE WHEN MasterValue = DATENAME(WEEKDAY,GETUTCDATE()) THEN 'Yes' ELSE 'No' END
+--UPDATE @StatusDetails SET ShowPopup = 'Yes' WHERE MasterValue = 'Every Working Day' 
+--      AND DATENAME(WEEKDAY,GETUTCDATE()) <> 'Sunday' AND CONVERT(DATE,GETUTCDATE()) NOT IN (SELECT [Date] FROM Holiday)
+--DECLARE @date DATETIME, @lastDate DATETIME, @lastWeekDay DATETIME
+--SET @date=GETUTCDATE()
+--SET @lastDate = (SELECT DATEADD(d, -1, DATEADD(m, DATEDIFF(m, 0, @date) + 1, 0)))
+--DECLARE @dayOfWeek INT = (SELECT DATEDIFF(dd, 0, @lastDate) % 7)
+--SET @lastWeekDay = (SELECT CASE WHEN @dayOfWeek = 6 THEN DATEADD(dd, -2, @lastDate) ELSE @lastDate END)
+--UPDATE @StatusDetails SET ShowPopup = CASE WHEN CONVERT(DATE,GETUTCDATE()) = @lastWeekDay THEN 'Yes' ELSE 'No' END WHERE MasterValue = 'Last Working Day Of The Month' 
+--DECLARE @StatusDetails1 TABLE
+--(
+--    StatusSetToUserId UNIQUEIDENTIFIER,
+--    [Name] VARCHAR(500),
+--    ReportId UNIQUEIDENTIFIER,
+--    DisplayName VARCHAR(800),
+--    ProfileImage VARCHAR(800)
+--)
+--INSERT INTO @StatusDetails1(StatusSetToUserId,[Name],ReportId,DisplayName,ProfileImage)
+--SELECT StatusSetToUserId,[Name],ReportId,DisplayName,ProfileImage FROM @StatusDetails WHERE ShowPopup = 'Yes' 
+--AND ReportId NOT IN (SELECT StatusReportingConfigurationId FROM StatusReporting WHERE CONVERT(DATE,CreatedDateTime) = CONVERT(Date,GETUTCDATE()))
+--GROUP BY StatusSetToUserId,[Name],ReportId,DisplayName,ProfileImage
+--UNION ALL
+--SELECT StatusSetToUserId,[Name],ReportId,DisplayName,ProfileImage FROM @StatusDetails WHERE ShowPopup = 'Yes' 
+--AND ReportId IN (SELECT StatusReportingConfigurationId FROM StatusReporting WHERE CONVERT(DATE,CreatedDateTime) = CONVERT(Date,GETUTCDATE()) AND IsSubmitted = 0)
+--GROUP BY StatusSetToUserId,[Name],ReportId,DisplayName,ProfileImage
+--SELECT *,TotalNotSubmittedReports = COUNT(*) OVER() FROM @StatusDetails1
+-- ORDER BY ReportId desc
+--      OFFSET @PageSize*(@Page-1) ROWS FETCH NEXT @PageSize ROWS ONLY 
+--END
+
+
+----exec [dbo].[USP_GetNotSubmittedReports]  1,10,'127133F1-4427-4149-9DD6-B02E0E036972'
+----exec USP_GetNotReviewedReports 1,10,'127133F1-4427-4149-9DD6-B02E0E036972'
+
+---- select * from StatusReportingConfiguration
+
+---- select * from StatusReportingOption

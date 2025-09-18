@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[ApiResourceSecrets]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[Description] NVARCHAR(800) NULL,
+	[Value] NVARCHAR(250) NOT NULL,
+	Expiration DATETIME NULL,
+	[Type] NVARCHAR(250) NOT NULL,
+	Created DATETIME NULL,
+	ApiResourceId INT,
+	CONSTRAINT [PK_ApiResourceSecrets] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)
+GO
+
+ALTER TABLE [dbo].[ApiResourceSecrets]  WITH NOCHECK ADD  CONSTRAINT [FK_ApiResourceSecrets_ApiResources_ApiResourceId] FOREIGN KEY([ApiResourceId])
+REFERENCES [dbo].[ApiResources] ([Id])
+GO

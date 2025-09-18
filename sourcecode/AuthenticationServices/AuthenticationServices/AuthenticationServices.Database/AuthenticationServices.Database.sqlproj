@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>AuthenticationServices.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{00bd1f5f-3c1b-4416-8c98-4baab999b2bc}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>AuthenticationServices.Database</RootNamespace>
+    <AssemblyName>AuthenticationServices.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Stored Procedures\Common" />
+    <Folder Include="dbo\Stored Procedures\UserManagement" />
+    <Folder Include="dbo\Tables\IdentityServerAuth" />
+    <Folder Include="dbo\Stored Procedures\User Authorization" />
+    <Folder Include="dbo\Stored Procedures\HR Management" />
+    <Folder Include="dbo\Stored Procedures\CompanyManagement" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="dbo\Stored Procedures\Migration Scripts" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="dbo\Stored Procedures\Modules" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\UserAuthToken.sql" />
+    <Build Include="dbo\Tables\Company.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\UserCompany.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_GetUserDetailsByName.sql" />
+    <Build Include="dbo\Tables\CompanyPayment.sql" />
+    <Build Include="dbo\Stored Procedures\USP_GetUserDetailsByNameAndSiteAddress.sql" />
+    <Build Include="dbo\Tables\CompanyAlias.sql" />
+    <Build Include="dbo\Stored Procedures\UserManagement\USP_UpsertUser.sql" />
+    <Build Include="dbo\Stored Procedures\USP_GetAllUsersForAuthentication.sql" />
+    <Build Include="dbo\Tables\Clients.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiScopes.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiResources.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\IdentityResources.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientCorsOrigins.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientScopes.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientSecrets.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\IdentityResourceClaims.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiResourceClaims.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiResourceProperties.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiResourceScopes.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiResourceSecrets.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiScopeClaims.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ApiScopeProperties.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientClaims.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientGrantTypes.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientIdPRestrictions.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientPostLogoutRedirectUris.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientProperties.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\ClientRedirectUris.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\DeviceCodes.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\IdentityResourceProperties.sql" />
+    <Build Include="dbo\Tables\IdentityServerAuth\PersistedGrants.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_UserAuthTokenInsert.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_UserAuthTokens_ReadItem.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_UserDetails.sql" />
+    <Build Include="dbo\Tables\CompanySettings.sql" />
+    <Build Include="dbo\Stored Procedures\USP_UserCompaniesList.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_GetUserDetailsByUserIdAndCompanyId.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_GetCompanies.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_GetResetPasswordDetails.sql" />
+    <Build Include="dbo\Tables\ResetPassword.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_UpdateResetPassword.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_UpdateUserForgottenPassword.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_UpdatePassword.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\UserRole.sql" />
+    <Build Include="dbo\Functions\UfnSplit.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_GetUsers.sql" />
+    <Build Include="dbo\Functions\Ufn_GetRoleIdsBasedOnUserId.sql" />
+    <Build Include="dbo\Stored Procedures\User Authorization\USP_UserAuthTokenUpdate.sql" />
+    <Build Include="dbo\Tables\Feature.sql" />
+    <Build Include="dbo\Tables\RoleFeature.sql" />
+    <Build Include="dbo\Tables\ControllerApiFeature.sql" />
+    <Build Include="dbo\Tables\ControllerApiName.sql" />
+    <Build Include="dbo\Stored Procedures\USP_ValidateAuthTokenAndActionPath.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_UpsertRoleFeature.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_UpdateRoleFeature.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_DeleteRole.sql" />
+    <Build Include="dbo\Tables\FeatureModule.sql" />
+    <Build Include="dbo\Tables\Module.sql" />
+    <Build Include="dbo\Tables\CompanyModule.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_GetRoles.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_GetRoleByFeatureId.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_GetRolesDropDown.sql" />
+    <Build Include="dbo\Tables\FeatureProcedureMapping.sql" />
+    <Build Include="dbo\Tables\ProcedureName.sql" />
+    <Build Include="dbo\Functions\Ufn_UserCanHaveAccess.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_CheckValidationsForCompanyRegistration.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_NewCompanyRegistration.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_UpdateCompanySettings.sql" />
+    <Build Include="dbo\Stored Procedures\USP_GetCompanyDetails.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_UpsertCompany.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_UpdateCompanyVatDetails.sql" />
+    <Build Include="dbo\Tables\ApiKey.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_ValidateApiKey.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_DeleteCompanyModule.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_GetErrorInformation.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_ArchiveCompany.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_ExecuteFeatureProcedureScript.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_ExecutePermissionsMatrix.sql" />
+    <Build Include="dbo\Stored Procedures\Migration Scripts\USP_MasterDataDeploymentScript.sql" />
+    <Build Include="dbo\Stored Procedures\Migration Scripts\Marker1.sql" />
+    <Build Include="dbo\Tables\DeploymentScript.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_GetUserDetails.sql" />
+    <Build Include="dbo\Tables\SentMail.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_InsertMail.sql" />
+    <Build Include="dbo\Stored Procedures\Common\USP_GetMailsCount.sql" />
+    <Build Include="dbo\Tables\HtmlTemplates.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_GetTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_GetHtmlTemplate.sql" />
+    <Build Include="dbo\Tables\TemplateConfiguration.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_GetCompanySettings.sql" />
+    <Build Include="dbo\Stored Procedures\USP_SearchSmtpCredentials.sql" />
+    <Build Include="dbo\Stored Procedures\Migration Scripts\Marker2.sql" />
+    <Build Include="dbo\Tables\Industry.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_GetIndustries.sql" />
+    <Build Include="dbo\Stored Procedures\Migration Scripts\Marker3.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_GetCompanyModules.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_UpsertModule.sql" />
+    <Build Include="dbo\Tables\ModulePage.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_UpsertModulePages.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_GetModulePages.sql" />
+    <Build Include="dbo\Tables\ModuleLayout.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_UpsertModuleLayout.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_GetModuleLayouts.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_GetModules.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_UpsertCompanyModule.sql" />
+    <Build Include="dbo\Functions\Ufn_StringSplit.sql" />
+    <Build Include="dbo\Stored Procedures\Modules\USP_UpsertModuleFromInstances.sql" />
+    <Build Include="dbo\Tables\TimeZone.sql" />
+    <Build Include="dbo\Stored Procedures\USP_GetTimeZones.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_CompanyTestDataDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_UpsertCompanySettings.sql" />
+    <Build Include="dbo\Stored Procedures\CompanyManagement\USP_UpsertCompanyLogo.sql" />
+    <Build Include="dbo\Stored Procedures\HR Management\USP_UpdateUserProfileDetails.sql" />
+    <Build Include="dbo\Stored Procedures\Migration Scripts\Marker4.sql" />
+    <Build Include="dbo\Stored Procedures\Migration Scripts\Marker5.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+</Project>

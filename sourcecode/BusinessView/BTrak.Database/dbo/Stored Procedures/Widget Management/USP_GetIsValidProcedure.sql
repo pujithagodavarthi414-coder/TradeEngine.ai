@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[USP_GetIsValidProcedure]
+(
+	@ProcName NVARCHAR(250)
+)
+AS
+BEGIN
+	
+	DECLARE @ObjId BIGINT = (SELECT OBJECT_ID(@ProcName))
+
+	IF(@ObjId IS NOT NULL)
+	BEGIN
+		
+		SELECT 1
+
+	END
+	ELSE
+	BEGIN
+		
+		RAISERROR('ProcNameIsInvalid',11,1);
+	END
+
+END 
+GO
+

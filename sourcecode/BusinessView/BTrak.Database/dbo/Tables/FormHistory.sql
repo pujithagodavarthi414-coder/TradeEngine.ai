@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[FormHistory]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL, 
+    [GenericFormSubmittedId] UNIQUEIDENTIFIER NOT NULL, 
+    [FieldName] NVARCHAR(250) NOT NULL, 
+    [OldFieldValue] NVARCHAR(MAX) NULL, 
+    [NewFieldValue] NVARCHAR(MAX) NULL,
+	[CreatedDateTime] [datetime] NOT NULL,
+	[CreatedByUserId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] TIMESTAMP,
+ CONSTRAINT [PK_FormHistory] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO

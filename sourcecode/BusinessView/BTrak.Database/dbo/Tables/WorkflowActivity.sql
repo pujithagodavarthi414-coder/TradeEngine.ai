@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[WorkflowActivity]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL ,
+	[ActivityName] NVARCHAR(50) NOT NULL,
+	[Description] NVARCHAR(800) NULL,
+	[Inputs] NVARCHAR(MAX) NULL,
+	[CreatedByUserId] UNIQUEIDENTIFIER NOT NULL,
+	[CreatedDateTime] DATETIME NOT NULL,
+	[UpdatedByUserId] UNIQUEIDENTIFIER NULL,
+	[UpdatedDateTime] DATETIME NULL,
+	[InActiveDateTime] DATETIME NULL,
+	[TimeStamp] TIMESTAMP NULL, 
+	[CompanyId] UNIQUEIDENTIFIER NULL,
+    CONSTRAINT [PK_WorkflowActivity] PRIMARY KEY ([Id]), 
+)

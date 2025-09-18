@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[ClientKycFormHistory]
+(
+    [Id] UNIQUEIDENTIFIER NOT NULL, 
+    [UserId] UNIQUEIDENTIFIER NOT NULL, 
+    [ClientId] UNIQUEIDENTIFIER NOT NULL, 
+    [OldValue] NVARCHAR(MAX) NULL, 
+    [NewValue] NVARCHAR(MAX) NULL, 
+    [Description] NVARCHAR(100) NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedDateTime] DATETIME NOT NULL, 
+    [TimeStamp] TIMESTAMP NULL, 
+    [CompanyId] UNIQUEIDENTIFIER NOT NULL 
+    CONSTRAINT [PK_KycFormHistory] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)
+)
+GO

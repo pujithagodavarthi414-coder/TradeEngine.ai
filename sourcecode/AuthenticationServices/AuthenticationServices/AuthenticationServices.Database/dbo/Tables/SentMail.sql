@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[SentMail]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL
+	,[FromMail] NVARCHAR(100)
+	,[CompanyId] UNIQUEIDENTIFIER NULL
+	,[ToMail] NVARCHAR(MAX)
+	,[CCMail] NVARCHAR(4000)
+	,[BCCMail] NVARCHAR(4000)
+	,[Subject] NVARCHAR(1000)
+	,[MailBody] NVARCHAR(MAX)
+	,[CreatedDateTime] DATETIME
+)
+GO

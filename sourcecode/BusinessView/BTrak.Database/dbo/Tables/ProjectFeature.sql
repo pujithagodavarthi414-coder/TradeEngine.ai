@@ -1,0 +1,38 @@
+﻿CREATE TABLE [dbo].[ProjectFeature]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL, 
+    [ProjectFeatureName] NVARCHAR(250) NOT NULL, 
+    [ProjectId] UNIQUEIDENTIFIER NULL, 
+    [IsDelete] BIT NULL, 
+    [CreatedByUserId] UNIQUEIDENTIFIER NOT NULL, 
+    [CreatedDateTime] DATETIMEOFFSET NOT NULL, 
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL, 
+    [UpdatedDateTime] DATETIMEOFFSET NULL,
+	[InActiveDateTime] DATETIMEOFFSET NULL,
+	[TimeStamp] TIMESTAMP,
+	CONSTRAINT [PK_ProjectFeature] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+) 
+GO
+
+ALTER TABLE [dbo].[ProjectFeature]  WITH NOCHECK ADD  CONSTRAINT [FK_ProjectFeature_Project] FOREIGN KEY([ProjectId])
+REFERENCES [dbo].[Project] ([Id])
+GO
+
+ALTER TABLE [dbo].[ProjectFeature] CHECK CONSTRAINT [FK_ProjectFeature_Project]
+GO
+
+ALTER TABLE [dbo].[ProjectFeature]  WITH NOCHECK ADD  CONSTRAINT [FK_ProjectFeature_User] FOREIGN KEY([CreatedByUserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[ProjectFeature] CHECK CONSTRAINT [FK_ProjectFeature_User]
+GO
+
+CREATE NONCLUSTERED INDEX IX_ProjectFeature_ProjectId 
+ON [dbo].[ProjectFeature] (  ProjectId ASC  )   
+WITH (  PAD_INDEX = OFF ,FILLFACTOR = 80   ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , DROP_EXISTING = ON , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  ) 
+ON [PRIMARY] 
+GO

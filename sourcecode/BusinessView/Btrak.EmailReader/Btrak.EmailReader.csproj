@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="log4net" Version="2.0.17" />
+    <PackageReference Include="OpenPop.NET" Version="2.0.6.1120" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="Unity.Abstractions" Version="3.3.1" />
+    <PackageReference Include="Unity.Container" Version="5.8.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Btrak.Models\BTrak.Models.csproj" />
+    <ProjectReference Include="..\BusinessView.Common\BTrak.Common.csproj" />
+  </ItemGroup>
+
+</Project>

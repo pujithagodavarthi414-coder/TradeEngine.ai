@@ -1,0 +1,2 @@
+﻿CREATE VIEW [dbo].[V_FrontEndAutoGenerateEntityTypeFeatureIdSelectors]
+	AS select 'export const doesUserHavePermissionForEntityTypeFeature' + (SELECT [dbo].[Ufn_CapitalizeEachWord](EntityFeatureName)) + ' = createSelector(getAuthenticatedUserRecord, authenticationRecord => authenticationRecord.entityTypeRoleFeatures.map(x => x.entityRoleFeatureId).includes(EntityTypeFeatureIds.EntityTypeFeature_' + (SELECT [dbo].[Ufn_CapitalizeEachWord](EntityFeatureName)) + '));' AS EntityTypeFeatureIdSelector from [dbo].EntityFeature

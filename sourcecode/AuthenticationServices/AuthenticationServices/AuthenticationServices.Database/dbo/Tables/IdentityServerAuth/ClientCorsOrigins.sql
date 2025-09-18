@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ClientCorsOrigins]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	Origin NVARCHAR(250),
+	ClientId INT NOT NULL,
+	CONSTRAINT [PK_ClientCorsOrigins] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+)
+GO
+
+ALTER TABLE [dbo].[ClientCorsOrigins]  WITH NOCHECK ADD  CONSTRAINT [FK_ClientCorsOrigins_Clients_ClientId] FOREIGN KEY([ClientId])
+REFERENCES [dbo].[Clients] ([Id])
+GO

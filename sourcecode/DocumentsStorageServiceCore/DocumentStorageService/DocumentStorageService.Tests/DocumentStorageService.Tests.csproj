@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.17.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DocumentStorageService.Common\DocumentStorageService.Common.csproj" />
+    <ProjectReference Include="..\DocumentStorageService.Models\DocumentStorageService.Models.csproj" />
+    <ProjectReference Include="..\DocumentStorageService.Repositories\DocumentStorageService.Repositories.csproj" />
+    <ProjectReference Include="..\DocumentStorageService.Services\DocumentStorageService.Services.csproj" />
+  </ItemGroup>
+
+</Project>

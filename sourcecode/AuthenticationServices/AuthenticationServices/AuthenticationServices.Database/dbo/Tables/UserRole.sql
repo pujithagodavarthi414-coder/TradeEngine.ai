@@ -1,0 +1,45 @@
+﻿CREATE TABLE [dbo].[UserRole]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[UserId] UNIQUEIDENTIFIER NOT NULL,
+	CompanyId UNIQUEIDENTIFIER NOT NULL,
+	RoleId UNIQUEIDENTIFIER NOT NULL,
+	[InactiveDateTime] DATETIME NULL, 
+	CreatedDateTime DATETIME NOT NULL,
+    CreatedByUserId UNIQUEIDENTIFIER NOT NULL,
+	[UpdatedDateTime] DATETIME NULL,
+    [UpdatedByUserId] UNIQUEIDENTIFIER NULL,
+	CONSTRAINT [PK_UserRole] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+   
+)
+GO
+
+ALTER TABLE [dbo].[UserRole]  WITH NOCHECK ADD  CONSTRAINT [FK_Role_UserRole_RoleId] FOREIGN KEY(RoleId)
+REFERENCES [dbo].[Role] ([Id])
+GO
+
+ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK_Role_UserRole_RoleId]
+GO
+
+ALTER TABLE [dbo].[UserRole]  WITH NOCHECK ADD  CONSTRAINT [FK_User_UserRole_UserId] FOREIGN KEY(UserId)
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK_User_UserRole_UserId]
+GO
+
+CREATE NONCLUSTERED INDEX IX_UserRole_RoleId
+ON [dbo].[UserRole] ([RoleId])
+GO
+
+CREATE NONCLUSTERED INDEX [IX_UserRole_UserId_InactiveDateTime]
+ON [dbo].[UserRole] ([UserId],[InactiveDateTime])
+GO
+
+CREATE NONCLUSTERED INDEX IX_UserRole_UserId
+ON [dbo].[UserRole] ([UserId])
+INCLUDE ([RoleId])
+GO

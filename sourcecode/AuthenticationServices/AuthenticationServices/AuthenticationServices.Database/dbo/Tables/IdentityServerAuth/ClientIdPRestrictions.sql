@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ClientIdPRestrictions]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL,
+	[Provider] NVARCHAR(800) NOT NULL,
+	ClientId INT NOT NULL,
+	CONSTRAINT [PK_ClientIdPRestrictions] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+)
+GO
+
+ALTER TABLE [dbo].[ClientIdPRestrictions]  WITH NOCHECK ADD  CONSTRAINT [FK_ClientIdPRestrictions_Clients_ClientId] FOREIGN KEY([ClientId])
+REFERENCES [dbo].[Clients] ([Id])
+GO

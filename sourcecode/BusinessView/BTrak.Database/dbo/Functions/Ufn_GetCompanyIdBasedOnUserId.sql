@@ -1,0 +1,13 @@
+﻿CREATE FUNCTION [dbo].[Ufn_GetCompanyIdBasedOnUserId]
+(
+	@UserId UNIQUEIDENTIFIER
+)
+RETURNS UNIQUEIDENTIFIER
+AS
+BEGIN
+
+	DECLARE @CompanyId UNIQUEIDENTIFIER = (SELECT CompanyId FROM [User] WHERE Id = @UserId)
+	
+	RETURN @CompanyId
+
+END

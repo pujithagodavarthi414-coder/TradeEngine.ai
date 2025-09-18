@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[LeaveApplicability]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL, 
+    [MinExperienceInMonths] FLOAT NULL, 
+    [MaxExperienceInMonths] FLOAT NULL,
+    [MaxLaves] INT NULL, 
+    [LeaveTypeId] UNIQUEIDENTIFIER NULL,
+	[TimeStamp] TIMESTAMP,
+	[InActiveDateTime] DATETIME NULL, 
+    [EmployeeTypeId] UNIQUEIDENTIFIER NULL, 
+    CONSTRAINT [PK_LeaveApplicability] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
+)
+GO

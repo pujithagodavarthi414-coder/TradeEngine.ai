@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[USP_GetUserNameByClientId]
+(
+	@ClientId UNIQUEIDENTIFIER = NULL
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+	BEGIN TRY
+
+		SELECT CONCAT(U.FirstName, ISNULL(U.SurName, '')) AS FullName 
+		FROM [User] U
+		INNER JOIN Client C ON C.UserId = U.Id
+		WHERE C.Id = @ClientId
+
+	END TRY
+	BEGIN CATCH
+		
+		THROW
+
+	END CATCH
+
+END
+GO

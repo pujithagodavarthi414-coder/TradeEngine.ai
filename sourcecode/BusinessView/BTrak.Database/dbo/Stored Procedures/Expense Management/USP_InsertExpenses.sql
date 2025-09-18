@@ -1,0 +1,179 @@
+﻿---------------------------------------------------------------------------------
+---- Author       Aswani Katam
+---- Created      '2019-04-02 00:00:00.000'
+---- Purpose      To insert expenses
+---- Copyright © 2018,Snovasys Software Solutions India Pvt. Ltd., All Rights Reserved
+---------------------------------------------------------------------------------
+----EXEC [dbo].[USP_InsertExpenses]  @ExpensesXmlModel = 
+----N'<GenericListOfExpenseUpsertInputModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+----<ListItems>
+----<ExpenseUpsertInputModel>
+----<Description>dfdfd</Description>
+----<ExpenseCategoryId>CA68F1CD-0C73-4021-9C56-00D0D28EA7AB</ExpenseCategoryId>
+----<PaymentStatusId>86A5DAE0-3CE6-4E72-A493-3AB6CB8AEB87</PaymentStatusId>
+----<ClaimedByUserId>127133F1-4427-4149-9DD6-B02E0E036971</ClaimedByUserId>
+----<CurrencyId>df549957-74cc-4622-a094-05f64973f092</CurrencyId>
+----<ClaimReimbursement>false</ClaimReimbursement>
+----</ExpenseUpsertInputModel>
+----<ExpenseUpsertInputModel>
+----<Description>test</Description>
+----<ExpenseCategoryId>D4D4C82A-164E-49BA-9D73-2E4B2605456C</ExpenseCategoryId>
+----<PaymentStatusId>86A5DAE0-3CE6-4E72-A493-3AB6CB8AEB87</PaymentStatusId>
+----<ClaimedByUserId>127133F1-4427-4149-9DD6-B02E0E036971</ClaimedByUserId>
+----<CurrencyId>df549957-74cc-4622-a094-05f64973f092</CurrencyId>
+----<ClaimReimbursement>false</ClaimReimbursement>
+----</ExpenseUpsertInputModel>
+----</ListItems>
+----</GenericListOfExpenseUpsertInputModel>',
+----@OperationsPerformedBy = '127133F1-4427-4149-9DD6-B02E0E036971'
+---------------------------------------------------------------------------------
+--CREATE PROCEDURE [dbo].[USP_InsertExpenses]
+--(
+--  @ExpensesXmlModel XML,
+--  @OperationsPerformedBy UNIQUEIDENTIFIER
+--)
+--AS 
+--BEGIN    
+--	SET NOCOUNT ON
+--	BEGIN TRY
+--    SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+
+--		  DECLARE @Currentdate DATETIME = GETDATE()
+
+--		    Declare @TempUserStoryTable table
+--            (
+--			  NewExpenseId UNIQUEIDENTIFIER,
+--			  [Description] NVARCHAR(800),
+--			  ExpenseCategoryId UNIQUEIDENTIFIER,
+--			  PaymentStatusId UNIQUEIDENTIFIER,
+--			  ClaimedByUserId UNIQUEIDENTIFIER,
+--			  CurrencyId UNIQUEIDENTIFIER,
+--			  CashPaidThroughId UNIQUEIDENTIFIER,
+--			  ExpenseReportId UNIQUEIDENTIFIER,
+--			  ExpenseStatusId UNIQUEIDENTIFIER,
+--			  BillReceiptId UNIQUEIDENTIFIER,
+--			  ClaimReimbursement BIT,
+--			  MerchantId UNIQUEIDENTIFIER,
+--			  ReceiptDate DATETIME,
+--			  ExpenseDate DATETIME,
+--			  Amount NUMERIC(18,5),
+--			  RepliedByUserId UNIQUEIDENTIFIER,
+--			  RepliedDateTime DATETIME,
+--			  Reason NVARCHAR(800),
+--			  IsApproved BIT,
+--			  ActualBudget NUMERIC(18,5),
+--			  ReferenceNumber NVARCHAR(1000)
+--            )
+
+--			DECLARE @PaymentStatusId UNIQUEIDENTIFIER = (SELECT TOP(1) Id FROM PaymentStatus WHERE [PaymentStatus] = 'Pending' AND InActiveDateTime IS NULL)
+
+--			INSERT INTO @TempUserStoryTable(
+--		       		      [NewExpenseId],
+--		       			  [Description],
+--		      		      [ExpenseCategoryId],
+--		       			  [PaymentStatusId],
+--		       			  [ClaimedByUserId],
+--						  [CurrencyId],
+--		       			  [CashPaidThroughId],
+--		       			  [ExpenseReportId],
+--		      		      [ExpenseStatusId],
+--		       			  [BillReceiptId],
+--		       			  [ClaimReimbursement],
+--		       			  [MerchantId],
+--		       			  [ReceiptDate],
+--		       			  [ExpenseDate],
+--		       			  [Amount],
+--		       			  [RepliedByUserId],
+--		       			  [RepliedDateTime],
+--		       			  [Reason],
+--		       			  [IsApproved],
+--		       			  [ActualBudget],
+--		       			  [ReferenceNumber]
+--						)
+--                   SELECT NEWID(),
+--				         CASE WHEN [TABLE].RECORD.value('(Description)[1]', 'NVARCHAR(500)')  = ' ' THEN NULL ELSE [TABLE].RECORD.value('(Description)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(ExpenseCategoryId)[1]', 'NVARCHAR(500)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(ExpenseCategoryId)[1]', 'NVARCHAR(500)') END,
+--						 @PaymentStatusId,
+--						 CASE WHEN [TABLE].RECORD.value('(ClaimedByUserId)[1]', 'NVARCHAR(500)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(ClaimedByUserId)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(CurrencyId)[1]', 'NVARCHAR(500)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(CurrencyId)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(CashPaidThroughId)[1]', 'NVARCHAR(500)')  = ' ' THEN NULL ELSE [TABLE].RECORD.value('(CashPaidThroughId)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(ExpenseReportId)[1]', 'NVARCHAR(500)')  = ' ' THEN NULL ELSE [TABLE].RECORD.value('(ExpenseReportId)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(ExpenseStatusId)[1]', 'NVARCHAR(500)')  = ' ' THEN NULL ELSE [TABLE].RECORD.value('(ExpenseStatusId)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(BillReceiptId)[1]', 'NVARCHAR(500)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(BillReceiptId)[1]', 'NVARCHAR(500)') END,
+--						 [TABLE].RECORD.value('(ClaimReimbursement)[1]', 'BIT'),
+--						 CASE WHEN [TABLE].RECORD.value('(MerchantId)[1]', 'NVARCHAR(500)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(MerchantId)[1]', 'NVARCHAR(500)') END,
+--						 [TABLE].RECORD.value('(ReceiptDate)[1]', 'DATETIME'),
+--						 [TABLE].RECORD.value('(ExpenseDate)[1]', 'DATETIME'),
+--						 CASE WHEN [TABLE].RECORD.value('(Amount)[1]', 'NVARCHAR(100)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(Amount)[1]', 'NVARCHAR(500)') END,
+--						 CASE WHEN [TABLE].RECORD.value('(RepliedByUserId)[1]', 'NVARCHAR(500)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(RepliedByUserId)[1]', 'NVARCHAR(500)') END,
+--						 [TABLE].RECORD.value('(RepliedDateTime)[1]', 'DATETIME') ,
+--						 [TABLE].RECORD.value('(Reason)[1]', 'NVARCHAR(500)') ,
+--						 [TABLE].RECORD.value('(IsApproved)[1]', 'BIT'),
+--						 CASE WHEN [TABLE].RECORD.value('(ActualBudget)[1]', 'NVARCHAR(100)') = ' ' THEN NULL ELSE [TABLE].RECORD.value('(ActualBudget)[1]', 'NVARCHAR(500)') END,
+--						 [TABLE].RECORD.value('(ReferenceNumber)[1]', 'NVARCHAR(1000)') 
+--				     FROM @ExpensesXmlModel.nodes('GenericListOfExpenseUpsertInputModel/ListItems/ExpenseUpsertInputModel') AS [TABLE](RECORD)
+
+
+--		    INSERT INTO [dbo].[Expense](
+--		    		    [Id],
+--		    			[Description],
+--		    		    [ExpenseCategoryId],
+--		    			[PaymentStatusId],
+--		    			[ClaimedByUserId],
+--						[CurrencyId],
+--		    			[CashPaidThroughId],
+--		    			[ExpenseReportId],
+--		    		    [ExpenseStatusId],
+--		    			[BillReceiptId],
+--		    			[ClaimReimbursement],
+--		    			[MerchantId],
+--		    			[ReceiptDate],
+--		    			[ExpenseDate],
+--		    			[Amount],
+--		    			[RepliedByUserId],
+--		    			[RepliedDateTime],
+--		    			[Reason],
+--		    			[IsApproved],
+--		    			[ActualBudget],
+--		    			[ReferenceNumber],
+--		    			[VersionNumber],
+--                        [OriginalId],
+--		    		    [CreatedByUserId],
+--		    		    [CreatedDateTime])
+--                 SELECT NewExpenseId,
+--			            [Description],
+--				        ExpenseCategoryId,
+--				        PaymentStatusId,
+--				        ClaimedByUserId,
+--						CurrencyId,
+--				        CashPaidThroughId,
+--				        ExpenseReportId,
+--				        ExpenseStatusId,
+--				        BillReceiptId,
+--				        ClaimReimbursement,
+--				        MerchantId,
+--				        ReceiptDate,
+--				        ExpenseDate,
+--				        Amount,
+--				        RepliedByUserId,
+--				        RepliedDateTime,
+--				        Reason,
+--				        IsApproved,
+--				        ActualBudget,
+--				        ReferenceNumber,
+--				        1,
+--				        NewExpenseId,
+--				        @OperationsPerformedBy,
+--		    		    @Currentdate
+--			       FROM @TempUserStoryTable
+
+--		    SELECT NewExpenseId FROM @TempUserStoryTable
+
+--	END TRY  
+--	BEGIN CATCH 
+		
+--		  EXEC USP_GetErrorInformation
+
+--	END CATCH
+
+--END

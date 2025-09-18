@@ -1,0 +1,120 @@
+﻿-------------------------------------------------------------------------------
+-- Author       Geetha CH
+-- Created      '2020-04-20 00:00:00.000'
+-- Purpose      To Get Proof of Investment Declaration
+-- Copyright © 2020,Snovasys Software Solutions India Pvt. Ltd., All Rights Reserved
+-------------------------------------------------------------------------------
+--EXEC [dbo].[USP_GetProofofInvestmentDeclaration] @OperationsPerformedBy = 'CB900830-54EA-4C70-80E1-7F8A453F2BF5'
+-------------------------------------------------------------------------------
+CREATE PROCEDURE [dbo].[USP_GetProofofInvestmentDeclaration]
+(
+	@OperationsPerformedBy UNIQUEIDENTIFIER
+	,@Year DATETIME = NULL
+	,@EntityId UNIQUEIDENTIFIER = NULL
+	,@UserId UNIQUEIDENTIFIER = NULL
+	,@IsActiveEmployeesOnly BIT = 0
+	,@IsFinantialYearBased BIT = 0
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	BEGIN TRY
+	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+
+	DECLARE @HavePermission NVARCHAR(250)  = (SELECT [dbo].[Ufn_UserCanHaveAccess](@OperationsPerformedBy,(SELECT OBJECT_NAME(@@PROCID))))
+
+		IF (@HavePermission = '1')
+		BEGIN
+			
+			DECLARE @CompanyId UNIQUEIDENTIFIER = (SELECT [dbo].[Ufn_GetCompanyIdBasedOnUserId](@OperationsPerformedBy))
+			
+			IF(@EntityId = '00000000-0000-0000-0000-000000000000') SET @EntityId = NULL
+			
+			IF(@UserId = '00000000-0000-0000-0000-000000000000') SET @UserId = NULL
+			
+			DECLARE @YearStartDate DATETIME = NULL,@YearEndDate DATETIME = NULL
+			
+			DECLARE @EmployeeId UNIQUEIDENTIFIER = (SELECT Id FROM Employee E WHERE E.UserId = ISNULL(@UserId,@OperationsPerformedBy))
+
+			IF(@Year IS NULL) SET @Year = GETDATE()
+
+			IF(@IsFinantialYearBased = 1)
+			BEGIN
+				
+                DECLARE @FromMonth INT,@ToMonth INT,@FromYear INT,@ToYear INT,@YearValue INT = DATEPART(YEAR,@Year),@Month INT = DATEPART(MONTH,@Year)
+
+                SELECT @FromMonth = FromMonth, @ToMonth = ToMonth FROM [FinancialYearConfigurations] 
+		        WHERE CountryId = (SELECT B.CountryId FROM EmployeeBranch EB INNER JOIN Branch B ON B.Id = EB.BranchId
+					                  WHERE EB.EmployeeId = @EmployeeId AND EB.[ActiveFrom] IS NOT NULL 
+									        AND (EB.[ActiveTo] IS NULL OR EB.[ActiveTo] >= GETDATE()))
+                      AND InActiveDateTime IS NULL 
+                      AND FinancialYearTypeId = (SELECT Id FROM FinancialYearType WHERE FinancialYearTypeName = 'Tax') --Tax Type Id
+                 --      AND ( (ActiveTo IS NOT NULL AND @Year BETWEEN ActiveFrom AND ActiveTo)
+			             --   OR (ActiveTo IS NULL AND @Year >= ActiveFrom)
+				            --OR (ActiveTo IS NOT NULL AND @Year <= ActiveTo AND @Year >= DATEADD(MONTH, DATEDIFF(MONTH, 0, ActiveFrom), 0))
+			             -- )
+
+				SELECT @FromMonth = ISNULL(@FromMonth,4), @ToMonth = ISNULL(@ToMonth,3)
+
+		        SELECT @FromYear = CASE WHEN @Month - @FromMonth >= 0 THEN @YearValue ELSE @YearValue - 1 END
+		        SELECT @ToYear = CASE WHEN @Month - @ToMonth > 0 THEN @YearValue + 1 ELSE @YearValue END
+                
+		        SELECT @YearStartDate = DATEFROMPARTS(@FromYear,@FromMonth,1), @YearEndDate = EOMONTH(DATEFROMPARTS(@ToYear,@ToMonth,1))
+                
+			END
+
+			IF(@YearStartDate IS NULL OR @YearEndDate IS NULL)
+			BEGIN
+				
+				SET @YearStartDate = DATEFROMPARTS(DATEPART(YEAR,@Year),1,1)
+				
+				SET @YearEndDate = DATEFROMPARTS(DATEPART(YEAR,@Year),12,31)
+
+			END
+
+			--DECLARE @CurrencyCode NVARCHAR(50) = (SELECT [dbo].[Ufn_GetCurrencyCodeOfaCompany](@OperationsPerformedBy))
+
+			IF(@IsActiveEmployeesOnly IS NULL) SET @IsActiveEmployeesOnly = 0
+            
+           			SELECT E.EmployeeNumber AS [Employee Number]
+                           ,U.FirstName + ' ' + ISNULL(U.SurName,'') AS [Employee Name]
+                    	   ,TA.[Name] AS [Section]
+                    	   ,ETA.Comments AS [Comments]
+                    	   ,ETA.InvestedAmount AS [Declared Amount] 
+                    	   ,CASE WHEN ETA.IsOnlyEmployee = 1 THEN (CASE WHEN ETA.InvestedAmount > TA.OnlyEmployeeMaxAmount 
+                    	                                             THEN TA.OnlyEmployeeMaxAmount ELSE ETA.InvestedAmount END) 
+                    	         ELSE (CASE WHEN ETA.InvestedAmount > TA.MaxAmount THEN TA.MaxAmount ELSE ETA.InvestedAmount END) 
+                    	    END AS [Approved Amount]
+                    	   ,CASE WHEN ETA.ApprovedDateTime IS NOT NULL THEN 'Approved' ELSE 'Waiting For Approval' END AS [Status]
+						   ,CONVERT(NVARCHAR,ETA.ApprovedDateTime,106) AS [Approved Date]
+                    FROM EmployeeTaxAllowances ETA
+                         INNER JOIN TaxAllowances TA ON TA.Id = ETA.TaxAllowanceId
+                    	            AND ETA.InactiveDateTime IS NULL
+                    				AND TA.InactiveDateTime IS NULL
+                         INNER JOIN Employee E ON E.Id = ETA.EmployeeId
+						            AND (DATEPART(YEAR,ISNULL(ETA.ApprovedDateTime,ETA.CreatedDateTime)) >= DATEPART(YEAR,@YearStartDate) AND DATEPART(MONTH,ISNULL(ETA.ApprovedDateTime,ETA.CreatedDateTime)) >= DATEPART(MONTH,@YearStartDate)) 
+						            AND (DATEPART(YEAR,ISNULL(ETA.ApprovedDateTime,ETA.CreatedDateTime)) <= DATEPART(YEAR,@YearEndDate) AND DATEPART(MONTH,ISNULL(ETA.ApprovedDateTime,ETA.CreatedDateTime)) <= DATEPART(MONTH,@YearEndDate))
+                    	 INNER JOIN [User] U ON U.Id = E.UserId
+						 INNER JOIN EmployeeBranch EB ON EB.EmployeeId = E.Id
+	                                AND EB.[ActiveFrom] IS NOT NULL AND (EB.[ActiveTo] IS NULL OR EB.[ActiveTo] >= GETDATE())
+	                	            AND EB.EmployeeId IN (SELECT EmployeeId FROM [dbo].[Ufn_GetAccessibleBranchLevelEmployees](NULL,@OperationsPerformedBy))
+				  WHERE U.CompanyId = @CompanyId
+				        AND (@IsActiveEmployeesOnly = 0 
+						     OR (E.InActiveDateTime IS NULL AND U.IsActive = 1 AND U.InActiveDateTime IS NULL))
+						AND (@UserId IS NULL OR @UserId = U.Id)
+						AND (@EntityId IS NULL OR (EB.BranchId IN (SELECT BranchId FROM EntityBranch WHERE EntityId = @EntityId AND InactiveDateTime IS NULL)))
+
+		END
+		ELSE
+		BEGIN
+			RAISERROR (@HavePermission,11, 1)
+		END
+
+	END TRY
+	BEGIN CATCH
+		THROW
+	END CATCH
+
+END
+GO

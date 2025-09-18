@@ -1,0 +1,8 @@
+diff a/sourcecode/BusinessView/BTrak.Database/dbo/Stored Procedures/Productivity/USP_GetHrStatsDetails.sql b/sourcecode/BusinessView/BTrak.Database/dbo/Stored Procedures/Productivity/USP_GetHrStatsDetails.sql	(rejected hunks)
+@@ -1,5 +1,5 @@
+ ﻿--EXEC [dbo].[USP_GetHrStatsDetails] @OperationsPerformedBy = '369DF921-FE0D-4955-ADD7-76DFEFEE0BDA', @DateFrom = '10/1/2020',@DateTo = '2/28/2021',@FilterType = 'Company'
+-aLTER PROCEDURE [dbo].[USP_GetHrStatsDetails] (
++CREATE PROCEDURE [dbo].[USP_GetHrStatsDetails] (
+ @OperationsPerformedBy UNIQUEIDENTIFIER,
+ @DateFrom DATETIME = NULL,
+ @DateTo DATETIME = NULL,

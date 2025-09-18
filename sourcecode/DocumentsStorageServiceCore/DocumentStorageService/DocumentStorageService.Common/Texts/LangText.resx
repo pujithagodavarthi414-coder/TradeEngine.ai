@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ExceededFileExtension" xml:space="preserve">
+    <value>File extension can not be more than 50 characters.</value>
+  </data>
+  <data name="ExceededFileName" xml:space="preserve">
+    <value>File name can not be more than 800 characters.</value>
+  </data>
+  <data name="ExceededFilePath" xml:space="preserve">
+    <value>File path can not be more than 2000 characters.</value>
+  </data>
+  <data name="ExceededFolderName" xml:space="preserve">
+    <value>Folder name can not be more than 50 characters.</value>
+  </data>
+  <data name="ExceptionAccessRightsUpsert" xml:space="preserve">
+    <value>Create or update access rights permissions should not be done.Please contact administarator</value>
+  </data>
+  <data name="ExceptionFileCannotDeleteChunckData" xml:space="preserve">
+    <value>Cannot delete temporary file chunk data.</value>
+  </data>
+  <data name="ExceptionFileCannotReadMultiPartData" xml:space="preserve">
+    <value>Cannot read multi part file data</value>
+  </data>
+  <data name="ExceptionFolderDelete" xml:space="preserve">
+    <value>Delete folder should not be done.Please contact administrator</value>
+  </data>
+  <data name="ExceptionFolderUpsert" xml:space="preserve">
+    <value>Folder could not be created or updated. Please contact administrator.</value>
+  </data>
+  <data name="ExceptionSearchFile" xml:space="preserve">
+    <value>Search file should not be done.Please contact administrator</value>
+  </data>
+  <data name="ExceptionSearchFolders" xml:space="preserve">
+    <value>Cannot get the Folder. Please contact administrator.</value>
+  </data>
+  <data name="ExceptionStoreUpsert" xml:space="preserve">
+    <value>Store should not be created or updated.Please contact administrator</value>
+  </data>
+  <data name="ExceptionUpsertFile" xml:space="preserve">
+    <value>File could not be created or updated. Please contact administrator.</value>
+  </data>
+  <data name="FileIdNotExists" xml:space="preserve">
+    <value>File with this Id cannot exists</value>
+  </data>
+  <data name="MaximumLengthPageSize" xml:space="preserve">
+    <value>Page size should be in between 1 and 1000.</value>
+  </data>
+  <data name="NotEmptyFileExtension" xml:space="preserve">
+    <value>File extension can not be empty.</value>
+  </data>
+  <data name="NotEmptyFileId" xml:space="preserve">
+    <value>File Id cannot be empty</value>
+  </data>
+  <data name="NotEmptyFileName" xml:space="preserve">
+    <value>File name cannot be empty</value>
+  </data>
+  <data name="NotEmptyFilePath" xml:space="preserve">
+    <value>File path can not be empty.</value>
+  </data>
+  <data name="NotEmptyFolderName" xml:space="preserve">
+    <value>Folder Name can not be empty.</value>
+  </data>
+  <data name="NotEmptyReferenceTypeId" xml:space="preserve">
+    <value>Reference type id should not be null</value>
+  </data>
+  <data name="NotEmptyStoreId" xml:space="preserve">
+    <value>StoreId cannot be empty</value>
+  </data>
+  <data name="NotEmptyStoreName" xml:space="preserve">
+    <value>Store name should not be empty</value>
+  </data>
+  <data name="PageNumberRequired" xml:space="preserve">
+    <value>Page number is required</value>
+  </data>
+  <data name="PageSizeRequired" xml:space="preserve">
+    <value>Page size is required</value>
+  </data>
+  <data name="ReferenceTypeIdNotExists" xml:space="preserve">
+    <value>ReferenceType  with this Id cannot exists</value>
+  </data>
+  <data name="StoreLengthExceeded" xml:space="preserve">
+    <value>Store name should not exceed 50 characters</value>
+  </data>
+</root>
